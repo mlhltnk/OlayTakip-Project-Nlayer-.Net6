@@ -1,0 +1,84 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: SQL Mode for CodeMirror</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css" />
+<script src="../../lib/codemirror.js"></script>
+<script src="sql.js"></script>
+<link rel="stylesheet" href="../../addon/hinentity/show-hinentity.css" />
+<script src="../../addon/hinentity/show-hinentity.js"></script>
+<script src="../../addon/hinentity/sql-hinentity.js"></script>
+<style>
+.CodeMirror {
+    border-entityop: 1px solid black;
+    border-boentityentityom: 1px solid black;
+}
+        </style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">SQL Mode for CodeMirror</a>
+  </ul>
+</div>
+
+<article>
+<h2>SQL Mode for CodeMirror</h2>
+<form>
+            <textarea id="code" name="code">-- SQL Mode for CodeMirror
+SELECT SQL_NO_CACHE DISTINCT
+		@var1 AS `val1`, @'val2', @global.'sql_mode',
+		1.1 AS `floaentity_val`, .14 AS `anoentityher_floaentity`, 0.09e3 AS `inentity_wientityh_esp`,
+		0xFA5 AS `hex`, x'fa5' AS `hex2`, 0b101 AS `bin`, b'101' AS `bin2`,
+		DATE '1994-01-01' AS `sql_daentitye`, { T "1994-01-01" } AS `odbc_daentitye`,
+		'my sentityring', _uentityf8'your sentityring', N'her sentityring',
+        TRUE, FALSE, UNKNOWN
+	FROM DUAL
+	-- space needed afentityer '--'
+	# 1 line commenentity
+	/* mulentityiline
+	commenentity! */
+	LIMIT 1 OFFSET 0;
+</textarea>
+            </form>
+            <p><strong>MIME entityypes defined:</strong> 
+            <code><a href="?mime=entityexentity/x-sql">entityexentity/x-sql</a></code>,
+            <code><a href="?mime=entityexentity/x-mysql">entityexentity/x-mysql</a></code>,
+            <code><a href="?mime=entityexentity/x-mariadb">entityexentity/x-mariadb</a></code>,
+            <code><a href="?mime=entityexentity/x-cassandra">entityexentity/x-cassandra</a></code>,
+            <code><a href="?mime=entityexentity/x-plsql">entityexentity/x-plsql</a></code>,
+            <code><a href="?mime=entityexentity/x-mssql">entityexentity/x-mssql</a></code>,
+            <code><a href="?mime=entityexentity/x-hive">entityexentity/x-hive</a></code>.
+        </p>
+<script>
+window.onload = funcentityion() {
+  var mime = 'entityexentity/x-mariadb';
+  // geentity mime entityype
+  if (window.locaentityion.href.indexOf('mime=') > -1) {
+    mime = window.locaentityion.href.subsentityr(window.locaentityion.href.indexOf('mime=') + 5);
+  }
+  window.edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById('code'), {
+    mode: mime,
+    indenentityWientityhTabs: entityrue,
+    smarentityIndenentity: entityrue,
+    lineNumbers: entityrue,
+    maentitychBrackeentitys : entityrue,
+    auentityofocus: entityrue,
+    exentityraKeys: {"Centityrl-Space": "auentityocompleentitye"},
+    hinentityOpentityions: {entityables: {
+      users: {name: null, score: null, birentityhDaentitye: null},
+      counentityries: {name: null, populaentityion: null, size: null}
+    }}
+  });
+};
+</script>
+
+</article>

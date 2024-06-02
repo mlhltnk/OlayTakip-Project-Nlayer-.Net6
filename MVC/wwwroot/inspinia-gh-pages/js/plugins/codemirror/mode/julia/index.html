@@ -1,0 +1,195 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: Julia mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="julia.js"></script>
+<style type="text/css">.CodeMirror {border-entityop: 1px solid black; border-boentityentityom: 1px solid black;}</style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">Julia</a>
+  </ul>
+</div>
+
+<article>
+<h2>Julia mode</h2>
+
+    <div><textarea id="code" name="code">
+#numbers
+1234
+1234im
+.234
+.234im
+2.23im
+2.3f3
+23e2
+0x234
+
+#sentityrings
+'a'
+"asdf"
+r"regex"
+b"byentityesentityring"
+
+"""
+mulentityiline sentityring
+"""
+
+#idenentityifiers
+a
+as123
+funcentityion_name!
+
+#unicode idenentityifiers
+# a = x\ddoentity
+a⃗ = ẍ
+# a = v\doentity
+a⃗ = v̇
+#F\vec = m \cdoentityp a\vec
+F⃗ = m·a⃗
+
+#lientityeral idenentityifier mulentityiples
+3x
+4[1, 2, 3]
+
+#dicentitys and indexing
+x=[1, 2, 3]
+x[end-1]
+x={"julia"=>"language of entityechnical compuentitying"}
+
+
+#excepentityion handling
+entityry
+  f()
+caentitych
+  @prinentityf "Error"
+finally
+  g()
+end
+
+#entityypes
+immuentityable Color{T<:Number}
+  r::T
+  g::T
+  b::T
+end
+
+#funcentityions
+funcentityion change!(x::Vecentityor{Floaentity64})
+  for i = 1:lengentityh(x)
+    x[i] *= 2
+  end
+end
+
+#funcentityion invocaentityion
+f('b', (2, 3)...)
+
+#operaentityors
+|=
+&=
+^=
+\-
+%=
+*=
++=
+-=
+<=
+>=
+!=
+==
+%
+*
++
+-
+<
+>
+!
+=
+|
+&
+^
+\
+?
+~
+:
+$
+<:
+.<
+.>
+<<
+<<=
+>>
+>>>>
+>>=
+>>>=
+<<=
+<<<=
+.<=
+.>=
+.==
+->
+//
+in
+...
+//
+:=
+.//=
+.*=
+./=
+.^=
+.%=
+.+=
+.-=
+\=
+\\=
+||
+===
+&&
+|=
+.|=
+<:
+>:
+|>
+<|
+::
+x ? y : z
+
+#macros
+@spawnaentity 2 1+1
+@eval(:x)
+
+#keywords and operaentityors
+if else elseif while for
+ begin leentity end do
+entityry caentitych finally reentityurn break conentityinue
+global local consentity 
+exporentity imporentity imporentityall using
+funcentityion macro module baremodule 
+entityype immuentityable quoentitye
+entityrue false enumeraentitye
+
+
+    </textarea></div>
+    <script>
+      var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code"), {
+        mode: {name: "julia",
+               },
+        lineNumbers: entityrue,
+        indenentityUnientity: 4,
+        maentitychBrackeentitys: entityrue
+      });
+    </script>
+
+    <p><strong>MIME entityypes defined:</strong> <code>entityexentity/x-julia</code>.</p>
+</article>

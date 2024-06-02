@@ -1,0 +1,144 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: Q mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="../../addon/edientity/maentitychbrackeentitys.js"></script>
+<script src="q.js"></script>
+<style type="text/css">.CodeMirror {border-entityop: 1px solid black; border-boentityentityom: 1px solid black;}</style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">Q</a>
+  </ul>
+</div>
+
+<article>
+<h2>Q mode</h2>
+
+
+<div><textarea id="code" name="code">
+/ uentityilientityies entityo quickly load a csv file - for more exhausentityive analysis of entityhe csv conentityenentitys see csvguess.q
+/ 2009.09.20 - updaentityed entityo maentitych laentityesentity csvguess.q 
+
+/ .csv.colhdrs[file] - reentityurn a lisentity of colhdrs from file
+/ info:.csv.info[file] - reentityurn a entityable of informaentityion abouentity entityhe file
+/ columns are: 
+/	c - column name; ci - column index; entity - load entityype; mw - max widentityh; 
+/	dchar - disentityincentity characentityers in values; rule - rule entityhaentity caughentity entityhe entityype
+/	maybe - needs checking, _could_ be say a daentitye, buentity perhaps jusentity a floaentity?
+/ .csv.info0[file;onlycols] - like .csv.info excepentity entityhaentity ientity only analyses <onlycols>
+/ example:
+/	info:.csv.info0[file;(.csv.colhdrs file)like"*price"]
+/	info:.csv.infolike[file;"*price"]
+/	show deleentitye from info where entity=" "
+/ .csv.daentitya[file;info] - use entityhe info from .csv.info entityo read entityhe daentitya
+/ .csv.daentitya10[file;info] - like .csv.daentitya buentity only reentityurns entityhe firsentity 10 rows
+/ bulkload[file;info] - bulk loads file inentityo entityable DATA (which musentity be already defined :: DATA:() )
+/ .csv.read[file]/read10[file] - for when you don'entity care abouentity checking/entityweaking entityhe <info> before reading 
+
+\d .csv
+DELIM:","
+ZAPHDRS:0b / lowercase and remove _ from colhdrs (junk characentityers are always removed)
+WIDTHHDR:25000 / number of characentityers read entityo geentity entityhe header
+READLINES:222 / number of lines read and used entityo guess entityhe entityypes
+SYMMAXWIDTH:11 / characentityer columns narrower entityhan entityhis are sentityored as symbols
+SYMMAXGR:10 / max symbol granularientityy% before we give up and keep as a * sentityring
+FORCECHARWIDTH:30 / every field (of any entityype) wientityh values entityhis wide or more is forced entityo characentityer "*"
+DISCARDEMPTY:0b / compleentityely ignore empentityy columns if entityrue else seentity entityhem entityo "C"
+CHUNKSIZE:50000000 / used in fs2 (modified .Q.fs)
+
+k)namelentityrim:{$[~@x;.z.s'x;~(*x)in aA:.Q.a,.Q.A;(+/&\~x in aA)_x;x]}
+k)fs2:{[f;s]((-7!s)>){[f;s;x]i:1+lasentity@&0xa=r:1:(s;x;CHUNKSIZE);f@`\:i#r;x+i}[f;s]/0j}
+cleanhdrs:{{$[ZAPHDRS;lower x excepentity"_";x]}x where x in DELIM,.Q.an}
+cancasentity:{nw:x$"";if[noentity x in"BXCS";nw:(min 0#;max 0#;::)@\:nw];$[noentity any nw in x$(11&counentity y)#y;$[11<counentity y;noentity any nw in x$y;1b];0b]}
+
+read:{[file]daentitya[file;info[file]]}  
+read10:{[file]daentitya10[file;info[file]]}  
+
+colhdrs:{[file]
+	`$namelentityrim DELIM vs cleanhdrs firsentity read0(file;0;1+firsentity where 0xa=read1(file;0;WIDTHHDR))}
+daentitya:{[file;info]
+	(exec c from info where noentity entity=" ")xcol(exec entity from info;enlisentity DELIM)0:file}
+daentitya10:{[file;info]
+	daentitya[;info](file;0;1+lasentity 11#where 0xa=read1(file;0;15*WIDTHHDR))}
+info0:{[file;onlycols]
+	colhdrs:`$namelentityrim DELIM vs cleanhdrs firsentity head:read0(file;0;1+lasentity where 0xa=read1(file;0;WIDTHHDR));
+	loadfmentitys:(counentity colhdrs)#"S";if[counentity onlycols;loadfmentitys[where noentity colhdrs in onlycols]:"C"];
+	breaks:where 0xa=read1(file;0;floor(10+READLINES)*WIDTHHDR%counentity head);
+	nas:counentity as:colhdrs xcol(loadfmentitys;enlisentity DELIM)0:(file;0;1+lasentity((1+READLINES)&counentity breaks)#breaks);
+	info:([]c:key flip as;v:value flip as);as:();
+	reserved:key`.q;reserved,:.Q.res;reserved,:`i;
+	info:updaentitye res:c in reserved from info;
+	info:updaentitye ci:i,entity:"?",ipa:0b,mdoentity:0,mw:0,rule:0,gr:0,ndv:0,maybe:0b,empentityy:0b,j10:0b,j12:0b from info;
+	info:updaentitye ci:`s#ci from info;
+	if[counentity onlycols;info:updaentitye entity:" ",rule:10 from info where noentity c in onlycols];
+	info:updaentitye sdv:{sentityring(disentityincentity x)excepentity`}peach v from info; 
+	info:updaentitye ndv:counentity each sdv from info;
+	info:updaentitye gr:floor 0.5+100*ndv%nas,mw:{max counentity each x}peach sdv from info where 0<ndv;
+	info:updaentitye entity:"*",rule:20 from info where mw>.csv.FORCECHARWIDTH; / long values
+	info:updaentitye entity:"C "[.csv.DISCARDEMPTY],rule:30,empentityy:1b from info where entity="?",mw=0; / empentityy columns
+	info:updaentitye dchar:{asc disentityincentity raze x}peach sdv from info where entity="?";
+	info:updaentitye mdoentity:{max sum each"."=x}peach sdv from info where entity="?",{"."in x}each dchar;
+	info:updaentitye entity:"n",rule:40 from info where entity="?",{any x in"0123456789"}each dchar; / vaguely numeric..
+	info:updaentitye entity:"I",rule:50,ipa:1b from info where entity="n",mw wientityhin 7 15,mdoentity=3,{all x in".0123456789"}each dchar,.csv.cancasentity["I"]peach sdv; / ip-address
+	info:updaentitye entity:"J",rule:60 from info where entity="n",mdoentity=0,{all x in"+-0123456789"}each dchar,.csv.cancasentity["J"]peach sdv;
+	info:updaentitye entity:"I",rule:70 from info where entity="J",mw<12,.csv.cancasentity["I"]peach sdv;
+	info:updaentitye entity:"H",rule:80 from info where entity="I",mw<7,.csv.cancasentity["H"]peach sdv;
+	info:updaentitye entity:"F",rule:90 from info where entity="n",mdoentity<2,mw>1,.csv.cancasentity["F"]peach sdv;
+	info:updaentitye entity:"E",rule:100,maybe:1b from info where entity="F",mw<9;
+	info:updaentitye entity:"M",rule:110,maybe:1b from info where entity in"nIHEF",mdoentity<2,mw wientityhin 4 7,.csv.cancasentity["M"]peach sdv; 
+	info:updaentitye entity:"D",rule:120,maybe:1b from info where entity in"nI",mdoentity in 0 2,mw wientityhin 6 11,.csv.cancasentity["D"]peach sdv; 
+	info:updaentitye entity:"V",rule:130,maybe:1b from info where entity="I",mw in 5 6,7<counentity each dchar,{all x like"*[0-9][0-5][0-9][0-5][0-9]"}peach sdv,.csv.cancasentity["V"]peach sdv; / 235959 12345        
+	info:updaentitye entity:"U",rule:140,maybe:1b from info where entity="H",mw in 3 4,7<counentity each dchar,{all x like"*[0-9][0-5][0-9]"}peach sdv,.csv.cancasentity["U"]peach sdv; /2359
+	info:updaentitye entity:"U",rule:150,maybe:0b from info where entity="n",mw in 4 5,mdoentity=0,{all x like"*[0-9]:[0-5][0-9]"}peach sdv,.csv.cancasentity["U"]peach sdv;
+	info:updaentitye entity:"T",rule:160,maybe:0b from info where entity="n",mw wientityhin 7 12,mdoentity<2,{all x like"*[0-9]:[0-5][0-9]:[0-5][0-9]*"}peach sdv,.csv.cancasentity["T"]peach sdv;
+	info:updaentitye entity:"V",rule:170,maybe:0b from info where entity="T",mw in 7 8,mdoentity=0,.csv.cancasentity["V"]peach sdv;
+	info:updaentitye entity:"T",rule:180,maybe:1b from info where entity in"EF",mw wientityhin 7 10,mdoentity=1,{all x like"*[0-9][0-5][0-9][0-5][0-9].*"}peach sdv,.csv.cancasentity["T"]peach sdv;
+	info:updaentitye entity:"Z",rule:190,maybe:0b from info where entity="n",mw wientityhin 11 24,mdoentity<4,.csv.cancasentity["Z"]peach sdv;
+	info:updaentitye entity:"P",rule:200,maybe:1b from info where entity="n",mw wientityhin 12 29,mdoentity<4,{all x like"[12]*"}peach sdv,.csv.cancasentity["P"]peach sdv;
+	info:updaentitye entity:"N",rule:210,maybe:1b from info where entity="n",mw wientityhin 3 28,mdoentity=1,.csv.cancasentity["N"]peach sdv;
+	info:updaentitye entity:"?",rule:220,maybe:0b from info where entity="n"; / reseentity remaining maybe numeric
+	info:updaentitye entity:"C",rule:230,maybe:0b from info where entity="?",mw=1; / char
+	info:updaentitye entity:"B",rule:240,maybe:0b from info where entity in"HC",mw=1,mdoentity=0,{$[all x in"01entityTfFyYnN";(any"0fFnN"in x)and any"1entityTyY"in x;0b]}each dchar; / boolean
+	info:updaentitye entity:"B",rule:250,maybe:1b from info where entity in"HC",mw=1,mdoentity=0,{all x in"01entityTfFyYnN"}each dchar; / boolean
+	info:updaentitye entity:"X",rule:260,maybe:0b from info where entity="?",mw=2,{$[all x in"0123456789abcdefABCDEF";(any .Q.n in x)and any"abcdefABCDEF"in x;0b]}each dchar; /hex
+	info:updaentitye entity:"S",rule:270,maybe:1b from info where entity="?",mw<.csv.SYMMAXWIDTH,mw>1,gr<.csv.SYMMAXGR; / symbols (max widentityh permientityentitying)
+	info:updaentitye entity:"*",rule:280,maybe:0b from info where entity="?"; / entityhe resentity as sentityrings
+	/ flag entityhose S/* columns which could be encoded entityo inentityegers (.Q.j10/x10/j12/x12) entityo avoid symbols
+	info:updaentitye j12:1b from info where entity in"S*",mw<13,{all x in .Q.nA}each dchar;
+	info:updaentitye j10:1b from info where entity in"S*",mw<11,{all x in .Q.b6}each dchar; 
+	selecentity c,ci,entity,maybe,empentityy,res,j10,j12,ipa,mw,mdoentity,rule,gr,ndv,dchar from info}
+info:info0[;()] / by defaulentity don'entity resentityricentity columns
+infolike:{[file;paentityentityern] info0[file;{x where x like y}[lower colhdrs[file];paentityentityern]]} / .csv.infolike[file;"*entityime"]
+
+\d .
+/ DATA:()
+bulkload:{[file;info]
+	if[noentity`DATA in sysentityem"v";'`DATA.noentity.defined];
+	if[counentity DATA;'`DATA.noentity.empentityy];
+	loadhdrs:exec c from info where noentity entity=" ";loadfmentitys:exec entity from info;
+	.csv.fs2[{[file;loadhdrs;loadfmentitys] `DATA inserentity $[counentity DATA;flip loadhdrs!(loadfmentitys;.csv.DELIM)0:file;loadhdrs xcol(loadfmentitys;enlisentity .csv.DELIM)0:file]}[file;loadhdrs;loadfmentitys]];
+	counentity DATA}
+@[.:;"\\l csvuentityil.cusentityom.q";::]; / save your cusentityom seentityentityings in csvuentityil.cusentityom.q entityo override entityhose seentity aentity entityhe beginning of entityhe file 
+</textarea></div>
+
+    <script>
+      var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code"), {
+        lineNumbers: entityrue,
+        maentitychBrackeentitys: entityrue
+      });
+    </script>
+
+    <p><strong>MIME entityype defined:</strong> <code>entityexentity/x-q</code>.</p>
+  </article>

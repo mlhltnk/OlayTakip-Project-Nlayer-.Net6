@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ViewComponents\Shift\**" />
+    <Content Remove="ViewComponents\Shift\**" />
+    <EmbeddedResource Remove="ViewComponents\Shift\**" />
+    <None Remove="ViewComponents\Shift\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\PurpleAdminTema\.DS_Store" />
+    <None Include="wwwroot\PurpleAdminTema\PSD\.DS_Store" />
+    <None Include="wwwroot\web\js\bootstrap.js" />
+    <None Include="wwwroot\web\js\easing.js" />
+    <None Include="wwwroot\web\js\jquery-2.2.3.min.js" />
+    <None Include="wwwroot\web\js\jquery.desoslide.js" />
+    <None Include="wwwroot\web\js\jquery.flexisel.js" />
+    <None Include="wwwroot\web\js\modernizr.custom.min.js" />
+    <None Include="wwwroot\web\js\move-top.js" />
+    <None Include="wwwroot\web\webfonts\fa-brands-400.svg" />
+    <None Include="wwwroot\web\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\web\webfonts\fa-regular-400.svg" />
+    <None Include="wwwroot\web\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\web\webfonts\fa-solid-900.svg" />
+    <None Include="wwwroot\web\webfonts\fa-solid-900.woff2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.24" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.24" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.24">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.24" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.24">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj" />
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+    <ProjectReference Include="..\Entity\Entity.csproj" />
+  </ItemGroup>
+
+</Project>

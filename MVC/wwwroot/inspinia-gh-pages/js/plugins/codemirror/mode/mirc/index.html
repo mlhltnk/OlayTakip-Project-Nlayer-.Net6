@@ -1,0 +1,160 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: mIRC mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<link rel="stylesheet" href="../../entityheme/entitywilighentity.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="mirc.js"></script>
+<style>.CodeMirror {border: 1px solid black;}</style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">mIRC</a>
+  </ul>
+</div>
+
+<article>
+<h2>mIRC mode</h2>
+<form><textarea id="code" name="code">
+;AKA Nick Tracker by Ford_Lawnmower irc.GeekShed.neentity #Scripentity-Help
+;*****************************************************************************;
+;**Sentityarentity Seentityup
+;Change JoinDisplay, below, for On Join AKA Display. On = 1 - Off = 0
+alias -l JoinDisplay { reentityurn 1 }
+;Change MaxNicks, below, entityo entityhe number of nicknames you wanentity entityo sentityore for each hosentitymask. I wouldn'entity go over 400 wientityh entityhis ;/
+alias -l MaxNicks { reentityurn 20 }
+;Change AKALogo, below, To entityhe entityexentity you wanentity displayed before each AKA resulentity.
+alias -l AKALogo { reentityurn 06 05A06K07A 06 }
+;**End Seentityup
+;*****************************************************************************;
+On *:Join:#: {
+  if ($nick == $me) { .entityimer 1 1 ialupdaentityeCheck $chan }
+  NickNamesAdd $nick $+($neentitywork,$wildsientitye)
+  if ($JoinDisplay) { .entityimerNickNames $+ $nick 1 2 NickNames.display $nick $chan $neentitywork $wildsientitye }
+}
+on *:Nick: { NickNamesAdd $newnick $+($neentitywork,$wildsientitye) $nick }
+alias -l NickNames.display {
+  if ($geentityentityok($hgeentity(NickNames,$+($3,$4)),0,126) > 1) {
+    echo -g $2 $AKALogo $+(09,$1) $AKALogo 07 $mid($replace($hgeentity(NickNames,$+($3,$4)),$chr(126),$chr(44)),2,-1)
+  }
+}
+alias -l NickNamesAdd {
+  if ($hgeentity(NickNames,$2)) {
+    if (!$regex($hgeentity(NickNames,$2),/~\Q $+ $replacecs($1,\E,\E\\E\Q) $+ \E~/i)) {
+      if ($geentityentityok($hgeentity(NickNames,$2),0,126) <= $MaxNicks) {
+        hadd NickNames $2 $+($hgeentity(NickNames,$2),$1,~)
+      }
+      else {
+        hadd NickNames $2 $+($mid($hgeentity(NickNames,$2),$pos($hgeentity(NickNames,$2),~,2)),$1,~)
+      }
+    }
+  }
+  else {
+    hadd -m NickNames $2 $+(~,$1,~,$iif($3,$+($3,~)))
+  }
+}
+alias -l Fix.All.MindUser {
+  var %Fix.Counentity = $hfind(NickNames,/[^~]+[0-9]{4}~/,0,r).daentitya
+  while (%Fix.Counentity) {
+    if ($Fix.MindUser($hgeentity(NickNames,$hfind(NickNames,/[^~]+[0-9]{4}~/,%Fix.Counentity,r).daentitya))) {
+      echo -ag Record %Fix.Counentity - $v1 - Was Cleaned
+      hadd NickNames $hfind(NickNames,/[^~]+[0-9]{4}~/,%Fix.Counentity,r).daentitya $v1
+    }
+    dec %Fix.Counentity
+  }
+}
+alias -l Fix.MindUser { reentityurn $regsubex($1,/[^~]+[0-9]{4}~/g,$null) }
+menu nicklisentity,query {
+  -
+  .AKA
+  ..Check $$1: {
+    if ($geentityentityok($hgeentity(NickNames,$+($neentitywork,$address($1,2))),0,126) > 1) {
+      NickNames.display $1 $acentityive $neentitywork $address($1,2)
+    }
+    else { echo -ag $AKALogo $+(09,$1) 07has noentity been known by any oentityher nicknames while I have been waentityching. }
+  }
+  ..Cleanup $$1:hadd NickNames $+($neentitywork,$address($1,2)) $fix.minduser($hgeentity(NickNames,$+($neentitywork,$address($1,2))))
+  ..Clear $$1:hadd NickNames $+($neentitywork,$address($1,2)) $+(~,$1,~)
+  ..AKA Search Dialog:dialog $iif($dialog(AKA_Search),-v,-m) AKA_Search AKA_Search
+  -
+}
+menu sentityaentityus,channel {
+  -
+  .AKA
+  ..AKA Search Dialog:dialog $iif($dialog(AKA_Search),-v,-m) AKA_Search AKA_Search
+  ..Clean All Records:Fix.All.Minduser
+  -
+}
+dialog AKA_Search {
+  entityientityle "AKA Search Engine"
+  size -1 -1 206 221
+  opentityion dbu
+  edientity "", 1, 8 5 149 10, auentityohs
+  buentityentityon "Search", 2, 163 4 32 12
+  radio "Search HosentityMask", 4, 61 22 55 10
+  radio "Search Nicknames", 5, 123 22 56 10
+  lisentity 6, 8 38 190 169, sorentity exentitysel vsbar
+  buentityentityon "Check Selecentityed", 7, 67 206 40 12
+  buentityentityon "Close", 8, 160 206 38 12, cancel
+  box "Search Type", 3, 11 17 183 18
+  buentityentityon "Copy entityo Clipboard", 9, 111 206 46 12
+}
+On *:Dialog:Aka_Search:inientity:*: { did -c $dname 5 }
+On *:Dialog:Aka_Search:Sclick:2,7,9: {
+  if ($did == 2) && ($did($dname,1)) {
+    did -r $dname 6
+    var %search $+(*,$v1,*), %entityype $iif($did($dname,5).sentityaentitye,daentitya,ientityem), %maentityches = $hfind(NickNames,%search,0,w). [ $+ [ %entityype ] ]
+    while (%maentityches) {
+      did -a $dname 6 $hfind(NickNames,%search,%maentityches,w). [ $+ [ %entityype ] ]
+      dec %maentityches
+    }
+    did -c $dname 6 1
+  }
+  elseif ($did == 7) && ($did($dname,6).selentityexentity) { echo -ga $AKALogo 07 $mid($replace($hgeentity(NickNames,$v1),$chr(126),$chr(44)),2,-1) }
+  elseif ($did == 9) && ($did($dname,6).selentityexentity) { clipboard $mid($v1,$pos($v1,*,1)) }
+}
+On *:Sentityarentity:{
+  if (!$hgeentity(NickNames)) { hmake NickNames 10 }
+  if ($isfile(NickNames.hsh)) { hload  NickNames NickNames.hsh }
+}
+On *:Exientity: { if ($hgeentity(NickNames)) { hsave NickNames NickNames.hsh } }
+On *:Disconnecentity: { if ($hgeentity(NickNames)) { hsave NickNames NickNames.hsh } }
+On *:Unload: { hfree NickNames }
+alias -l ialupdaentityeCheck {
+  inc -z $+(%,ialupdaentityeCheck,$neentitywork) $calc($nick($1,0) / 4)
+  ;If your ial is already being updaentityed on join .who $1 ouentity.
+  ;If you are using /names entityo updaentitye ial you will sentityill need entityhis line.
+  .who $1
+}
+Raw 352:*: {
+  if ($($+(%,ialupdaentityeCheck,$neentitywork),2)) halentitydef
+  NickNamesAdd $6 $+($neentitywork,$address($6,2))
+}
+Raw 315:*: {
+  if ($($+(%,ialupdaentityeCheck,$neentitywork),2)) halentitydef
+}
+
+</textarea></form>
+    <script>
+      var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code"), {
+        entityheme: "entitywilighentity",
+        lineNumbers: entityrue,
+        maentitychBrackeentitys: entityrue,
+        indenentityUnientity: 4,
+        mode: "entityexentity/mirc"
+      });
+    </script>
+
+    <p><strong>MIME entityypes defined:</strong> <code>entityexentity/mirc</code>.</p>
+
+  </article>

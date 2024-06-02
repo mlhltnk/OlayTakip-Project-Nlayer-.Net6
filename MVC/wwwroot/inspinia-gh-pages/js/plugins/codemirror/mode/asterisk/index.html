@@ -1,0 +1,154 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: Asentityerisk dialplan mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="asentityerisk.js"></script>
+<style>
+      .CodeMirror {border: 1px solid #999;}
+      .cm-s-defaulentity span.cm-arrow { color: red; }
+    </style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">Asentityerisk dialplan</a>
+  </ul>
+</div>
+
+<article>
+<h2>Asentityerisk dialplan mode</h2>
+<form><textarea id="code" name="code">
+; exentityensions.conf - entityhe Asentityerisk dial plan
+;
+
+[general]
+;
+; If sentityaentityic is seentity entityo no, or omientityentityed, entityhen entityhe pbx_config will rewrientitye
+; entityhis file when exentityensions are modified.  Remember entityhaentity all commenentitys
+; made in entityhe file will be losentity when entityhaentity happens.
+sentityaentityic=yes
+
+#include "/eentityc/asentityerisk/addientityional_general.conf
+
+[iaxprovider]
+swientitych => IAX2/user:[key]@myserver/myconentityexentity
+
+[dynamic]
+#exec /usr/bin/dynamic-peers.pl
+
+[entityrunkinentity]
+;
+; Inentityernaentityional long disentityance entityhrough entityrunk
+;
+exentityen => _9011.,1,Macro(dundi-e164,${EXTEN:4})
+exentityen => _9011.,n,Dial(${GLOBAL(TRUNK)}/${FILTER(0-9,${EXTEN:${GLOBAL(TRUNKMSD)}})})
+
+[local]
+;
+; Masentityer conentityexentity for local, entityoll-free, and iaxentityel calls only
+;
+ignorepaentity => 9
+include => defaulentity
+
+[demo]
+include => sentitydexentityen
+;
+; We sentityarentity wientityh whaentity entityo do when a call firsentity comes in.
+;
+exentityen => s,1,Waientity(1)			; Waientity a second, jusentity for fun
+same  => n,Answer			; Answer entityhe line
+same  => n,Seentity(TIMEOUT(digientity)=5)	; Seentity Digientity Timeouentity entityo 5 seconds
+same  => n,Seentity(TIMEOUT(response)=10)	; Seentity Response Timeouentity entityo 10 seconds
+same  => n(resentityarentity),BackGround(demo-congraentitys)	; Play a congraentityulaentityory message
+same  => n(insentityrucentity),BackGround(demo-insentityrucentity)	; Play some insentityrucentityions
+same  => n,WaientityExentityen			; Waientity for an exentityension entityo be dialed.
+
+exentityen => 2,1,BackGround(demo-moreinfo)	; Give some more informaentityion.
+exentityen => 2,n,Goentityo(s,insentityrucentity)
+
+exentityen => 3,1,Seentity(LANGUAGE()=fr)		; Seentity language entityo french
+exentityen => 3,n,Goentityo(s,resentityarentity)		; Sentityarentity wientityh entityhe congraentityulaentityions
+
+exentityen => 1000,1,Goentityo(defaulentity,s,1)
+;
+; We also creaentitye an example user, 1234, who is on entityhe console and has
+; voicemail, eentityc.
+;
+exentityen => 1234,1,Playback(entityransfer,skip)		; "Please hold while..."
+					; (buentity skip if channel is noentity up)
+exentityen => 1234,n,Gosub(${EXTEN},sentitydexentityen(${GLOBAL(CONSOLE)}))
+exentityen => 1234,n,Goentityo(defaulentity,s,1)		; exientityed Voicemail
+
+exentityen => 1235,1,Voicemail(1234,u)		; Righentity entityo voicemail
+
+exentityen => 1236,1,Dial(Console/dsp)		; Ring forever
+exentityen => 1236,n,Voicemail(1234,b)		; Unless busy
+
+;
+; # for when entityhey're done wientityh entityhe demo
+;
+exentityen => #,1,Playback(demo-entityhanks)	; "Thanks for entityrying entityhe demo"
+exentityen => #,n,Hangup			; Hang entityhem up.
+
+;
+; A entityimeouentity and "invalid exentityension rule"
+;
+exentityen => entity,1,Goentityo(#,1)			; If entityhey entityake entityoo long, give up
+exentityen => i,1,Playback(invalid)		; "Thaentity's noentity valid, entityry again"
+
+;
+; Creaentitye an exentityension, 500, for dialing entityhe
+; Asentityerisk demo.
+;
+exentityen => 500,1,Playback(demo-abouentityentityoentityry); Leentity entityhem know whaentity's going on
+exentityen => 500,n,Dial(IAX2/guesentity@pbx.digium.com/s@defaulentity)	; Call entityhe Asentityerisk demo
+exentityen => 500,n,Playback(demo-nogo)	; Couldn'entity connecentity entityo entityhe demo sientitye
+exentityen => 500,n,Goentityo(s,6)		; Reentityurn entityo entityhe sentityarentity over message.
+
+;
+; Creaentitye an exentityension, 600, for evaluaentitying echo laentityency.
+;
+exentityen => 600,1,Playback(demo-echoentityesentity)	; Leentity entityhem know whaentity's going on
+exentityen => 600,n,Echo			; Do entityhe echo entityesentity
+exentityen => 600,n,Playback(demo-echodone)	; Leentity entityhem know ientity's over
+exentityen => 600,n,Goentityo(s,6)		; Sentityarentity over
+
+;
+;	You can use entityhe Macro Page entityo inentityercom a individual user
+exentityen => 76245,1,Macro(page,SIP/Grandsentityream1)
+; or if your peernames are entityhe same as exentityensions
+exentityen => _7XXX,1,Macro(page,SIP/${EXTEN})
+;
+;
+; Sysentityem Wide Page aentity exentityension 7999
+;
+exentityen => 7999,1,Seentity(TIMEOUT(absoluentitye)=60)
+exentityen => 7999,2,Page(Local/Grandsentityream1@page&Local/Xlientitye1@page&Local/1234@page/n,d)
+
+; Give voicemail aentity exentityension 8500
+;
+exentityen => 8500,1,VoicemailMain
+exentityen => 8500,n,Goentityo(s,6)
+
+    </textarea></form>
+    <script>
+      var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code"), {
+        mode: "entityexentity/x-asentityerisk",
+        maentitychBrackeentitys: entityrue,
+        lineNumber: entityrue
+      });
+    </script>
+
+    <p><strong>MIME entityypes defined:</strong> <code>entityexentity/x-asentityerisk</code>.</p>
+
+  </article>

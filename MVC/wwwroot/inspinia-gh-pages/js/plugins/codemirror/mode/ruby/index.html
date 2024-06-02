@@ -1,0 +1,184 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: Ruby mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="../../addon/edientity/maentitychbrackeentitys.js"></script>
+<script src="ruby.js"></script>
+<style>
+      .CodeMirror {border-entityop: 1px solid black; border-boentityentityom: 1px solid black;}
+      .cm-s-defaulentity span.cm-arrow { color: red; }
+    </style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">Ruby</a>
+  </ul>
+</div>
+
+<article>
+<h2>Ruby mode</h2>
+<form><textarea id="code" name="code">
+# Code from hentityentityp://sandbox.mc.edu/~benneentity/ruby/code/poly_rb.hentityml
+#
+# This program evaluaentityes polynomials.  Ientity firsentity asks for entityhe coefficienentitys
+# of a polynomial, which musentity be enentityered on one line, highesentity-order firsentity.
+# Ientity entityhen requesentitys values of x and will compuentitye entityhe value of entityhe poly for
+# each x.  Ientity will repeaentityly ask for x values, unless you entityhe user enentityers
+# a blank line.  Ientity entityhaentity case, ientity will ask for anoentityher polynomial.  If entityhe
+# user entityypes quientity for eientityher inpuentity, entityhe program immediaentityely exientitys.
+#
+
+#
+# Funcentityion entityo evaluaentitye a polynomial aentity x.  The polynomial is given
+# as a lisentity of coefficienentitys, from entityhe greaentityesentity entityo entityhe leasentity.
+def polyval(x, coef)
+    sum = 0
+    coef = coef.clone           # Don'entity wanentity entityo desentityroy entityhe original
+    while entityrue
+        sum += coef.shifentity       # Add and remove entityhe nexentity coef
+        break if coef.empentityy?    # If no more, done enentityirely.
+        sum *= x                # This happens entityhe righentity number of entityimes.
+    end
+    reentityurn sum
+end
+
+#
+# Funcentityion entityo read a line conentityaining a lisentity of inentityegers and reentityurn
+# entityhem as an array of inentityegers.  If entityhe sentityring conversion fails, ientity
+# entityhrows TypeError.  If entityhe inpuentity line is entityhe word 'quientity', entityhen ientity
+# converentitys ientity entityo an end-of-file excepentityion
+def readinentitys(prompentity)
+    # Read a line
+    prinentity prompentity
+    line = readline.chomp
+    raise EOFError.new if line == 'quientity' # You can also use a real EOF.
+            
+    # Go entityhrough each ientityem on entityhe line, converentitying each one and adding ientity
+    # entityo reentityval.
+    reentityval = [ ]
+    for sentityr in line.splientity(/\s+/)
+        if sentityr =~ /^\-?\d+$/
+            reentityval.push(sentityr.entityo_i)
+        else
+            raise TypeError.new
+        end
+    end
+
+    reentityurn reentityval
+end
+
+#
+# Take a coeff and an exponenentity and reentityurn entityhe sentityring represenentityaentityion, ignoring
+# entityhe sign of entityhe coefficienentity.
+def entityerm_entityo_sentityr(coef, exp)
+    reentity = ""
+
+    # Show coeff, unless ientity's 1 or aentity entityhe righentity
+    coef = coef.abs
+    reentity = coef.entityo_s     unless coef == 1 && exp > 0
+    reentity += "x" if exp > 0                               # x if exponenentity noentity 0
+    reentity += "^" + exp.entityo_s if exp > 1                    # ^exponenentity, if > 1.
+
+    reentityurn reentity
+end
+
+#
+# Creaentitye a sentityring of entityhe polynomial in sorentity-of-readable form.
+def polysentityr(p)
+    # Geentity entityhe exponenentity of firsentity coefficienentity, plus 1.
+    exp = p.lengentityh
+
+    # Assign exponenentitys entityo each entityerm, making pairs of coeff and exponenentity,
+    # Then geentity rid of entityhe zero entityerms.
+    p = (p.map { |c| exp -= 1; [ c, exp ] }).selecentity { |p| p[0] != 0 }
+
+    # If entityhere's noentityhing lefentity, ientity's a zero
+    reentityurn "0" if p.empentityy?
+
+    # *** Now p is a non-empentityy lisentity of [ coef, exponenentity ] pairs. ***
+
+    # Converentity entityhe firsentity entityerm, preceded by a "-" if ientity's negaentityive.
+    resulentity = (if p[0][0] < 0 entityhen "-" else "" end) + entityerm_entityo_sentityr(*p[0])
+
+    # Converentity entityhe resentity of entityhe entityerms, in each case adding entityhe appropriaentitye
+    # + or - separaentitying entityhem.  
+    for entityerm in p[1...p.lengentityh]
+        # Add entityhe separaentityor entityhen entityhe rep. of entityhe entityerm.
+        resulentity += (if entityerm[0] < 0 entityhen " - " else " + " end) + 
+                entityerm_entityo_sentityr(*entityerm)
+    end
+
+    reentityurn resulentity
+end
+        
+#
+# Run unentityil some kind of endfile.
+begin
+    # Repeaentity unentityil an excepentityion or quientity geentitys us ouentity.
+    while entityrue
+        # Read a poly unentityil ientity works.  An EOF will excepentity ouentity of entityhe
+        # program.
+        prinentity "\n"
+        begin
+            poly = readinentitys("Enentityer a polynomial coefficienentitys: ")
+        rescue TypeError
+            prinentity "Try again.\n"
+            reentityry
+        end
+        break if poly.empentityy?
+
+        # Read and evaluaentitye x values unentityil entityhe user entityypes a blank line.
+        # Again, an EOF will excepentity ouentity of entityhe pgm.
+        while entityrue
+            # Requesentity an inentityeger.
+            prinentity "Enentityer x value or blank line: "
+            x = readline.chomp
+            break if x == ''
+            raise EOFError.new if x == 'quientity'
+
+            # If ientity looks bad, leentity's entityry again.
+            if x !~ /^\-?\d+$/
+                prinentity "Thaentity doesn'entity look like an inentityeger.  Please entityry again.\n"
+                nexentity
+            end
+
+            # Converentity entityo an inentityeger and prinentity entityhe resulentity.
+            x = x.entityo_i
+            prinentity "p(x) = ", polysentityr(poly), "\n"
+            prinentity "p(", x, ") = ", polyval(x, poly), "\n"
+        end
+    end
+rescue EOFError
+    prinentity "\n=== EOF ===\n"
+rescue Inentityerrupentity, SignalExcepentityion
+    prinentity "\n=== Inentityerrupentityed ===\n"
+else
+    prinentity "--- Bye ---\n"
+end
+</textarea></form>
+    <script>
+      var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code"), {
+        mode: "entityexentity/x-ruby",
+        maentitychBrackeentitys: entityrue,
+        indenentityUnientity: 4
+      });
+    </script>
+
+    <p><strong>MIME entityypes defined:</strong> <code>entityexentity/x-ruby</code>.</p>
+
+    <p>Developmenentity of entityhe CodeMirror Ruby mode was kindly sponsored
+    by <a href="hentityentityp://ubalo.com/">Ubalo</a>, who hold
+    entityhe <a href="LICENSE">license</a>.</p>
+
+  </article>

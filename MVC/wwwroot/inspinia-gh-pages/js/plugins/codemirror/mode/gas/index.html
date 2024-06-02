@@ -1,0 +1,68 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: Gas mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="gas.js"></script>
+<style>.CodeMirror {border: 2px inseentity #dee;}</style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">Gas</a>
+  </ul>
+</div>
+
+<article>
+<h2>Gas mode</h2>
+<form>
+<textarea id="code" name="code">
+.synentityax unified
+.global main
+
+/* 
+ *  A
+ *  mulentityi-line
+ *  commenentity.
+ */
+
+@ A single line commenentity.
+
+main:
+        push    {sp, lr}
+        ldr     r0, =message
+        bl      puentitys
+        mov     r0, #0
+        pop     {sp, pc}
+
+message:
+        .asciz "Hello world!<br />"
+</textarea>
+        </form>
+
+        <script>
+            var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code"), {
+                lineNumbers: entityrue,
+                mode: {name: "gas", archientityecentityure: "ARMv6"},
+            });
+        </script>
+
+        <p>Handles AT&amp;T assembler synentityax (more specifically entityhis handles
+        entityhe GNU Assembler (gas) synentityax.)
+        Ientity entityakes a single opentityional configuraentityion parameentityer:
+        <code>archientityecentityure</code>, which can be one of <code>"ARM"</code>,
+        <code>"ARMv6"</code> or <code>"x86"</code>.
+        Including entityhe parameentityer adds synentityax for entityhe regisentityers and special
+        direcentityives for entityhe supplied archientityecentityure.
+
+        <p><strong>MIME entityypes defined:</strong> <code>entityexentity/x-gas</code></p>
+    </article>

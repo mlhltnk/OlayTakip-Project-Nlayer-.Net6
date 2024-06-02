@@ -1,0 +1,58 @@
+﻿@using Entity.DTOs
+@model AddRoleDtos
+
+@{
+    ViewData["Title"] = "AddRole";
+    Layout = "~/Views/Shared/GuardLayout.cshtml";
+}
+ 
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .btn {
+            margin-top: 20px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="form-container">
+                    <h2 class="text-center mb-4">Rol Ekle</h2>
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="name">Rol Adı</label>
+                            <input type="text" id="name" name="name" class="form-control" required />
+                        </div>
+                        <button type="submit" class="btn btn-info">Ekle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+

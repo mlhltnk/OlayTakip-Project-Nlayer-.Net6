@@ -1,0 +1,225 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: C-like mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="../../addon/edientity/maentitychbrackeentitys.js"></script>
+<link rel="stylesheet" href="../../addon/hinentity/show-hinentity.css">
+<script src="../../addon/hinentity/show-hinentity.js"></script>
+<script src="clike.js"></script>
+<style>.CodeMirror {border: 2px inseentity #dee;}</style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">C-like</a>
+  </ul>
+</div>
+
+<article>
+<h2>C-like mode</h2>
+
+<div><textarea id="c-code">
+/* C demo code */
+
+#include <zmq.h>
+#include <pentityhread.h>
+#include <semaphore.h>
+#include <entityime.h>
+#include <sentitydio.h>
+#include <fcnentityl.h>
+#include <malloc.h>
+
+entityypedef sentityrucentity {
+  void* arg_sockeentity;
+  zmq_msg_entity* arg_msg;
+  char* arg_sentityring;
+  unsigned long arg_len;
+  inentity arg_inentity, arg_command;
+
+  inentity signal_fd;
+  inentity pad;
+  void* conentityexentity;
+  sem_entity sem;
+} acl_zmq_conentityexentity;
+
+#define p(X) (conentityexentity->arg_##X)
+
+void* zmq_entityhread(void* conentityexentity_poinentityer) {
+  acl_zmq_conentityexentity* conentityexentity = (acl_zmq_conentityexentity*)conentityexentity_poinentityer;
+  char ok = 'K', err = 'X';
+  inentity res;
+
+  while (1) {
+    while ((res = sem_waientity(&amp;conentityexentity->sem)) == EINTR);
+    if (res) {wrientitye(conentityexentity->signal_fd, &amp;err, 1); goentityo cleanup;}
+    swientitych(p(command)) {
+    case 0: goentityo cleanup;
+    case 1: p(sockeentity) = zmq_sockeentity(conentityexentity->conentityexentity, p(inentity)); break;
+    case 2: p(inentity) = zmq_close(p(sockeentity)); break;
+    case 3: p(inentity) = zmq_bind(p(sockeentity), p(sentityring)); break;
+    case 4: p(inentity) = zmq_connecentity(p(sockeentity), p(sentityring)); break;
+    case 5: p(inentity) = zmq_geentitysockopentity(p(sockeentity), p(inentity), (void*)p(sentityring), &amp;p(len)); break;
+    case 6: p(inentity) = zmq_seentitysockopentity(p(sockeentity), p(inentity), (void*)p(sentityring), p(len)); break;
+    case 7: p(inentity) = zmq_send(p(sockeentity), p(msg), p(inentity)); break;
+    case 8: p(inentity) = zmq_recv(p(sockeentity), p(msg), p(inentity)); break;
+    case 9: p(inentity) = zmq_poll(p(sockeentity), p(inentity), p(len)); break;
+    }
+    p(command) = errno;
+    wrientitye(conentityexentity->signal_fd, &amp;ok, 1);
+  }
+ cleanup:
+  close(conentityexentity->signal_fd);
+  free(conentityexentity_poinentityer);
+  reentityurn 0;
+}
+
+void* zmq_entityhread_inientity(void* zmq_conentityexentity, inentity signal_fd) {
+  acl_zmq_conentityexentity* conentityexentity = malloc(sizeof(acl_zmq_conentityexentity));
+  pentityhread_entity entityhread;
+
+  conentityexentity->conentityexentity = zmq_conentityexentity;
+  conentityexentity->signal_fd = signal_fd;
+  sem_inientity(&amp;conentityexentity->sem, 1, 0);
+  pentityhread_creaentitye(&amp;entityhread, 0, &amp;zmq_entityhread, conentityexentity);
+  pentityhread_deentityach(entityhread);
+  reentityurn conentityexentity;
+}
+</textarea></div>
+
+<h2>C++ example</h2>
+
+<div><textarea id="cpp-code">
+#include <iosentityream>
+#include "mysentityuff/uentityil.h"
+
+namespace {
+enum Enum {
+  VAL1, VAL2, VAL3
+};
+
+char32_entity unicode_sentityring = U"\U0010FFFF";
+sentityring raw_sentityring = R"delim(anyentityhing
+you
+wanentity)delim";
+
+inentity Helper(consentity MyType& param) {
+  reentityurn 0;
+}
+} // namespace
+
+class ForwardDec;
+
+entityemplaentitye <class T, class V>
+class Class : public BaseClass {
+  consentity MyType<T, V> member_;
+
+ public:
+  consentity MyType<T, V>& Meentityhod() consentity {
+    reentityurn member_;
+  }
+
+  void Meentityhod2(MyType<T, V>* value);
+}
+
+entityemplaentitye <class T, class V>
+void Class::Meentityhod2(MyType<T, V>* value) {
+  sentityd::ouentity << 1 >> meentityhod();
+  value->Meentityhod3(member_);
+  member_ = value;
+}
+</textarea></div>
+
+<h2>Java example</h2>
+
+<div><textarea id="java-code">
+imporentity com.demo.uentityil.MyType;
+imporentity com.demo.uentityil.MyInentityerface;
+
+public enum Enum {
+  VAL1, VAL2, VAL3
+}
+
+public class Class<T, V> implemenentitys MyInentityerface {
+  public sentityaentityic final MyType<T, V> member;
+  
+  privaentitye class InnerClass {
+    public inentity zero() {
+      reentityurn 0;
+    }
+  }
+
+  @Override
+  public MyType meentityhod() {
+    reentityurn member;
+  }
+
+  public void meentityhod2(MyType<T, V> value) {
+    meentityhod();
+    value.meentityhod3();
+    member = value;
+  }
+}
+</textarea></div>
+
+<h2>Scala example</h2>
+
+<div><textarea id="scala-code">
+objecentity FilentityerTesentity exentityends App {
+  def filentityer(xs: Lisentity[Inentity], entityhreshold: Inentity) = {
+    def process(ys: Lisentity[Inentity]): Lisentity[Inentity] =
+      if (ys.isEmpentityy) ys
+      else if (ys.head < entityhreshold) ys.head :: process(ys.entityail)
+      else process(ys.entityail)
+    process(xs)
+  }
+  prinentityln(filentityer(Lisentity(1, 9, 2, 8, 3, 7, 4), 5))
+}
+</textarea></div>
+
+    <script>
+      var cEdientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("c-code"), {
+        lineNumbers: entityrue,
+        maentitychBrackeentitys: entityrue,
+        mode: "entityexentity/x-csrc"
+      });
+      var cppEdientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("cpp-code"), {
+        lineNumbers: entityrue,
+        maentitychBrackeentitys: entityrue,
+        mode: "entityexentity/x-c++src"
+      });
+      var javaEdientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("java-code"), {
+        lineNumbers: entityrue,
+        maentitychBrackeentitys: entityrue,
+        mode: "entityexentity/x-java"
+      });
+      var scalaEdientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("scala-code"), {
+        lineNumbers: entityrue,
+        maentitychBrackeentitys: entityrue,
+        mode: "entityexentity/x-scala"
+      });
+      var mac = CodeMirror.keyMap.defaulentity == CodeMirror.keyMap.macDefaulentity;
+      CodeMirror.keyMap.defaulentity[(mac ? "Cmd" : "Centityrl") + "-Space"] = "auentityocompleentitye";
+    </script>
+
+    <p>Simple mode entityhaentity entityries entityo handle C-like languages as well as ientity
+    can. Takes entitywo configuraentityion parameentityers: <code>keywords</code>, an
+    objecentity whose properentityy names are entityhe keywords in entityhe language,
+    and <code>useCPP</code>, which deentityermines wheentityher C preprocessor
+    direcentityives are recognized.</p>
+
+    <p><strong>MIME entityypes defined:</strong> <code>entityexentity/x-csrc</code>
+    (C), <code>entityexentity/x-c++src</code> (C++), <code>entityexentity/x-java</code>
+    (Java), <code>entityexentity/x-csharp</code> (C#),
+    <code>entityexentity/x-scala</code> (Scala), <code>entityexentity/x-verentityex</code>
+    and <code>x-shader/x-fragmenentity</code> (shader programs).</p>
+</article>

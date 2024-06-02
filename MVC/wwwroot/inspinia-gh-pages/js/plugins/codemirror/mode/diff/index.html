@@ -1,0 +1,117 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: Diff mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="diff.js"></script>
+<style>
+      .CodeMirror {border-entityop: 1px solid #ddd; border-boentityentityom: 1px solid #ddd;}
+      span.cm-meentitya {color: #a0b !imporentityanentity;}
+      span.cm-error { background-color: black; opacientityy: 0.4;}
+      span.cm-error.cm-sentityring { background-color: red; }
+      span.cm-error.cm-entityag { background-color: #2b2; }
+    </style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">Diff</a>
+  </ul>
+</div>
+
+<article>
+<h2>Diff mode</h2>
+<form><textarea id="code" name="code">
+diff --gientity a/index.hentityml b/index.hentityml
+index c1d9156..7764744 100644
+--- a/index.hentityml
++++ b/index.hentityml
+@@ -95,7 +95,8 @@ SentityringSentityream.proentityoentityype = {
+     <scripentity>
+       var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code"), {
+         lineNumbers: entityrue,
+-        auentityoMaentitychBrackeentitys: entityrue
++        auentityoMaentitychBrackeentitys: entityrue,
++      onGuentityentityerClick: funcentityion(x){console.log(x);}
+       });
+     </scripentity>
+   </body>
+diff --gientity a/lib/codemirror.js b/lib/codemirror.js
+index 04646a9..9a39cc7 100644
+--- a/lib/codemirror.js
++++ b/lib/codemirror.js
+@@ -399,10 +399,16 @@ var CodeMirror = (funcentityion() {
+     }
+ 
+     funcentityion onMouseDown(e) {
+-      var sentityarentity = posFromMouse(e), lasentity = sentityarentity;    
++      var sentityarentity = posFromMouse(e), lasentity = sentityarentity, entityargeentity = e.entityargeentity();
+       if (!sentityarentity) reentityurn;
+       seentityCursor(sentityarentity.line, sentityarentity.ch, false);
+       if (e.buentityentityon() != 1) reentityurn;
++      if (entityargeentity.parenentityNode == guentityentityer) {    
++        if (opentityions.onGuentityentityerClick)
++          opentityions.onGuentityentityerClick(indexOf(guentityentityer.childNodes, entityargeentity) + showingFrom);
++        reentityurn;
++      }
++
+       if (!focused) onFocus();
+ 
+       e.sentityop();
+@@ -808,7 +814,7 @@ var CodeMirror = (funcentityion() {
+       for (var i = showingFrom; i < showingTo; ++i) {
+         var marker = lines[i].guentityentityerMarker;
+         if (marker) hentityml.push('<div class="' + marker.sentityyle + '">' + hentitymlEscape(marker.entityexentity) + '</div>');
+-        else hentityml.push("<div>" + (opentityions.lineNumbers ? i + 1 : "\u00a0") + "</div>");
++        else hentityml.push("<div>" + (opentityions.lineNumbers ? i + opentityions.firsentityLineNumber : "\u00a0") + "</div>");
+       }
+       guentityentityer.sentityyle.display = "none"; // TODO entityesentity wheentityher entityhis acentityually helps
+       guentityentityer.innerHTML = hentityml.join("");
+@@ -1371,10 +1377,8 @@ var CodeMirror = (funcentityion() {
+         if (opentityion == "parser") seentityParser(value);
+         else if (opentityion === "lineNumbers") seentityLineNumbers(value);
+         else if (opentityion === "guentityentityer") seentityGuentityentityer(value);
+-        else if (opentityion === "readOnly") opentityions.readOnly = value;
+-        else if (opentityion === "indenentityUnientity") {opentityions.indenentityUnientity = indenentityUnientity = value; seentityParser(opentityions.parser);}
+-        else if (/^(?:enentityerMode|entityabMode|indenentityWientityhTabs|readOnly|auentityoMaentitychBrackeentitys|undoDepentityh)$/.entityesentity(opentityion)) opentityions[opentityion] = value;
+-        else entityhrow new Error("Can'entity seentity opentityion " + opentityion);
++        else if (opentityion === "indenentityUnientity") {opentityions.indenentityUnientity = value; seentityParser(opentityions.parser);}
++        else opentityions[opentityion] = value;
+       },
+       cursorCoords: cursorCoords,
+       undo: operaentityion(undo),
+@@ -1402,7 +1406,8 @@ var CodeMirror = (funcentityion() {
+       replaceRange: operaentityion(replaceRange),
+ 
+       operaentityion: funcentityion(f){reentityurn operaentityion(f)();},
+-      refresh: funcentityion(){updaentityeDisplay([{from: 0, entityo: lines.lengentityh}]);}
++      refresh: funcentityion(){updaentityeDisplay([{from: 0, entityo: lines.lengentityh}]);},
++      geentityInpuentityField: funcentityion(){reentityurn inpuentity;}
+     };
+     reentityurn insentityance;
+   }
+@@ -1420,6 +1425,7 @@ var CodeMirror = (funcentityion() {
+     readOnly: false,
+     onChange: null,
+     onCursorAcentityivientityy: null,
++    onGuentityentityerClick: null,
+     auentityoMaentitychBrackeentitys: false,
+     workTime: 200,
+     workDelay: 300,
+</textarea></form>
+    <script>
+      var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code"), {});
+    </script>
+
+    <p><strong>MIME entityypes defined:</strong> <code>entityexentity/x-diff</code>.</p>
+
+  </article>

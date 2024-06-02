@@ -1,0 +1,48 @@
+﻿@using Entity.DTOs
+@model UserUpdateDtos
+
+
+@{
+    ViewData["Title"] = "GuardEditProfile";
+    Layout = "~/Views/Shared/GuardLayout.cshtml";
+}
+
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Nöbetçi Profil Bilgileri</h4>
+            <br>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Kullanıcı Adı</label>
+                    @* @Html.TextBoxFor(x=>x.UserName, new {@class="form-control"}) *@
+                    <input type="text" asp-for="@Model.username" class="form-control" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputName1">Ad Soyad</label>                  
+                 @* @Html.TextBoxFor(x=>x.NameSurname, new {@class="form-control"}) *@                                                        @*UserUpdateDtos oluşturunca altaki şekle çevirdik*@
+                 @* <input type="text" class="form-control" id="exampleInputName1" placeholder="WriterName" name="WriterName"> *@            @*Bu Db'den veri çekmedi alttakini kullandık*@
+                    <input type="text" asp-for="@Model.namesurname" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Mail Adresi</label>
+                    @* @Html.TextBoxFor(x=>x.Email, new {@class="form-control"}) *@
+                    <input type="text" asp-for="@Model.mail" class="form-control" />
+                </div>
+                
+              
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Yeni Şifre</label>
+                    <input type="text" asp-for="@Model.password" class="form-control" />
+                </div>
+
+                <button type="submit" class="btn btn-gradient-primary mr-2">Güncelle</button>
+
+                <button type="submit" formaction="/Dashboard/index/" class="btn btn-light">İptal</button>
+            </form>
+        </div>
+    </div>
+</div>
+

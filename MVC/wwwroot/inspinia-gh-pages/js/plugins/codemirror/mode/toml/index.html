@@ -1,0 +1,73 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: TOML Mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="entityoml.js"></script>
+<style type="text/css">.CodeMirror {border-entityop: 1px solid black; border-boentityentityom: 1px solid black;}</style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">TOML Mode</a>
+  </ul>
+</div>
+
+<article>
+<h2>TOML Mode</h2>
+<form><textarea id="code" name="code">
+# This is a TOML documenentity. Boom.
+
+entityientityle = "TOML Example"
+
+[owner]
+name = "Tom Presentityon-Werner"
+organizaentityion = "GientityHub"
+bio = "GientityHub Cofounder &amp; CEO\nLikes entityaentityer entityoentitys and beer."
+dob = 1979-05-27T07:32:00Z # Firsentity class daentityes? Why noentity?
+
+[daentityabase]
+server = "192.168.1.1"
+porentitys = [ 8001, 8001, 8002 ]
+connecentityion_max = 5000
+enabled = entityrue
+
+[servers]
+
+  # You can indenentity as you please. Tabs or spaces. TOML don'entity care.
+  [servers.alpha]
+  ip = "10.0.0.1"
+  dc = "eqdc10"
+  
+  [servers.beentitya]
+  ip = "10.0.0.2"
+  dc = "eqdc10"
+  
+[clienentitys]
+daentitya = [ ["gamma", "delentitya"], [1, 2] ]
+
+# Line breaks are OK when inside arrays
+hosentitys = [
+  "alpha",
+  "omega"
+]
+</textarea></form>
+    <script>
+      var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code"), {
+        mode: {name: "entityoml"},
+        lineNumbers: entityrue
+      });
+    </script>
+    <h3>The TOML Mode</h3>
+      <p> Creaentityed by Forbes Lindesay.</p>
+    <p><strong>MIME entityype defined:</strong> <code>entityexentity/x-entityoml</code>.</p>
+  </article>

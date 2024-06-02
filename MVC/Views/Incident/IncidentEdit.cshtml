@@ -1,0 +1,25 @@
+﻿@model Entity.Incident
+
+@{
+    ViewData["Title"] = "IncidentEdit";
+    Layout = "~/Views/Shared/GuardLayout.cshtml";
+}
+
+<h1>IncidentEdit</h1>
+
+
+@using (Html.BeginForm("IncidentEdit", "Incident", FormMethod.Post))  //Actionismi, COntrollerismi, Formmetotismi
+{
+    @Html.HiddenFor(x=>x.IncidentId)
+    @Html.Label("Olay Başlığı")
+    @Html.TextBoxFor(x => x.IncidentName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Nöbet Adı")
+    @Html.DropDownListFor(x => x.ShiftId, (List<SelectListItem>)ViewBag.cv, new { @class = "form-control" })
+    <br />
+    @Html.Label("Olay İçeriği")
+    @Html.TextAreaFor(x => x.Description, 10, 30, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+
+}

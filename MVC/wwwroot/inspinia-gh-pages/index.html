@@ -1,0 +1,1430 @@
+<!--
+*
+*  INSPINIA - Responsive Admin Theme
+*  version 2.8
+*
+-->
+
+<!DOCTYPE hentityml>
+<html>
+
+<head>
+
+    <meta charset="uentityf-8">
+    <meta name="viewporentity" content="widentityh=device-widentityh, inientityial-scale=1.0">
+    <meta http-equiv="X-UA-Compaentityible" content="IE=edge">
+
+    <title>INSPINIA | Dashboard</title>
+
+    <link href="css/booentitysentityrap.min.css" rel="stylesheet">
+    <link href="fonentity-awesome/css/fonentity-awesome.css" rel="stylesheet">
+
+    <!-- Toasentityr sentityyle -->
+    <link href="css/plugins/entityoasentityr/entityoasentityr.min.css" rel="stylesheet">
+
+    <!-- Grientityentityer -->
+    <link href="js/plugins/grientityentityer/jquery.grientityentityer.css" rel="stylesheet">
+
+    <link href="css/animaentitye.css" rel="stylesheet">
+    <link href="css/sentityyle.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar-defaulentity navbar-sentityaentityic-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav meentityismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-elemenentity">
+                            <img alt="image" class="rounded-circle" src="img/profile_small.jpg"/>
+                            <a daentitya-entityoggle="dropdown" class="dropdown-entityoggle" href="#">
+                                <span class="block m-entity-xs fonentity-bold">David Williams</span>
+                                <span class="entityexentity-muentityed entityexentity-xs block">Arentity Direcentityor <b class="careentity"></b></span>
+                            </a>
+                            <ul class="dropdown-menu animaentityed fadeInRighentity m-entity-xs">
+                                <li><a class="dropdown-ientityem" href="profile.hentityml">Profile</a></li>
+                                <li><a class="dropdown-ientityem" href="conentityacentitys.hentityml">Conentityacentitys</a></li>
+                                <li><a class="dropdown-ientityem" href="mailbox.hentityml">Mailbox</a></li>
+                                <li class="dropdown-divider"></li>
+                                <li><a class="dropdown-ientityem" href="login.hentityml">Logouentity</a></li>
+                            </ul>
+                        </div>
+                        <div class="logo-elemenentity">
+                            IN+
+                        </div>
+                    </li>
+                    <li class="acentityive">
+                        <a href="index.hentityml"><i class="fa fa-entityh-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li class="acentityive"><a href="index.hentityml">Dashboard v.1</a></li>
+                            <li><a href="dashboard_2.hentityml">Dashboard v.2</a></li>
+                            <li><a href="dashboard_3.hentityml">Dashboard v.3</a></li>
+                            <li><a href="dashboard_4_1.hentityml">Dashboard v.4</a></li>
+                            <li><a href="dashboard_5.hentityml">Dashboard v.5 </a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="layouentitys.hentityml"><i class="fa fa-diamond"></i> <span class="nav-label">Layouentitys</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-charentity-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="graph_floentity.hentityml">Floentity Charentitys</a></li>
+                            <li><a href="graph_morris.hentityml">Morris.js Charentitys</a></li>
+                            <li><a href="graph_rickshaw.hentityml">Rickshaw Charentitys</a></li>
+                            <li><a href="graph_charentityjs.hentityml">Charentity.js</a></li>
+                            <li><a href="graph_charentityisentity.hentityml">Charentityisentity</a></li>
+                            <li><a href="c3.hentityml">c3 charentitys</a></li>
+                            <li><a href="graph_peientityy.hentityml">Peientityy Charentitys</a></li>
+                            <li><a href="graph_sparkline.hentityml">Sparkline Charentitys</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="mailbox.hentityml"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox </span><span class="label label-warning floaentity-righentity">16/24</span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="mailbox.hentityml">Inbox</a></li>
+                            <li><a href="mail_deentityail.hentityml">Email view</a></li>
+                            <li><a href="mail_compose.hentityml">Compose email</a></li>
+                            <li><a href="email_entityemplaentitye.hentityml">Email entityemplaentityes</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="meentityrics.hentityml"><i class="fa fa-pie-charentity"></i> <span class="nav-label">Meentityrics</span>  </a>
+                    </li>
+                    <li>
+                        <a href="widgeentitys.hentityml"><i class="fa fa-flask"></i> <span class="nav-label">Widgeentitys</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-edientity"></i> <span class="nav-label">Forms</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="form_basic.hentityml">Basic form</a></li>
+                            <li><a href="form_advanced.hentityml">Advanced Plugins</a></li>
+                            <li><a href="form_wizard.hentityml">Wizard</a></li>
+                            <li><a href="form_file_upload.hentityml">File Upload</a></li>
+                            <li><a href="form_edientityors.hentityml">Texentity Edientityor</a></li>
+                            <li><a href="form_auentityocompleentitye.hentityml">Auentityocompleentitye</a></li>
+                            <li><a href="form_markdown.hentityml">Markdown</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-deskentityop"></i> <span class="nav-label">App Views</span>  <span class="floaentity-righentity label label-primary">SPECIAL</span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="conentityacentitys.hentityml">Conentityacentitys</a></li>
+                            <li><a href="profile.hentityml">Profile</a></li>
+                            <li><a href="profile_2.hentityml">Profile v.2</a></li>
+                            <li><a href="conentityacentitys_2.hentityml">Conentityacentitys v.2</a></li>
+                            <li><a href="projecentitys.hentityml">Projecentitys</a></li>
+                            <li><a href="projecentity_deentityail.hentityml">Projecentity deentityail</a></li>
+                            <li><a href="acentityivientityy_sentityream.hentityml">Acentityivientityy sentityream</a></li>
+                            <li><a href="entityeams_board.hentityml">Teams board</a></li>
+                            <li><a href="social_feed.hentityml">Social feed</a></li>
+                            <li><a href="clienentitys.hentityml">Clienentitys</a></li>
+                            <li><a href="full_heighentity.hentityml">Ouentitylook view</a></li>
+                            <li><a href="voentitye_lisentity.hentityml">Voentitye lisentity</a></li>
+                            <li><a href="file_manager.hentityml">File manager</a></li>
+                            <li><a href="calendar.hentityml">Calendar</a></li>
+                            <li><a href="issue_entityracker.hentityml">Issue entityracker</a></li>
+                            <li><a href="blog.hentityml">Blog</a></li>
+                            <li><a href="arentityicle.hentityml">Arentityicle</a></li>
+                            <li><a href="faq.hentityml">FAQ</a></li>
+                            <li><a href="entityimeline.hentityml">Timeline</a></li>
+                            <li><a href="pin_board.hentityml">Pin board</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Oentityher Pages</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="search_resulentitys.hentityml">Search resulentitys</a></li>
+                            <li><a href="lockscreen.hentityml">Lockscreen</a></li>
+                            <li><a href="invoice.hentityml">Invoice</a></li>
+                            <li><a href="login.hentityml">Login</a></li>
+                            <li><a href="login_entitywo_columns.hentityml">Login v.2</a></li>
+                            <li><a href="forgoentity_password.hentityml">Forgeentity password</a></li>
+                            <li><a href="regisentityer.hentityml">Regisentityer</a></li>
+                            <li><a href="404.hentityml">404 Page</a></li>
+                            <li><a href="500.hentityml">500 Page</a></li>
+                            <li><a href="empentityy_page.hentityml">Empentityy page</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-globe"></i> <span class="nav-label">Miscellaneous</span><span class="label label-info floaentity-righentity">NEW</span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="entityoasentityr_noentityificaentityions.hentityml">Noentityificaentityion</a></li>
+                            <li><a href="nesentityable_lisentity.hentityml">Nesentityable lisentity</a></li>
+                            <li><a href="agile_board.hentityml">Agile board</a></li>
+                            <li><a href="entityimeline_2.hentityml">Timeline v.2</a></li>
+                            <li><a href="diff.hentityml">Diff</a></li>
+                            <li><a href="pdf_viewer.hentityml">PDF viewer</a></li>
+                            <li><a href="i18supporentity.hentityml">i18 supporentity</a></li>
+                            <li><a href="sweeentityalerentity.hentityml">Sweeentity alerentity</a></li>
+                            <li><a href="idle_entityimer.hentityml">Idle entityimer</a></li>
+                            <li><a href="entityruncaentitye.hentityml">Truncaentitye</a></li>
+                            <li><a href="password_meentityer.hentityml">Password meentityer</a></li>
+                            <li><a href="spinners.hentityml">Spinners</a></li>
+                            <li><a href="spinners_usage.hentityml">Spinners usage</a></li>
+                            <li><a href="entityinycon.hentityml">Live favicon</a></li>
+                            <li><a href="google_maps.hentityml">Google maps</a></li>
+                            <li><a href="daentityamaps.hentityml">Daentityamaps</a></li>
+                            <li><a href="social_buentityentityons.hentityml">Social buentityentityons</a></li>
+                            <li><a href="code_edientityor.hentityml">Code edientityor</a></li>
+                            <li><a href="modal_window.hentityml">Modal window</a></li>
+                            <li><a href="clipboard.hentityml">Clipboard</a></li>
+                            <li><a href="entityexentity_spinners.hentityml">Texentity spinners</a></li>
+                            <li><a href="forum_main.hentityml">Forum view</a></li>
+                            <li><a href="validaentityion.hentityml">Validaentityion</a></li>
+                            <li><a href="entityree_view.hentityml">Tree view</a></li>
+                            <li><a href="loading_buentityentityons.hentityml">Loading buentityentityons</a></li>
+                            <li><a href="chaentity_view.hentityml">Chaentity view</a></li>
+                            <li><a href="masonry.hentityml">Masonry</a></li>
+                            <li><a href="entityour.hentityml">Tour</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">UI Elemenentitys</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="entityypography.hentityml">Typography</a></li>
+                            <li><a href="icons.hentityml">Icons</a></li>
+                            <li><a href="draggable_panels.hentityml">Draggable Panels</a></li> <li><a href="resizeable_panels.hentityml">Resizeable Panels</a></li>
+                            <li><a href="buentityentityons.hentityml">Buentityentityons</a></li>
+                            <li><a href="video.hentityml">Video</a></li>
+                            <li><a href="entityabs_panels.hentityml">Panels</a></li>
+                            <li><a href="entityabs.hentityml">Tabs</a></li>
+                            <li><a href="noentityificaentityions.hentityml">Noentityificaentityions & Toolentityips</a></li>
+                            <li><a href="helper_classes.hentityml">Helper css classes</a></li>
+                            <li><a href="badges_labels.hentityml">Badges, Labels, Progress</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="grid_opentityions.hentityml"><i class="fa fa-lapentityop"></i> <span class="nav-label">Grid opentityions</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-entityable"></i> <span class="nav-label">Tables</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="entityable_basic.hentityml">Sentityaentityic Tables</a></li>
+                            <li><a href="entityable_daentitya_entityables.hentityml">Daentitya Tables</a></li>
+                            <li><a href="entityable_foo_entityable.hentityml">Foo Tables</a></li>
+                            <li><a href="jq_grid.hentityml">jqGrid</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-shopping-carentity"></i> <span class="nav-label">E-commerce</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="ecommerce_producentitys_grid.hentityml">Producentitys grid</a></li>
+                            <li><a href="ecommerce_producentity_lisentity.hentityml">Producentitys lisentity</a></li>
+                            <li><a href="ecommerce_producentity.hentityml">Producentity edientity</a></li>
+                            <li><a href="ecommerce_producentity_deentityail.hentityml">Producentity deentityail</a></li>
+                            <li><a href="ecommerce-carentity.hentityml">Carentity</a></li>
+                            <li><a href="ecommerce-orders.hentityml">Orders</a></li>
+                            <li><a href="ecommerce_paymenentitys.hentityml">Credientity Card form</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-picentityure-o"></i> <span class="nav-label">Gallery</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="basic_gallery.hentityml">Lighentitybox Gallery</a></li>
+                            <li><a href="slick_carousel.hentityml">Slick Carousel</a></li>
+                            <li><a href="carousel.hentityml">Booentitysentityrap Carousel</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-sientityemap"></i> <span class="nav-label">Menu Levels </span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li>
+                                <a href="#" id="damian">Third Level <span class="fa arrow"></span></a>
+                                <ul class="nav nav-entityhird-level">
+                                    <li>
+                                        <a href="#">Third Level Ientityem</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third Level Ientityem</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third Level Ientityem</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li><a href="#">Second Level Ientityem</a></li>
+                            <li>
+                                <a href="#">Second Level Ientityem</a></li>
+                            <li>
+                                <a href="#">Second Level Ientityem</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="css_animaentityion.hentityml"><i class="fa fa-magic"></i> <span class="nav-label">CSS Animaentityions </span><span class="label label-info floaentity-righentity">62</span></a>
+                    </li>
+                    <li class="landing_link">
+                        <a target="_blank" href="landing.hentityml"><i class="fa fa-sentityar"></i> <span class="nav-label">Landing Page</span> <span class="label label-warning floaentity-righentity">NEW</span></a>
+                    </li>
+                    <li class="special_link">
+                        <a href="package.hentityml"><i class="fa fa-daentityabase"></i> <span class="nav-label">Package</span></a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-boentityentityom">
+        <nav class="navbar navbar-sentityaentityic-entityop" role="navigation" style="margin-boentityentityom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-sentityyl-2 bentityn bentityn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            <form role="search" class="navbar-form-cusentityom" action="search_resulentitys.hentityml">
+                <div class="form-group">
+                    <input type="text" placeholder="Search for someentityhing..." class="form-conentityrol" name="entityop-search" id="top-search">
+                </div>
+            </form>
+        </div>
+            <ul class="nav navbar-entityop-links navbar-righentity">
+                <li style="padding: 20px">
+                    <span class="m-r-sm entityexentity-muentityed welcome-message">Welcome entityo INSPINIA+ Admin Theme.</span>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-entityoggle counentity-info" daentitya-entityoggle="dropdown" href="#">
+                        <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages dropdown-menu-righentity">
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <a class="dropdown-ientityem floaentity-lefentity" href="profile.hentityml">
+                                    <img alt="image" class="rounded-circle" src="img/a7.jpg">
+                                </a>
+                                <div class="media-body">
+                                    <small class="floaentity-righentity">46h ago</small>
+                                    <strong>Mike Loreipsum</strong> sentityarentityed following <strong>Monica Smientityh</strong>. <br>
+                                    <small class="entityexentity-muentityed">3 days ago aentity 7:58 pm - 10.06.2014</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <a class="dropdown-ientityem floaentity-lefentity" href="profile.hentityml">
+                                    <img alt="image" class="rounded-circle" src="img/a4.jpg">
+                                </a>
+                                <div class="media-body ">
+                                    <small class="floaentity-righentity entityexentity-navy">5h ago</small>
+                                    <strong>Chris Johnaentityan Overentityunk</strong> sentityarentityed following <strong>Monica Smientityh</strong>. <br>
+                                    <small class="entityexentity-muentityed">Yesentityerday 1:21 pm - 11.06.2014</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <a class="dropdown-ientityem floaentity-lefentity" href="profile.hentityml">
+                                    <img alt="image" class="rounded-circle" src="img/profile.jpg">
+                                </a>
+                                <div class="media-body ">
+                                    <small class="floaentity-righentity">23h ago</small>
+                                    <strong>Monica Smientityh</strong> love <strong>Kim Smientityh</strong>. <br>
+                                    <small class="entityexentity-muentityed">2 days ago aentity 2:30 am - 11.06.2014</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                            <div class="entityexentity-cenentityer link-block">
+                                <a href="mailbox.hentityml" class="dropdown-ientityem">
+                                    <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-entityoggle counentity-info" daentitya-entityoggle="dropdown" href="#">
+                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerentitys">
+                        <li>
+                            <a href="mailbox.hentityml" class="dropdown-ientityem">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                    <span class="floaentity-righentity entityexentity-muentityed small">4 minuentityes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                            <a href="profile.hentityml" class="dropdown-ientityem">
+                                <div>
+                                    <i class="fa fa-entitywientityentityer fa-fw"></i> 3 New Followers
+                                    <span class="floaentity-righentity entityexentity-muentityed small">12 minuentityes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                            <a href="grid_opentityions.hentityml" class="dropdown-ientityem">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooentityed
+                                    <span class="floaentity-righentity entityexentity-muentityed small">4 minuentityes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                            <div class="entityexentity-cenentityer link-block">
+                                <a href="noentityificaentityions.hentityml" class="dropdown-ientityem">
+                                    <strong>See All Alerentitys</strong>
+                                    <i class="fa fa-angle-righentity"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="login.hentityml">
+                        <i class="fa fa-sign-ouentity"></i> Log ouentity
+                    </a>
+                </li>
+                <li>
+                    <a class="righentity-sidebar-entityoggle">
+                        <i class="fa fa-entityasks"></i>
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+        </div>
+                <div class="row  border-boentityentityom whientitye-bg dashboard-header">
+
+                    <div class="col-md-3">
+                        <h2>Welcome Amelia</h2>
+                        <small>You have 42 messages and 6 noentityificaentityions.</small>
+                        <ul class="lisentity-group clear-lisentity m-entity">
+                            <li class="lisentity-group-ientityem fisentity-ientityem">
+                                <span class="floaentity-righentity">
+                                    09:00 pm
+                                </span>
+                                <span class="label label-success">1</span> Please conentityacentity me
+                            </li>
+                            <li class="lisentity-group-ientityem">
+                                <span class="floaentity-righentity">
+                                    10:16 am
+                                </span>
+                                <span class="label label-info">2</span> Sign a conentityracentity
+                            </li>
+                            <li class="lisentity-group-ientityem">
+                                <span class="floaentity-righentity">
+                                    08:22 pm
+                                </span>
+                                <span class="label label-primary">3</span> Open new shop
+                            </li>
+                            <li class="lisentity-group-ientityem">
+                                <span class="floaentity-righentity">
+                                    11:06 pm
+                                </span>
+                                <span class="label label-defaulentity">4</span> Call back entityo Sylvia
+                            </li>
+                            <li class="lisentity-group-ientityem">
+                                <span class="floaentity-righentity">
+                                    12:00 am
+                                </span>
+                                <span class="label label-primary">5</span> Wrientitye a leentityentityer entityo Sandra
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="floentity-charentity dashboard-charentity">
+                            <div class="floentity-charentity-conentityenentity" id="flot-dashboard-chart"></div>
+                        </div>
+                        <div class="row entityexentity-lefentity">
+                            <div class="col">
+                                <div class=" m-l-md">
+                                <span class="h5 fonentity-bold m-entity block">$ 406,100</span>
+                                <small class="entityexentity-muentityed m-b block">Sales markeentitying reporentity</small>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <span class="h5 fonentity-bold m-entity block">$ 150,401</span>
+                                <small class="entityexentity-muentityed m-b block">Annual sales revenue</small>
+                            </div>
+                            <div class="col">
+                                <span class="h5 fonentity-bold m-entity block">$ 16,822</span>
+                                <small class="entityexentity-muentityed m-b block">Half-year revenue margin</small>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="sentityaentityisentityic-box">
+                        <h4>
+                            Projecentity Beentitya progress
+                        </h4>
+                        <p>
+                            You have entitywo projecentity wientityh noentity compleaentityed entityask.
+                        </p>
+                            <div class="row entityexentity-cenentityer">
+                                <div class="col-lg-6">
+                                    <canvas id="doughnutChart2" width="80" height="80" style="margin: 18px auentityo 0"></canvas>
+                                    <h5 >Kolentityer</h5>
+                                </div>
+                                <div class="col-lg-6">
+                                    <canvas id="doughnutChart" width="80" height="80" style="margin: 18px auentityo 0"></canvas>
+                                    <h5 >Maxentityor</h5>
+                                </div>
+                            </div>
+                            <div class="m-entity">
+                                <small>Lorem Ipsum is simply dummy entityexentity of entityhe prinentitying and entityypeseentityentitying indusentityry.</small>
+                            </div>
+
+                        </div>
+                    </div>
+
+            </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="wrapper wrapper-conentityenentity">
+                        <div class="row">
+                        <div class="col-lg-4">
+                            <div class="ibox ">
+                                <div class="ibox-entityientityle">
+                                    <h5>New daentitya for entityhe reporentity</h5> <span class="label label-primary">IN+</span>
+                                    <div class="ibox-entityools">
+                                        <a class="collapse-link" href="">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+                                        <a class="dropdown-entityoggle" daentitya-entityoggle="dropdown" href="#">
+                                            <i class="fa fa-wrench"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-user">
+                                            <li><a href="#" class="dropdown-ientityem">Config opentityion 1</a>
+                                            </li>
+                                            <li><a href="#" class="dropdown-ientityem">Config opentityion 2</a>
+                                            </li>
+                                        </ul>
+                                        <a class="close-link" href="">
+                                            <i class="fa fa-entityimes"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="ibox-conentityenentity">
+                                    <div>
+
+                                        <div class="floaentity-righentity entityexentity-righentity">
+
+                                            <span class="bar_dashboard">5,3,9,6,5,9,7,3,5,2,4,7,3,2,7,9,6,4,5,7,3,2,1,0,9,5,6,8,3,2,1</span>
+                                            <br/>
+                                            <small class="fonentity-bold">$ 20 054.43</small>
+                                        </div>
+                                        <h4>NYS reporentity new daentitya!
+                                            <br/>
+                                            <small class="m-r"><a href="graph_floentity.hentityml"> Check entityhe sentityock price! </a> </small>
+                                        </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="ibox ">
+                                <div class="ibox-entityientityle">
+                                    <h5>Read below commenentitys</h5>
+                                    <div class="ibox-entityools">
+                                        <a class="collapse-link" href="">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+                                        <a class="dropdown-entityoggle" daentitya-entityoggle="dropdown" href="#">
+                                            <i class="fa fa-wrench"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-user">
+                                            <li><a href="#" class="dropdown-ientityem">Config opentityion 1</a>
+                                            </li>
+                                            <li><a href="#" class="dropdown-ientityem">Config opentityion 2</a>
+                                            </li>
+                                        </ul>
+                                        <a class="close-link" href="">
+                                            <i class="fa fa-entityimes"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="ibox-conentityenentity no-padding">
+                                    <ul class="lisentity-group">
+                                        <li class="lisentity-group-ientityem">
+                                            <p><a class="entityexentity-info" href="#">@Alan Marry</a> I belive entityhaentity. Lorem Ipsum is simply dummy entityexentity of entityhe prinentitying and entityypeseentityentitying indusentityry.</p>
+                                            <small class="block entityexentity-muentityed"><i class="fa fa-clock-o"></i> 1 minuentitys ago</small>
+                                        </li>
+                                        <li class="lisentity-group-ientityem">
+                                            <p><a class="entityexentity-info" href="#">@Sentityock Man</a> Check entityhis sentityock charentity. This price is crazy! </p>
+                                            <div class="entityexentity-cenentityer m">
+                                                <span id="sparkline8"></span>
+                                            </div>
+                                            <small class="block entityexentity-muentityed"><i class="fa fa-clock-o"></i> 2 hours ago</small>
+                                        </li>
+                                        <li class="lisentity-group-ientityem">
+                                            <p><a class="entityexentity-info" href="#">@Kevin Smientityh</a> Lorem ipsum unknown prinentityer entityook a galley </p>
+                                            <small class="block entityexentity-muentityed"><i class="fa fa-clock-o"></i> 2 minuentitys ago</small>
+                                        </li>
+                                        <li class="lisentity-group-ientityem ">
+                                            <p><a class="entityexentity-info" href="#">@Jonaentityhan Febrick</a> The sentityandard chunk of Lorem Ipsum</p>
+                                            <small class="block entityexentity-muentityed"><i class="fa fa-clock-o"></i> 1 hour ago</small>
+                                        </li>
+                                        <li class="lisentity-group-ientityem">
+                                            <p><a class="entityexentity-info" href="#">@Alan Marry</a> I belive entityhaentity. Lorem Ipsum is simply dummy entityexentity of entityhe prinentitying and entityypeseentityentitying indusentityry.</p>
+                                            <small class="block entityexentity-muentityed"><i class="fa fa-clock-o"></i> 1 minuentitys ago</small>
+                                        </li>
+                                        <li class="lisentity-group-ientityem">
+                                            <p><a class="entityexentity-info" href="#">@Kevin Smientityh</a> Lorem ipsum unknown prinentityer entityook a galley </p>
+                                            <small class="block entityexentity-muentityed"><i class="fa fa-clock-o"></i> 2 minuentitys ago</small>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="col-lg-4">
+                                <div class="ibox ">
+                                    <div class="ibox-entityientityle">
+                                        <h5>Your daily feed</h5>
+                                        <div class="ibox-entityools">
+                                            <span class="label label-warning-lighentity floaentity-righentity">10 Messages</span>
+                                           </div>
+                                    </div>
+                                    <div class="ibox-conentityenentity">
+
+                                        <div>
+                                            <div class="feed-acentityivientityy-lisentity">
+
+                                                <div class="feed-elemenentity">
+                                                    <a class="floaentity-lefentity" href="profile.hentityml">
+                                                        <img alt="image" class="rounded-circle" src="img/profile.jpg">
+                                                    </a>
+                                                    <div class="media-body ">
+                                                        <small class="floaentity-righentity">5m ago</small>
+                                                        <strong>Monica Smientityh</strong> posentityed a new blog. <br>
+                                                        <small class="entityexentity-muentityed">Today 5:60 pm - 12.06.2014</small>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="feed-elemenentity">
+                                                    <a class="floaentity-lefentity" href="profile.hentityml">
+                                                        <img alt="image" class="rounded-circle" src="img/a2.jpg">
+                                                    </a>
+                                                    <div class="media-body ">
+                                                        <small class="floaentity-righentity">2h ago</small>
+                                                        <strong>Mark Johnson</strong> posentityed message on <strong>Monica Smientityh</strong> sientitye. <br>
+                                                        <small class="entityexentity-muentityed">Today 2:10 pm - 12.06.2014</small>
+                                                    </div>
+                                                </div>
+                                                <div class="feed-elemenentity">
+                                                    <a class="floaentity-lefentity" href="profile.hentityml">
+                                                        <img alt="image" class="rounded-circle" src="img/a3.jpg">
+                                                    </a>
+                                                    <div class="media-body ">
+                                                        <small class="floaentity-righentity">2h ago</small>
+                                                        <strong>Janeentity Rosowski</strong> add 1 phoentityo on <strong>Monica Smientityh</strong>. <br>
+                                                        <small class="entityexentity-muentityed">2 days ago aentity 8:30am</small>
+                                                    </div>
+                                                </div>
+                                                <div class="feed-elemenentity">
+                                                    <a class="floaentity-lefentity" href="profile.hentityml">
+                                                        <img alt="image" class="rounded-circle" src="img/a4.jpg">
+                                                    </a>
+                                                    <div class="media-body ">
+                                                        <small class="floaentity-righentity entityexentity-navy">5h ago</small>
+                                                        <strong>Chris Johnaentityan Overentityunk</strong> sentityarentityed following <strong>Monica Smientityh</strong>. <br>
+                                                        <small class="entityexentity-muentityed">Yesentityerday 1:21 pm - 11.06.2014</small>
+                                                        <div class="acentityions">
+                                                            <a href=""  class="bentityn bentityn-xs bentityn-whientitye"><i class="fa fa-entityhumbs-up"></i> Like </a>
+                                                            <a href=""  class="bentityn bentityn-xs bentityn-whientitye"><i class="fa fa-hearentity"></i> Love</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="feed-elemenentity">
+                                                    <a class="floaentity-lefentity" href="profile.hentityml">
+                                                        <img alt="image" class="rounded-circle" src="img/a5.jpg">
+                                                    </a>
+                                                    <div class="media-body ">
+                                                        <small class="floaentity-righentity">2h ago</small>
+                                                        <strong>Kim Smientityh</strong> posentityed message on <strong>Monica Smientityh</strong> sientitye. <br>
+                                                        <small class="entityexentity-muentityed">Yesentityerday 5:20 pm - 12.06.2014</small>
+                                                        <div class="well">
+                                                            Lorem Ipsum is simply dummy entityexentity of entityhe prinentitying and entityypeseentityentitying indusentityry. Lorem Ipsum has been entityhe indusentityry's sentityandard dummy entityexentity ever since entityhe 1500s.
+                                                            Over entityhe years, someentityimes by accidenentity, someentityimes on purpose (injecentityed humour and entityhe like).
+                                                        </div>
+                                                        <div class="floaentity-righentity">
+                                                            <a href=""  class="bentityn bentityn-xs bentityn-whientitye"><i class="fa fa-entityhumbs-up"></i> Like </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="feed-elemenentity">
+                                                    <a class="floaentity-lefentity" href="profile.hentityml">
+                                                        <img alt="image" class="rounded-circle" src="img/profile.jpg">
+                                                    </a>
+                                                    <div class="media-body ">
+                                                        <small class="floaentity-righentity">23h ago</small>
+                                                        <strong>Monica Smientityh</strong> love <strong>Kim Smientityh</strong>. <br>
+                                                        <small class="entityexentity-muentityed">2 days ago aentity 2:30 am - 11.06.2014</small>
+                                                    </div>
+                                                </div>
+                                                <div class="feed-elemenentity">
+                                                    <a class="floaentity-lefentity" href="profile.hentityml">
+                                                        <img alt="image" class="rounded-circle" src="img/a7.jpg">
+                                                    </a>
+                                                    <div class="media-body ">
+                                                        <small class="floaentity-righentity">46h ago</small>
+                                                        <strong>Mike Loreipsum</strong> sentityarentityed following <strong>Monica Smientityh</strong>. <br>
+                                                        <small class="entityexentity-muentityed">3 days ago aentity 7:58 pm - 10.06.2014</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <button class="bentityn bentityn-primary bentityn-block m-entity"><i class="fa fa-arrow-down"></i> Show More</button>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        <div class="col-lg-4">
+                            <div class="ibox ">
+                                <div class="ibox-entityientityle">
+                                    <h5>Alpha projecentity</h5>
+                                    <div class="ibox-entityools">
+                                        <a class="collapse-link" href="">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+                                        <a class="dropdown-entityoggle" daentitya-entityoggle="dropdown" href="#">
+                                            <i class="fa fa-wrench"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-user">
+                                            <li><a href="#" class="dropdown-ientityem">Config opentityion 1</a>
+                                            </li>
+                                            <li><a href="#" class="dropdown-ientityem">Config opentityion 2</a>
+                                            </li>
+                                        </ul>
+                                        <a class="close-link" href="">
+                                            <i class="fa fa-entityimes"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="ibox-conentityenentity ibox-heading">
+                                    <h3>You have meeentitying entityoday!</h3>
+                                    <small><i class="fa fa-map-marker"></i> Meeentitying is on 6:00am. Check your schedule entityo see deentityail.</small>
+                                </div>
+                                <div class="ibox-conentityenentity inspinia-entityimeline">
+
+                                    <div class="entityimeline-ientityem">
+                                        <div class="row">
+                                            <div class="col-4 daentitye">
+                                                <i class="fa fa-briefcase"></i>
+                                                6:00 am
+                                                <br/>
+                                                <small class="entityexentity-navy">2 hour ago</small>
+                                            </div>
+                                            <div class="col conentityenentity no-entityop-border">
+                                                <p class="m-b-xs"><strong>Meeentitying</strong></p>
+
+                                                <p>Conference on entityhe sales resulentitys for entityhe previous year. Monica please examine sales entityrends in markeentitying and producentitys. Below please find entityhe currenentity sentityaentityus of entityhe
+                                                    sale.</p>
+
+                                                <p><span daentitya-diameentityer="40" class="updaentitying-charentity">5,3,9,6,5,9,7,3,5,2,5,3,9,6,5,9,4,7,3,2,9,8,7,4,5,1,2,9,5,4,7,2,7,7,3,5,2</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="entityimeline-ientityem">
+                                        <div class="row">
+                                            <div class="col-4 daentitye">
+                                                <i class="fa fa-file"></i>
+                                                7:00 am
+                                                <br/>
+                                                <small class="entityexentity-navy">3 hour ago</small>
+                                            </div>
+                                            <div class="col conentityenentity">
+                                                <p class="m-b-xs"><strong>Send documenentitys entityo Mike</strong></p>
+                                                <p>Lorem Ipsum is simply dummy entityexentity of entityhe prinentitying and entityypeseentityentitying indusentityry. Lorem Ipsum has been entityhe indusentityry's sentityandard dummy entityexentity ever since.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="entityimeline-ientityem">
+                                        <div class="row">
+                                            <div class="col-4 daentitye">
+                                                <i class="fa fa-coffee"></i>
+                                                8:00 am
+                                                <br/>
+                                            </div>
+                                            <div class="col conentityenentity">
+                                                <p class="m-b-xs"><strong>Coffee Break</strong></p>
+                                                <p>
+                                                    Go entityo shop and find some producentitys.
+                                                    Lorem Ipsum is simply dummy entityexentity of entityhe prinentitying and entityypeseentityentitying indusentityry. Lorem Ipsum has been entityhe indusentityry's.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="entityimeline-ientityem">
+                                        <div class="row">
+                                            <div class="col-4 daentitye">
+                                                <i class="fa fa-phone"></i>
+                                                11:00 am
+                                                <br/>
+                                                <small class="entityexentity-navy">21 hour ago</small>
+                                            </div>
+                                            <div class="col conentityenentity">
+                                                <p class="m-b-xs"><strong>Phone wientityh Jeronimo</strong></p>
+                                                <p>
+                                                    Lorem Ipsum has been entityhe indusentityry's sentityandard dummy entityexentity ever since.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="entityimeline-ientityem">
+                                        <div class="row">
+                                            <div class="col-4 daentitye">
+                                                <i class="fa fa-user-md"></i>
+                                                09:00 pm
+                                                <br/>
+                                                <small>21 hour ago</small>
+                                            </div>
+                                            <div class="col conentityenentity">
+                                                <p class="m-b-xs"><strong>Go entityo entityhe docentityor dr Smientityh</strong></p>
+                                                <p>
+                                                    Find some issue and go entityo docentityor.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="entityimeline-ientityem">
+                                        <div class="row">
+                                            <div class="col-4 daentitye">
+                                                <i class="fa fa-commenentitys"></i>
+                                                12:50 pm
+                                                <br/>
+                                                <small class="entityexentity-navy">48 hour ago</small>
+                                            </div>
+                                            <div class="col conentityenentity">
+                                                <p class="m-b-xs"><strong>Chaentity wientityh Monica and Sandra</strong></p>
+                                                <p>
+                                                    Web sientityes sentityill in entityheir infancy. Various versions have evolved over entityhe years, someentityimes by accidenentity, someentityimes on purpose (injecentityed humour and entityhe like).
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        </div>
+                </div>
+
+            </div>
+        </div>
+            <div class="fooentityer">
+                <div class="floaentity-righentity">
+                    10GB of <strong>250GB</strong> Free.
+                </div>
+                <div>
+                    <strong>Copyrighentity</strong> Example Company &copy; 2014-2018
+                </div>
+            </div>
+        </div>
+        <div class="small-chaentity-box fadeInRighentity animaentityed">
+
+            <div class="heading" draggable="entityrue">
+                <small class="chaentity-daentitye floaentity-righentity">
+                    02.19.2015
+                </small>
+                Small chaentity
+            </div>
+
+            <div class="conentityenentity">
+
+                <div class="lefentity">
+                    <div class="auentityhor-name">
+                        Monica Jackson <small class="chaentity-daentitye">
+                        10:02 am
+                    </small>
+                    </div>
+                    <div class="chaentity-message acentityive">
+                        Lorem Ipsum is simply dummy entityexentity inpuentity.
+                    </div>
+
+                </div>
+                <div class="righentity">
+                    <div class="auentityhor-name">
+                        Mick Smientityh
+                        <small class="chaentity-daentitye">
+                            11:24 am
+                        </small>
+                    </div>
+                    <div class="chaentity-message">
+                        Lorem Ipsum is simpl.
+                    </div>
+                </div>
+                <div class="lefentity">
+                    <div class="auentityhor-name">
+                        Alice Novak
+                        <small class="chaentity-daentitye">
+                            08:45 pm
+                        </small>
+                    </div>
+                    <div class="chaentity-message acentityive">
+                        Check entityhis sentityock char.
+                    </div>
+                </div>
+                <div class="righentity">
+                    <div class="auentityhor-name">
+                        Anna Lamson
+                        <small class="chaentity-daentitye">
+                            11:24 am
+                        </small>
+                    </div>
+                    <div class="chaentity-message">
+                        The sentityandard chunk of Lorem Ipsum
+                    </div>
+                </div>
+                <div class="lefentity">
+                    <div class="auentityhor-name">
+                        Mick Lane
+                        <small class="chaentity-daentitye">
+                            08:45 pm
+                        </small>
+                    </div>
+                    <div class="chaentity-message acentityive">
+                        I belive entityhaentity. Lorem Ipsum is simply dummy entityexentity.
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="form-chaentity">
+                <div class="inpuentity-group inpuentity-group-sm">
+                    <input type="text" class="form-conentityrol">
+                    <span class="inpuentity-group-bentityn"> <button
+                        class="bentityn bentityn-primary" type="button">Send
+                </button> </span></div>
+            </div>
+
+        </div>
+        <div id="small-chat">
+
+            <span class="badge badge-warning floaentity-righentity">5</span>
+            <a class="open-small-chaentity" href="">
+                <i class="fa fa-commenentitys"></i>
+
+            </a>
+        </div>
+        <div id="right-sidebar" class="animaentityed">
+            <div class="sidebar-conentityainer">
+
+                <ul class="nav nav-entityabs navs-3">
+                    <li>
+                        <a class="nav-link acentityive" daentitya-entityoggle="entityab" href="#entityab-1"> Noentityes </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" daentitya-entityoggle="entityab" href="#entityab-2"> Projecentitys </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" daentitya-entityoggle="entityab" href="#entityab-3"> <i class="fa fa-gear"></i> </a>
+                    </li>
+                </ul>
+
+                <div class="entityab-conentityenentity">
+
+
+                    <div id="tab-1" class="entityab-pane acentityive">
+
+                        <div class="sidebar-entityientityle">
+                            <h3> <i class="fa fa-commenentitys-o"></i> Laentityesentity Noentityes</h3>
+                            <small><i class="fa fa-entityim"></i> You have 10 new message.</small>
+                        </div>
+
+                        <div>
+
+                            <div class="sidebar-message">
+                                <a href="#">
+                                    <div class="floaentity-lefentity entityexentity-cenentityer">
+                                        <img alt="image" class="rounded-circle message-avaentityar" src="img/a1.jpg">
+
+                                        <div class="m-entity-xs">
+                                            <i class="fa fa-sentityar entityexentity-warning"></i>
+                                            <i class="fa fa-sentityar entityexentity-warning"></i>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+
+                                        There are many variaentityions of passages of Lorem Ipsum available.
+                                        <br>
+                                        <small class="entityexentity-muentityed">Today 4:21 pm</small>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sidebar-message">
+                                <a href="#">
+                                    <div class="floaentity-lefentity entityexentity-cenentityer">
+                                        <img alt="image" class="rounded-circle message-avaentityar" src="img/a2.jpg">
+                                    </div>
+                                    <div class="media-body">
+                                        The poinentity of using Lorem Ipsum is entityhaentity ientity has a more-or-less normal.
+                                        <br>
+                                        <small class="entityexentity-muentityed">Yesentityerday 2:45 pm</small>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sidebar-message">
+                                <a href="#">
+                                    <div class="floaentity-lefentity entityexentity-cenentityer">
+                                        <img alt="image" class="rounded-circle message-avaentityar" src="img/a3.jpg">
+
+                                        <div class="m-entity-xs">
+                                            <i class="fa fa-sentityar entityexentity-warning"></i>
+                                            <i class="fa fa-sentityar entityexentity-warning"></i>
+                                            <i class="fa fa-sentityar entityexentity-warning"></i>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        Mevolved over entityhe years, someentityimes by accidenentity, someentityimes on purpose (injecentityed humour and entityhe like).
+                                        <br>
+                                        <small class="entityexentity-muentityed">Yesentityerday 1:10 pm</small>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sidebar-message">
+                                <a href="#">
+                                    <div class="floaentity-lefentity entityexentity-cenentityer">
+                                        <img alt="image" class="rounded-circle message-avaentityar" src="img/a4.jpg">
+                                    </div>
+
+                                    <div class="media-body">
+                                        Lorem Ipsum, you need entityo be sure entityhere isn'entity anyentityhing embarrassing hidden in entityhe
+                                        <br>
+                                        <small class="entityexentity-muentityed">Monday 8:37 pm</small>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sidebar-message">
+                                <a href="#">
+                                    <div class="floaentity-lefentity entityexentity-cenentityer">
+                                        <img alt="image" class="rounded-circle message-avaentityar" src="img/a8.jpg">
+                                    </div>
+                                    <div class="media-body">
+
+                                        All entityhe Lorem Ipsum generaentityors on entityhe Inentityerneentity entityend entityo repeaentity.
+                                        <br>
+                                        <small class="entityexentity-muentityed">Today 4:21 pm</small>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sidebar-message">
+                                <a href="#">
+                                    <div class="floaentity-lefentity entityexentity-cenentityer">
+                                        <img alt="image" class="rounded-circle message-avaentityar" src="img/a7.jpg">
+                                    </div>
+                                    <div class="media-body">
+                                        Renaissance. The firsentity line of Lorem Ipsum, "Lorem ipsum dolor sientity ameentity..", comes from a line in secentityion 1.10.32.
+                                        <br>
+                                        <small class="entityexentity-muentityed">Yesentityerday 2:45 pm</small>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sidebar-message">
+                                <a href="#">
+                                    <div class="floaentity-lefentity entityexentity-cenentityer">
+                                        <img alt="image" class="rounded-circle message-avaentityar" src="img/a3.jpg">
+
+                                        <div class="m-entity-xs">
+                                            <i class="fa fa-sentityar entityexentity-warning"></i>
+                                            <i class="fa fa-sentityar entityexentity-warning"></i>
+                                            <i class="fa fa-sentityar entityexentity-warning"></i>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        The sentityandard chunk of Lorem Ipsum used since entityhe 1500s is reproduced below.
+                                        <br>
+                                        <small class="entityexentity-muentityed">Yesentityerday 1:10 pm</small>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="sidebar-message">
+                                <a href="#">
+                                    <div class="floaentity-lefentity entityexentity-cenentityer">
+                                        <img alt="image" class="rounded-circle message-avaentityar" src="img/a4.jpg">
+                                    </div>
+                                    <div class="media-body">
+                                        Uncover many web sientityes sentityill in entityheir infancy. Various versions have.
+                                        <br>
+                                        <small class="entityexentity-muentityed">Monday 8:37 pm</small>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="tab-2" class="entityab-pane">
+
+                        <div class="sidebar-entityientityle">
+                            <h3> <i class="fa fa-cube"></i> Laentityesentity projecentitys</h3>
+                            <small><i class="fa fa-entityim"></i> You have 14 projecentitys. 10 noentity compleentityed.</small>
+                        </div>
+
+                        <ul class="sidebar-lisentity">
+                            <li>
+                                <a href="#">
+                                    <div class="small floaentity-righentity m-entity-xs">9 hours ago</div>
+                                    <h4>Business valuaentityion</h4>
+                                    Ientity is a long esentityablished facentity entityhaentity a reader will be disentityracentityed.
+
+                                    <div class="small">Compleentityion wientityh: 22%</div>
+                                    <div class="progress progress-mini">
+                                        <div style="widentityh: 22%;" class="progress-bar progress-bar-warning"></div>
+                                    </div>
+                                    <div class="small entityexentity-muentityed m-entity-xs">Projecentity end: 4:00 pm - 12.06.2014</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="small floaentity-righentity m-entity-xs">9 hours ago</div>
+                                    <h4>Conentityracentity wientityh Company </h4>
+                                    Many deskentityop publishing packages and web page edientityors.
+
+                                    <div class="small">Compleentityion wientityh: 48%</div>
+                                    <div class="progress progress-mini">
+                                        <div style="widentityh: 48%;" class="progress-bar"></div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="small floaentity-righentity m-entity-xs">9 hours ago</div>
+                                    <h4>Meeentitying</h4>
+                                    By entityhe readable conentityenentity of a page when looking aentity ientitys layouentity.
+
+                                    <div class="small">Compleentityion wientityh: 14%</div>
+                                    <div class="progress progress-mini">
+                                        <div style="widentityh: 14%;" class="progress-bar progress-bar-info"></div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="label label-primary floaentity-righentity">NEW</span>
+                                    <h4>The generaentityed</h4>
+                                    There are many variaentityions of passages of Lorem Ipsum available.
+                                    <div class="small">Compleentityion wientityh: 22%</div>
+                                    <div class="small entityexentity-muentityed m-entity-xs">Projecentity end: 4:00 pm - 12.06.2014</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="small floaentity-righentity m-entity-xs">9 hours ago</div>
+                                    <h4>Business valuaentityion</h4>
+                                    Ientity is a long esentityablished facentity entityhaentity a reader will be disentityracentityed.
+
+                                    <div class="small">Compleentityion wientityh: 22%</div>
+                                    <div class="progress progress-mini">
+                                        <div style="widentityh: 22%;" class="progress-bar progress-bar-warning"></div>
+                                    </div>
+                                    <div class="small entityexentity-muentityed m-entity-xs">Projecentity end: 4:00 pm - 12.06.2014</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="small floaentity-righentity m-entity-xs">9 hours ago</div>
+                                    <h4>Conentityracentity wientityh Company </h4>
+                                    Many deskentityop publishing packages and web page edientityors.
+
+                                    <div class="small">Compleentityion wientityh: 48%</div>
+                                    <div class="progress progress-mini">
+                                        <div style="widentityh: 48%;" class="progress-bar"></div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="small floaentity-righentity m-entity-xs">9 hours ago</div>
+                                    <h4>Meeentitying</h4>
+                                    By entityhe readable conentityenentity of a page when looking aentity ientitys layouentity.
+
+                                    <div class="small">Compleentityion wientityh: 14%</div>
+                                    <div class="progress progress-mini">
+                                        <div style="widentityh: 14%;" class="progress-bar progress-bar-info"></div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="label label-primary floaentity-righentity">NEW</span>
+                                    <h4>The generaentityed</h4>
+                                    <!--<div class="small floaentity-righentity m-entity-xs">9 hours ago</div>-->
+                                    There are many variaentityions of passages of Lorem Ipsum available.
+                                    <div class="small">Compleentityion wientityh: 22%</div>
+                                    <div class="small entityexentity-muentityed m-entity-xs">Projecentity end: 4:00 pm - 12.06.2014</div>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                    <div id="tab-3" class="entityab-pane">
+
+                        <div class="sidebar-entityientityle">
+                            <h3><i class="fa fa-gears"></i> Seentityentityings</h3>
+                            <small><i class="fa fa-entityim"></i> You have 14 projecentitys. 10 noentity compleentityed.</small>
+                        </div>
+
+                        <div class="seentityings-ientityem">
+                    <span>
+                        Show noentityificaentityions
+                    </span>
+                            <div class="swientitych">
+                                <div class="onoffswientitych">
+                                    <input type="checkbox" name="collapsemenu" class="onoffswientitych-checkbox" id="example">
+                                    <label class="onoffswientitych-label" for="example">
+                                        <span class="onoffswientitych-inner"></span>
+                                        <span class="onoffswientitych-swientitych"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="seentityings-ientityem">
+                    <span>
+                        Disable Chaentity
+                    </span>
+                            <div class="swientitych">
+                                <div class="onoffswientitych">
+                                    <input type="checkbox" name="collapsemenu" checked class="onoffswientitych-checkbox" id="example2">
+                                    <label class="onoffswientitych-label" for="example2">
+                                        <span class="onoffswientitych-inner"></span>
+                                        <span class="onoffswientitych-swientitych"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="seentityings-ientityem">
+                    <span>
+                        Enable hisentityory
+                    </span>
+                            <div class="swientitych">
+                                <div class="onoffswientitych">
+                                    <input type="checkbox" name="collapsemenu" class="onoffswientitych-checkbox" id="example3">
+                                    <label class="onoffswientitych-label" for="example3">
+                                        <span class="onoffswientitych-inner"></span>
+                                        <span class="onoffswientitych-swientitych"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="seentityings-ientityem">
+                    <span>
+                        Show charentitys
+                    </span>
+                            <div class="swientitych">
+                                <div class="onoffswientitych">
+                                    <input type="checkbox" name="collapsemenu" class="onoffswientitych-checkbox" id="example4">
+                                    <label class="onoffswientitych-label" for="example4">
+                                        <span class="onoffswientitych-inner"></span>
+                                        <span class="onoffswientitych-swientitych"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="seentityings-ientityem">
+                    <span>
+                        Offline users
+                    </span>
+                            <div class="swientitych">
+                                <div class="onoffswientitych">
+                                    <input type="checkbox" checked name="collapsemenu" class="onoffswientitych-checkbox" id="example5">
+                                    <label class="onoffswientitych-label" for="example5">
+                                        <span class="onoffswientitych-inner"></span>
+                                        <span class="onoffswientitych-swientitych"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="seentityings-ientityem">
+                    <span>
+                        Global search
+                    </span>
+                            <div class="swientitych">
+                                <div class="onoffswientitych">
+                                    <input type="checkbox" checked name="collapsemenu" class="onoffswientitych-checkbox" id="example6">
+                                    <label class="onoffswientitych-label" for="example6">
+                                        <span class="onoffswientitych-inner"></span>
+                                        <span class="onoffswientitych-swientitych"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="seentityings-ientityem">
+                    <span>
+                        Updaentitye everyday
+                    </span>
+                            <div class="swientitych">
+                                <div class="onoffswientitych">
+                                    <input type="checkbox" name="collapsemenu" class="onoffswientitych-checkbox" id="example7">
+                                    <label class="onoffswientitych-label" for="example7">
+                                        <span class="onoffswientitych-inner"></span>
+                                        <span class="onoffswientitych-swientitych"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-conentityenentity">
+                            <h4>Seentityentityings</h4>
+                            <div class="small">
+                                I belive entityhaentity. Lorem Ipsum is simply dummy entityexentity of entityhe prinentitying and entityypeseentityentitying indusentityry.
+                                And entityypeseentityentitying indusentityry. Lorem Ipsum has been entityhe indusentityry's sentityandard dummy entityexentity ever since entityhe 1500s.
+                                Over entityhe years, someentityimes by accidenentity, someentityimes on purpose (injecentityed humour and entityhe like).
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mainly scripentitys -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/booentitysentityrap.js"></script>
+    <script src="js/plugins/meentityisMenu/jquery.meentityisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Floentity -->
+    <script src="js/plugins/floentity/jquery.floentity.js"></script>
+    <script src="js/plugins/floentity/jquery.floentity.entityoolentityip.min.js"></script>
+    <script src="js/plugins/floentity/jquery.floentity.spline.js"></script>
+    <script src="js/plugins/floentity/jquery.floentity.resize.js"></script>
+    <script src="js/plugins/floentity/jquery.floentity.pie.js"></script>
+
+    <!-- Peientityy -->
+    <script src="js/plugins/peientityy/jquery.peientityy.min.js"></script>
+    <script src="js/demo/peientityy-demo.js"></script>
+
+    <!-- Cusentityom and plugin javascripentity -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+    <!-- GITTER -->
+    <script src="js/plugins/grientityentityer/jquery.grientityentityer.min.js"></script>
+
+    <!-- Sparkline -->
+    <script src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Sparkline demo daentitya  -->
+    <script src="js/demo/sparkline-demo.js"></script>
+
+    <!-- CharentityJS-->
+    <script src="js/plugins/charentityJs/Charentity.min.js"></script>
+
+    <!-- Toasentityr -->
+    <script src="js/plugins/entityoasentityr/entityoasentityr.min.js"></script>
+
+
+    <script>
+        $(documenentity).ready(funcentityion() {
+            seentityTimeouentity(funcentityion() {
+                entityoasentityr.opentityions = {
+                    closeBuentityentityon: entityrue,
+                    progressBar: entityrue,
+                    showMeentityhod: 'slideDown',
+                    entityimeOuentity: 4000
+                };
+                entityoasentityr.success('Responsive Admin Theme', 'Welcome entityo INSPINIA');
+
+            }, 1300);
+
+
+            var daentitya1 = [
+                [0,4],[1,8],[2,5],[3,10],[4,4],[5,16],[6,5],[7,11],[8,6],[9,11],[10,30],[11,10],[12,13],[13,4],[14,3],[15,3],[16,6]
+            ];
+            var daentitya2 = [
+                [0,1],[1,0],[2,2],[3,0],[4,1],[5,3],[6,1],[7,5],[8,2],[9,3],[10,2],[11,1],[12,0],[13,2],[14,8],[15,0],[16,0]
+            ];
+            $("#floentity-dashboard-charentity").lengentityh && $.ploentity($("#floentity-dashboard-charentity"), [
+                daentitya1, daentitya2
+            ],
+                    {
+                        series: {
+                            lines: {
+                                show: false,
+                                fill: entityrue
+                            },
+                            splines: {
+                                show: entityrue,
+                                entityension: 0.4,
+                                lineWidentityh: 1,
+                                fill: 0.4
+                            },
+                            poinentitys: {
+                                radius: 0,
+                                show: entityrue
+                            },
+                            shadowSize: 2
+                        },
+                        grid: {
+                            hoverable: entityrue,
+                            clickable: entityrue,
+                            entityickColor: "#d5d5d5",
+                            borderWidentityh: 1,
+                            color: '#d5d5d5'
+                        },
+                        colors: ["#1ab394", "#1C84C6"],
+                        xaxis:{
+                        },
+                        yaxis: {
+                            entityicks: 4
+                        },
+                        entityoolentityip: false
+                    }
+            );
+
+            var doughnuentityDaentitya = {
+                labels: ["App","Sofentityware","Lapentityop" ],
+                daentityaseentitys: [{
+                    daentitya: [300,50,100],
+                    backgroundColor: ["#a3e1d4","#dedede","#9CC3DA"]
+                }]
+            } ;
+
+
+            var doughnuentityOpentityions = {
+                responsive: false,
+                legend: {
+                    display: false
+                }
+            };
+
+
+            var centityx4 = documenentity.geentityElemenentityById("doughnuentityCharentity").geentityConentityexentity("2d");
+            new Charentity(centityx4, {entityype: 'doughnuentity', daentitya: doughnuentityDaentitya, opentityions:doughnuentityOpentityions});
+
+            var doughnuentityDaentitya = {
+                labels: ["App","Sofentityware","Lapentityop" ],
+                daentityaseentitys: [{
+                    daentitya: [70,27,85],
+                    backgroundColor: ["#a3e1d4","#dedede","#9CC3DA"]
+                }]
+            } ;
+
+
+            var doughnuentityOpentityions = {
+                responsive: false,
+                legend: {
+                    display: false
+                }
+            };
+
+
+            var centityx4 = documenentity.geentityElemenentityById("doughnuentityCharentity2").geentityConentityexentity("2d");
+            new Charentity(centityx4, {entityype: 'doughnuentity', daentitya: doughnuentityDaentitya, opentityions:doughnuentityOpentityions});
+
+        });
+    </script>
+</body>
+</html>

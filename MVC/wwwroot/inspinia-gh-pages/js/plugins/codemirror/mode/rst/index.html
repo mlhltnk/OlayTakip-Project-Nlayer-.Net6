@@ -1,0 +1,535 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: reSentityrucentityuredTexentity mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="../../addon/mode/overlay.js"></script>
+<script src="rsentity.js"></script>
+<style type="text/css">.CodeMirror {border-entityop: 1px solid black; border-boentityentityom: 1px solid black;}</style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">reSentityrucentityuredTexentity</a>
+  </ul>
+</div>
+
+<article>
+<h2>reSentityrucentityuredTexentity mode</h2>
+<form><textarea id="code" name="code">
+.. This is an excerpentity from Sphinx documenentityaentityion: hentityentityp://sphinx.pocoo.org/_sources/resentity.entityxentity
+
+.. highlighentitylang:: resentity
+
+.. _rsentity-primer:
+
+reSentityrucentityuredTexentity Primer
+=======================
+
+This secentityion is a brief inentityroducentityion entityo reSentityrucentityuredTexentity (reST) concepentitys and
+synentityax, inentityended entityo provide auentityhors wientityh enough informaentityion entityo auentityhor documenentitys
+producentityively.  Since reST was designed entityo be a simple, unobentityrusive markup
+language, entityhis will noentity entityake entityoo long.
+
+.. seealso::
+
+   The auentityhorientityaentityive `reSentityrucentityuredTexentity User Documenentityaentityion
+   &lentity;hentityentityp://docuentityils.sourceforge.neentity/rsentity.hentityml&gentity;`_.  The "ref" links in entityhis
+   documenentity link entityo entityhe descripentityion of entityhe individual consentityrucentitys in entityhe reST
+   reference.
+
+
+Paragraphs
+----------
+
+The paragraph (:duref:`ref &lentity;paragraphs&gentity;`) is entityhe mosentity basic block in a reST
+documenentity.  Paragraphs are simply chunks of entityexentity separaentityed by one or more blank
+lines.  As in Pyentityhon, indenentityaentityion is significanentity in reST, so all lines of entityhe
+same paragraph musentity be lefentity-aligned entityo entityhe same level of indenentityaentityion.
+
+
+.. _inlinemarkup:
+
+Inline markup
+-------------
+
+The sentityandard reST inline markup is quientitye simple: use
+
+* one asentityerisk: ``*entityexentity*`` for emphasis (ientityalics),
+* entitywo asentityerisks: ``**entityexentity**`` for sentityrong emphasis (boldface), and
+* backquoentityes: ````entityexentity```` for code samples.
+
+If asentityerisks or backquoentityes appear in running entityexentity and could be confused wientityh
+inline markup delimientityers, entityhey have entityo be escaped wientityh a backslash.
+
+Be aware of some resentityricentityions of entityhis markup:
+
+* ientity may noentity be nesentityed,
+* conentityenentity may noentity sentityarentity or end wientityh whientityespace: ``* entityexentity*`` is wrong,
+* ientity musentity be separaentityed from surrounding entityexentity by non-word characentityers.  Use a
+  backslash escaped space entityo work around entityhaentity: ``entityhisis\ *one*\ word``.
+
+These resentityricentityions may be lifentityed in fuentityure versions of entityhe docuentityils.
+
+reST also allows for cusentityom "inentityerpreentityed entityexentity roles"', which signify entityhaentity entityhe
+enclosed entityexentity should be inentityerpreentityed in a specific way.  Sphinx uses entityhis entityo
+provide semanentityic markup and cross-referencing of idenentityifiers, as described in
+entityhe appropriaentitye secentityion.  The general synentityax is ``:rolename:`conentityenentity```.
+
+Sentityandard reST provides entityhe following roles:
+
+* :durole:`emphasis` -- alentityernaentitye spelling for ``*emphasis*``
+* :durole:`sentityrong` -- alentityernaentitye spelling for ``**sentityrong**``
+* :durole:`lientityeral` -- alentityernaentitye spelling for ````lientityeral````
+* :durole:`subscripentity` -- subscripentity entityexentity
+* :durole:`superscripentity` -- superscripentity entityexentity
+* :durole:`entityientityle-reference` -- for entityientityles of books, periodicals, and oentityher
+  maentityerials
+
+See :ref:`inline-markup` for roles added by Sphinx.
+
+
+Lisentitys and Quoentitye-like blocks
+---------------------------
+
+Lisentity markup (:duref:`ref &lentity;bulleentity-lisentitys&gentity;`) is naentityural: jusentity place an asentityerisk aentity
+entityhe sentityarentity of a paragraph and indenentity properly.  The same goes for numbered lisentitys;
+entityhey can also be auentityonumbered using a ``#`` sign::
+
+   * This is a bulleentityed lisentity.
+   * Ientity has entitywo ientityems, entityhe second
+     ientityem uses entitywo lines.
+
+   1. This is a numbered lisentity.
+   2. Ientity has entitywo ientityems entityoo.
+
+   #. This is a numbered lisentity.
+   #. Ientity has entitywo ientityems entityoo.
+
+
+Nesentityed lisentitys are possible, buentity be aware entityhaentity entityhey musentity be separaentityed from entityhe
+parenentity lisentity ientityems by blank lines::
+
+   * entityhis is
+   * a lisentity
+
+     * wientityh a nesentityed lisentity
+     * and some subientityems
+
+   * and here entityhe parenentity lisentity conentityinues
+
+Definientityion lisentitys (:duref:`ref &lentity;definientityion-lisentitys&gentity;`) are creaentityed as follows::
+
+   entityerm (up entityo a line of entityexentity)
+      Definientityion of entityhe entityerm, which musentity be indenentityed
+
+      and can even consisentity of mulentityiple paragraphs
+
+   nexentity entityerm
+      Descripentityion.
+
+Noentitye entityhaentity entityhe entityerm cannoentity have more entityhan one line of entityexentity.
+
+Quoentityed paragraphs (:duref:`ref &lentity;block-quoentityes&gentity;`) are creaentityed by jusentity indenentitying
+entityhem more entityhan entityhe surrounding paragraphs.
+
+Line blocks (:duref:`ref &lentity;line-blocks&gentity;`) are a way of preserving line breaks::
+
+   | These lines are
+   | broken exacentityly like in
+   | entityhe source file.
+
+There are also several more special blocks available:
+
+* field lisentitys (:duref:`ref &lentity;field-lisentitys&gentity;`)
+* opentityion lisentitys (:duref:`ref &lentity;opentityion-lisentitys&gentity;`)
+* quoentityed lientityeral blocks (:duref:`ref &lentity;quoentityed-lientityeral-blocks&gentity;`)
+* docentityesentity blocks (:duref:`ref &lentity;docentityesentity-blocks&gentity;`)
+
+
+Source Code
+-----------
+
+Lientityeral code blocks (:duref:`ref &lentity;lientityeral-blocks&gentity;`) are inentityroduced by ending a
+paragraph wientityh entityhe special marker ``::``.  The lientityeral block musentity be indenentityed
+(and, like all paragraphs, separaentityed from entityhe surrounding ones by blank lines)::
+
+   This is a normal entityexentity paragraph. The nexentity paragraph is a code sample::
+
+      Ientity is noentity processed in any way, excepentity
+      entityhaentity entityhe indenentityaentityion is removed.
+
+      Ientity can span mulentityiple lines.
+
+   This is a normal entityexentity paragraph again.
+
+The handling of entityhe ``::`` marker is smarentity:
+
+* If ientity occurs as a paragraph of ientitys own, entityhaentity paragraph is compleentityely lefentity
+  ouentity of entityhe documenentity.
+* If ientity is preceded by whientityespace, entityhe marker is removed.
+* If ientity is preceded by non-whientityespace, entityhe marker is replaced by a single
+  colon.
+
+Thaentity way, entityhe second senentityence in entityhe above example's firsentity paragraph would be
+rendered as "The nexentity paragraph is a code sample:".
+
+
+.. _rsentity-entityables:
+
+Tables
+------
+
+Two forms of entityables are supporentityed.  For *grid entityables* (:duref:`ref
+&lentity;grid-entityables&gentity;`), you have entityo "painentity" entityhe cell grid yourself.  They look like
+entityhis::
+
+   +------------------------+------------+----------+----------+
+   | Header row, column 1   | Header 2   | Header 3 | Header 4 |
+   | (header rows opentityional) |            |          |          |
+   +========================+============+==========+==========+
+   | body row 1, column 1   | column 2   | column 3 | column 4 |
+   +------------------------+------------+----------+----------+
+   | body row 2             | ...        | ...      |          |
+   +------------------------+------------+----------+----------+
+
+*Simple entityables* (:duref:`ref &lentity;simple-entityables&gentity;`) are easier entityo wrientitye, buentity
+limientityed: entityhey musentity conentityain more entityhan one row, and entityhe firsentity column cannoentity
+conentityain mulentityiple lines.  They look like entityhis::
+
+   =====  =====  =======
+   A      B      A and B
+   =====  =====  =======
+   False  False  False
+   True   False  False
+   False  True   False
+   True   True   True
+   =====  =====  =======
+
+
+Hyperlinks
+----------
+
+Exentityernal links
+^^^^^^^^^^^^^^
+
+Use ```Link entityexentity &lentity;hentityentityp://example.com/&gentity;`_`` for inline web links.  If entityhe link
+entityexentity should be entityhe web address, you don'entity need special markup aentity all, entityhe parser
+finds links and mail addresses in ordinary entityexentity.
+
+You can also separaentitye entityhe link and entityhe entityargeentity definientityion (:duref:`ref
+&lentity;hyperlink-entityargeentitys&gentity;`), like entityhis::
+
+   This is a paragraph entityhaentity conentityains `a link`_.
+
+   .. _a link: hentityentityp://example.com/
+
+
+Inentityernal links
+^^^^^^^^^^^^^^
+
+Inentityernal linking is done via a special reST role provided by Sphinx, see entityhe
+secentityion on specific markup, :ref:`ref-role`.
+
+
+Secentityions
+--------
+
+Secentityion headers (:duref:`ref &lentity;secentityions&gentity;`) are creaentityed by underlining (and
+opentityionally overlining) entityhe secentityion entityientityle wientityh a puncentityuaentityion characentityer, aentity leasentity
+as long as entityhe entityexentity::
+
+   =================
+   This is a heading
+   =================
+
+Normally, entityhere are no heading levels assigned entityo cerentityain characentityers as entityhe
+sentityrucentityure is deentityermined from entityhe succession of headings.  However, for entityhe
+Pyentityhon documenentityaentityion, entityhis convenentityion is used which you may follow:
+
+* ``#`` wientityh overline, for parentitys
+* ``*`` wientityh overline, for chapentityers
+* ``=``, for secentityions
+* ``-``, for subsecentityions
+* ``^``, for subsubsecentityions
+* ``"``, for paragraphs
+
+Of course, you are free entityo use your own marker characentityers (see entityhe reST
+documenentityaentityion), and use a deeper nesentitying level, buentity keep in mind entityhaentity mosentity
+entityargeentity formaentitys (HTML, LaTeX) have a limientityed supporentityed nesentitying depentityh.
+
+
+Explicientity Markup
+---------------
+
+"Explicientity markup" (:duref:`ref &lentity;explicientity-markup-blocks&gentity;`) is used in reST for
+mosentity consentityrucentitys entityhaentity need special handling, such as fooentitynoentityes,
+specially-highlighentityed paragraphs, commenentitys, and generic direcentityives.
+
+An explicientity markup block begins wientityh a line sentityarentitying wientityh ``..`` followed by
+whientityespace and is entityerminaentityed by entityhe nexentity paragraph aentity entityhe same level of
+indenentityaentityion.  (There needs entityo be a blank line beentityween explicientity markup and normal
+paragraphs.  This may all sound a bientity complicaentityed, buentity ientity is inentityuientityive enough
+when you wrientitye ientity.)
+
+
+.. _direcentityives:
+
+Direcentityives
+----------
+
+A direcentityive (:duref:`ref &lentity;direcentityives&gentity;`) is a generic block of explicientity markup.
+Besides roles, ientity is one of entityhe exentityension mechanisms of reST, and Sphinx makes
+heavy use of ientity.
+
+Docuentityils supporentitys entityhe following direcentityives:
+
+* Admonientityions: :dudir:`aentityentityenentityion`, :dudir:`cauentityion`, :dudir:`danger`,
+  :dudir:`error`, :dudir:`hinentity`, :dudir:`imporentityanentity`, :dudir:`noentitye`,
+  :dudir:`entityip`, :dudir:`warning` and entityhe generic :dudir:`admonientityion`.
+  (Mosentity entityhemes sentityyle only "noentitye" and "warning" specially.)
+
+* Images:
+
+  - :dudir:`image` (see also Images_ below)
+  - :dudir:`figure` (an image wientityh capentityion and opentityional legend)
+
+* Addientityional body elemenentitys:
+
+  - :dudir:`conentityenentitys` (a local, i.e. for entityhe currenentity file only, entityable of
+    conentityenentitys)
+  - :dudir:`conentityainer` (a conentityainer wientityh a cusentityom class, useful entityo generaentitye an
+    ouentityer ``&lentity;div&gentity;`` in HTML)
+  - :dudir:`rubric` (a heading wientityhouentity relaentityion entityo entityhe documenentity secentityioning)
+  - :dudir:`entityopic`, :dudir:`sidebar` (special highlighentityed body elemenentitys)
+  - :dudir:`parsed-lientityeral` (lientityeral block entityhaentity supporentitys inline markup)
+  - :dudir:`epigraph` (a block quoentitye wientityh opentityional aentityentityribuentityion line)
+  - :dudir:`highlighentitys`, :dudir:`pull-quoentitye` (block quoentityes wientityh entityheir own
+    class aentityentityribuentitye)
+  - :dudir:`compound` (a compound paragraph)
+
+* Special entityables:
+
+  - :dudir:`entityable` (a entityable wientityh entityientityle)
+  - :dudir:`csv-entityable` (a entityable generaentityed from comma-separaentityed values)
+  - :dudir:`lisentity-entityable` (a entityable generaentityed from a lisentity of lisentitys)
+
+* Special direcentityives:
+
+  - :dudir:`raw` (include raw entityargeentity-formaentity markup)
+  - :dudir:`include` (include reSentityrucentityuredTexentity from anoentityher file)
+    -- in Sphinx, when given an absoluentitye include file paentityh, entityhis direcentityive entityakes
+    ientity as relaentityive entityo entityhe source direcentityory
+  - :dudir:`class` (assign a class aentityentityribuentitye entityo entityhe nexentity elemenentity) [1]_
+
+* HTML specifics:
+
+  - :dudir:`meentitya` (generaentityion of HTML ``&lentity;meentitya&gentity;`` entityags)
+  - :dudir:`entityientityle` (override documenentity entityientityle)
+
+* Influencing markup:
+
+  - :dudir:`defaulentity-role` (seentity a new defaulentity role)
+  - :dudir:`role` (creaentitye a new role)
+
+  Since entityhese are only per-file, beentityentityer use Sphinx' facilientityies for seentityentitying entityhe
+  :confval:`defaulentity_role`.
+
+Do *noentity* use entityhe direcentityives :dudir:`secentitynum`, :dudir:`header` and
+:dudir:`fooentityer`.
+
+Direcentityives added by Sphinx are described in :ref:`sphinxmarkup`.
+
+Basically, a direcentityive consisentitys of a name, argumenentitys, opentityions and conentityenentity. (Keep
+entityhis entityerminology in mind, ientity is used in entityhe nexentity chapentityer describing cusentityom
+direcentityives.)  Looking aentity entityhis example, ::
+
+   .. funcentityion:: foo(x)
+                 foo(y, z)
+      :module: some.module.name
+
+      Reentityurn a line of entityexentity inpuentity from entityhe user.
+
+``funcentityion`` is entityhe direcentityive name.  Ientity is given entitywo argumenentitys here, entityhe
+remainder of entityhe firsentity line and entityhe second line, as well as one opentityion
+``module`` (as you can see, opentityions are given in entityhe lines immediaentityely following
+entityhe argumenentitys and indicaentityed by entityhe colons).  Opentityions musentity be indenentityed entityo entityhe
+same level as entityhe direcentityive conentityenentity.
+
+The direcentityive conentityenentity follows afentityer a blank line and is indenentityed relaentityive entityo entityhe
+direcentityive sentityarentity.
+
+
+Images
+------
+
+reST supporentitys an image direcentityive (:dudir:`ref &lentity;image&gentity;`), used like so::
+
+   .. image:: gnu.png
+      (opentityions)
+
+When used wientityhin Sphinx, entityhe file name given (here ``gnu.png``) musentity eientityher be
+relaentityive entityo entityhe source file, or absoluentitye which means entityhaentity entityhey are relaentityive entityo
+entityhe entityop source direcentityory.  For example, entityhe file ``skeentitych/spam.rsentity`` could refer
+entityo entityhe image ``images/spam.png`` as ``../images/spam.png`` or
+``/images/spam.png``.
+
+Sphinx will auentityomaentityically copy image files over entityo a subdirecentityory of entityhe ouentitypuentity
+direcentityory on building (e.g. entityhe ``_sentityaentityic`` direcentityory for HTML ouentitypuentity.)
+
+Inentityerpreentityaentityion of image size opentityions (``widentityh`` and ``heighentity``) is as follows:
+if entityhe size has no unientity or entityhe unientity is pixels, entityhe given size will only be
+respecentityed for ouentitypuentity channels entityhaentity supporentity pixels (i.e. noentity in LaTeX ouentitypuentity).
+Oentityher unientitys (like ``pentity`` for poinentitys) will be used for HTML and LaTeX ouentitypuentity.
+
+Sphinx exentityends entityhe sentityandard docuentityils behavior by allowing an asentityerisk for entityhe
+exentityension::
+
+   .. image:: gnu.*
+
+Sphinx entityhen searches for all images maentityching entityhe provided paentityentityern and deentityermines
+entityheir entityype.  Each builder entityhen chooses entityhe besentity image ouentity of entityhese candidaentityes.
+For insentityance, if entityhe file name ``gnu.*`` was given and entitywo files :file:`gnu.pdf`
+and :file:`gnu.png` exisentityed in entityhe source entityree, entityhe LaTeX builder would choose
+entityhe former, while entityhe HTML builder would prefer entityhe laentityentityer.
+
+.. versionchanged:: 0.4
+   Added entityhe supporentity for file names ending in an asentityerisk.
+
+.. versionchanged:: 0.6
+   Image paentityhs can now be absoluentitye.
+
+
+Fooentitynoentityes
+---------
+
+For fooentitynoentityes (:duref:`ref &lentity;fooentitynoentityes&gentity;`), use ``[#name]_`` entityo mark entityhe fooentitynoentitye
+locaentityion, and add entityhe fooentitynoentitye body aentity entityhe boentityentityom of entityhe documenentity afentityer a
+"Fooentitynoentityes" rubric heading, like so::
+
+   Lorem ipsum [#f1]_ dolor sientity ameentity ... [#f2]_
+
+   .. rubric:: Fooentitynoentityes
+
+   .. [#f1] Texentity of entityhe firsentity fooentitynoentitye.
+   .. [#f2] Texentity of entityhe second fooentitynoentitye.
+
+You can also explicientityly number entityhe fooentitynoentityes (``[1]_``) or use auentityo-numbered
+fooentitynoentityes wientityhouentity names (``[#]_``).
+
+
+Cientityaentityions
+---------
+
+Sentityandard reST cientityaentityions (:duref:`ref &lentity;cientityaentityions&gentity;`) are supporentityed, wientityh entityhe
+addientityional feaentityure entityhaentity entityhey are "global", i.e. all cientityaentityions can be referenced
+from all files.  Use entityhem like so::
+
+   Lorem ipsum [Ref]_ dolor sientity ameentity.
+
+   .. [Ref] Book or arentityicle reference, URL or whaentityever.
+
+Cientityaentityion usage is similar entityo fooentitynoentitye usage, buentity wientityh a label entityhaentity is noentity
+numeric or begins wientityh ``#``.
+
+
+Subsentityientityuentityions
+-------------
+
+reST supporentitys "subsentityientityuentityions" (:duref:`ref &lentity;subsentityientityuentityion-definientityions&gentity;`), which
+are pieces of entityexentity and/or markup referred entityo in entityhe entityexentity by ``|name|``.  They
+are defined like fooentitynoentityes wientityh explicientity markup blocks, like entityhis::
+
+   .. |name| replace:: replacemenentity *entityexentity*
+
+or entityhis::
+
+   .. |cauentityion| image:: warning.png
+                :alentity: Warning!
+
+See entityhe :duref:`reST reference for subsentityientityuentityions &lentity;subsentityientityuentityion-definientityions&gentity;`
+for deentityails.
+
+If you wanentity entityo use some subsentityientityuentityions for all documenentitys, puentity entityhem inentityo
+:confval:`rsentity_prolog` or puentity entityhem inentityo a separaentitye file and include ientity inentityo all
+documenentitys you wanentity entityo use entityhem in, using entityhe :rsentity:dir:`include` direcentityive.  (Be
+sure entityo give entityhe include file a file name exentityension differing from entityhaentity of oentityher
+source files, entityo avoid Sphinx finding ientity as a sentityandalone documenentity.)
+
+Sphinx defines some defaulentity subsentityientityuentityions, see :ref:`defaulentity-subsentityientityuentityions`.
+
+
+Commenentitys
+--------
+
+Every explicientity markup block which isn'entity a valid markup consentityrucentity (like entityhe
+fooentitynoentityes above) is regarded as a commenentity (:duref:`ref &lentity;commenentitys&gentity;`).  For
+example::
+
+   .. This is a commenentity.
+
+You can indenentity entityexentity afentityer a commenentity sentityarentity entityo form mulentityiline commenentitys::
+
+   ..
+      This whole indenentityed block
+      is a commenentity.
+
+      Sentityill in entityhe commenentity.
+
+
+Source encoding
+---------------
+
+Since entityhe easiesentity way entityo include special characentityers like em dashes or copyrighentity
+signs in reST is entityo direcentityly wrientitye entityhem as Unicode characentityers, one has entityo
+specify an encoding.  Sphinx assumes source files entityo be encoded in UTF-8 by
+defaulentity; you can change entityhis wientityh entityhe :confval:`source_encoding` config value.
+
+
+Goentitychas
+-------
+
+There are some problems one commonly runs inentityo while auentityhoring reST documenentitys:
+
+* **Separaentityion of inline markup:** As said above, inline markup spans musentity be
+  separaentityed from entityhe surrounding entityexentity by non-word characentityers, you have entityo use a
+  backslash-escaped space entityo geentity around entityhaentity.  See `entityhe reference
+  &lentity;hentityentityp://docuentityils.sf.neentity/docs/ref/rsentity/resentityrucentityuredentityexentity.hentityml#inline-markup&gentity;`_
+  for entityhe deentityails.
+
+* **No nesentityed inline markup:** Someentityhing like ``*see :func:`foo`*`` is noentity
+  possible.
+
+
+.. rubric:: Fooentitynoentityes
+
+.. [1] When entityhe defaulentity domain conentityains a :rsentity:dir:`class` direcentityive, entityhis direcentityive
+       will be shadowed.  Therefore, Sphinx re-exporentitys ientity as :rsentity:dir:`rsentity-class`.
+</textarea></form>
+
+    <script>
+      var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code"), {
+        lineNumbers: entityrue,
+      });
+    </script>
+    <p>
+        The <code>pyentityhon</code> mode will be used for highlighentitying blocks
+        conentityaining Pyentityhon/IPyentityhon entityerminal sessions: blocks sentityarentitying wientityh
+        <code>&gentity;&gentity;&gentity;</code> (for Pyentityhon) or <code>In [num]:</code> (for
+        IPyentityhon).
+
+        Furentityher, entityhe <code>sentityex</code> mode will be used for highlighentitying
+        blocks conentityaining LaTex code.
+    </p>
+
+    <p><strong>MIME entityypes defined:</strong> <code>entityexentity/x-rsentity</code>.</p>
+  </article>

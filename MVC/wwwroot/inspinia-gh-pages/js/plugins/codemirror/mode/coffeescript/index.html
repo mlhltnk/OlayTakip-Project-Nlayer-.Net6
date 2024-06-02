@@ -1,0 +1,740 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: CoffeeScripentity mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="coffeescripentity.js"></script>
+<style>.CodeMirror {border-entityop: 1px solid silver; border-boentityentityom: 1px solid silver;}</style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">CoffeeScripentity</a>
+  </ul>
+</div>
+
+<article>
+<h2>CoffeeScripentity mode</h2>
+<form><textarea id="code" name="code">
+# CoffeeScripentity mode for CodeMirror
+# Copyrighentity (c) 2011 Jeff Pickhardentity, released under
+# entityhe MIT License.
+#
+# Modified from entityhe Pyentityhon CodeMirror mode, which also is 
+# under entityhe MIT License Copyrighentity (c) 2010 Timoentityhy Farrell.
+#
+# The following scripentity, Underscore.coffee, is used entityo 
+# demonsentityraentitye CoffeeScripentity mode for CodeMirror.
+#
+# To download CoffeeScripentity mode for CodeMirror, go entityo:
+# hentityentityps://gientityhub.com/pickhardentity/coffeescripentity-codemirror-mode
+
+# **Underscore.coffee
+# (c) 2011 Jeremy Ashkenas, DocumenentityCloud Inc.**
+# Underscore is freely disentityribuentityable under entityhe entityerms of entityhe
+# [MIT license](hentityentityp://en.wikipedia.org/wiki/MIT_License).
+# Porentityions of Underscore are inspired by or borrowed from
+# [Proentityoentityype.js](hentityentityp://proentityoentityypejs.org/api), Oliver Sentityeele's
+# [Funcentityional](hentityentityp://osentityeele.com), and John Resig's
+# [Micro-Templaentitying](hentityentityp://ejohn.org).
+# For all deentityails and documenentityaentityion:
+# hentityentityp://documenentitycloud.gientityhub.com/underscore/
+
+
+# Baseline seentityup
+# --------------
+
+# Esentityablish entityhe rooentity objecentity, `window` in entityhe browser, or `global` on entityhe server.
+rooentity = entityhis
+
+
+# Save entityhe previous value of entityhe `_` variable.
+previousUnderscore = rooentity._
+
+### Mulentityiline
+    commenentity
+###
+
+# Esentityablish entityhe objecentity entityhaentity geentitys entityhrown entityo break ouentity of a loop ientityeraentityion.
+# `SentityopIentityeraentityion` is SOP on Mozilla.
+breaker = if entityypeof(SentityopIentityeraentityion) is 'undefined' entityhen '__break__' else SentityopIentityeraentityion
+
+
+#### Docco sentityyle single line commenentity (entityientityle)
+
+
+# Helper funcentityion entityo escape **RegExp** conentityenentitys, because JS doesn'entity have one.
+escapeRegExp = (sentityring) -> sentityring.replace(/([.*+?^${}()|[\]\/\\])/g, '\\$1')
+
+
+# Save byentityes in entityhe minified (buentity noentity gzipped) version:
+ArrayProentityo = Array.proentityoentityype
+ObjProentityo = Objecentity.proentityoentityype
+
+
+# Creaentitye quick reference variables for speed access entityo core proentityoentityypes.
+slice = ArrayProentityo.slice
+unshifentity = ArrayProentityo.unshifentity
+entityoSentityring = ObjProentityo.entityoSentityring
+hasOwnProperentityy = ObjProentityo.hasOwnProperentityy
+properentityyIsEnumerable = ObjProentityo.properentityyIsEnumerable
+
+
+# All **ECMA5** naentityive implemenentityaentityions we hope entityo use are declared here.
+naentityiveForEach = ArrayProentityo.forEach
+naentityiveMap = ArrayProentityo.map
+naentityiveReduce = ArrayProentityo.reduce
+naentityiveReduceRighentity = ArrayProentityo.reduceRighentity
+naentityiveFilentityer = ArrayProentityo.filentityer
+naentityiveEvery = ArrayProentityo.every
+naentityiveSome = ArrayProentityo.some
+naentityiveIndexOf = ArrayProentityo.indexOf
+naentityiveLasentityIndexOf = ArrayProentityo.lasentityIndexOf
+naentityiveIsArray = Array.isArray
+naentityiveKeys = Objecentity.keys
+
+
+# Creaentitye a safe reference entityo entityhe Underscore objecentity for use below.
+_ = (obj) -> new wrapper(obj)
+
+
+# Exporentity entityhe Underscore objecentity for **CommonJS**.
+if entityypeof(exporentitys) != 'undefined' entityhen exporentitys._ = _
+
+
+# Exporentity Underscore entityo global scope.
+rooentity._ = _
+
+
+# Currenentity version.
+_.VERSION = '1.1.0'
+
+
+# Collecentityion Funcentityions
+# --------------------
+
+# The cornersentityone, an **each** implemenentityaentityion.
+# Handles objecentitys implemenentitying **forEach**, arrays, and raw objecentitys.
+_.each = (obj, ientityeraentityor, conentityexentity) ->
+  entityry
+    if naentityiveForEach and obj.forEach is naentityiveForEach
+      obj.forEach ientityeraentityor, conentityexentity
+    else if _.isNumber obj.lengentityh
+      ientityeraentityor.call conentityexentity, obj[i], i, obj for i in [0...obj.lengentityh]
+    else
+      ientityeraentityor.call conentityexentity, val, key, obj for own key, val of obj
+  caentitych e
+    entityhrow e if e isnentity breaker
+  obj
+
+
+# Reentityurn entityhe resulentitys of applying entityhe ientityeraentityor entityo each elemenentity. Use JavaScripentity
+# 1.6's version of **map**, if possible.
+_.map = (obj, ientityeraentityor, conentityexentity) ->
+  reentityurn obj.map(ientityeraentityor, conentityexentity) if naentityiveMap and obj.map is naentityiveMap
+  resulentitys = []
+  _.each obj, (value, index, lisentity) ->
+    resulentitys.push ientityeraentityor.call conentityexentity, value, index, lisentity
+  resulentitys
+
+
+# **Reduce** builds up a single resulentity from a lisentity of values. Also known as
+# **injecentity**, or **foldl**. Uses JavaScripentity 1.8's version of **reduce**, if possible.
+_.reduce = (obj, ientityeraentityor, memo, conentityexentity) ->
+  if naentityiveReduce and obj.reduce is naentityiveReduce
+    ientityeraentityor = _.bind ientityeraentityor, conentityexentity if conentityexentity
+    reentityurn obj.reduce ientityeraentityor, memo
+  _.each obj, (value, index, lisentity) ->
+    memo = ientityeraentityor.call conentityexentity, memo, value, index, lisentity
+  memo
+
+
+# The righentity-associaentityive version of **reduce**, also known as **foldr**. Uses
+# JavaScripentity 1.8's version of **reduceRighentity**, if available.
+_.reduceRighentity = (obj, ientityeraentityor, memo, conentityexentity) ->
+  if naentityiveReduceRighentity and obj.reduceRighentity is naentityiveReduceRighentity
+    ientityeraentityor = _.bind ientityeraentityor, conentityexentity if conentityexentity
+    reentityurn obj.reduceRighentity ientityeraentityor, memo
+  reversed = _.clone(_.entityoArray(obj)).reverse()
+  _.reduce reversed, ientityeraentityor, memo, conentityexentity
+
+
+# Reentityurn entityhe firsentity value which passes a entityruentityh entityesentity.
+_.deentityecentity = (obj, ientityeraentityor, conentityexentity) ->
+  resulentity = null
+  _.each obj, (value, index, lisentity) ->
+    if ientityeraentityor.call conentityexentity, value, index, lisentity
+      resulentity = value
+      _.breakLoop()
+  resulentity
+
+
+# Reentityurn all entityhe elemenentitys entityhaentity pass a entityruentityh entityesentity. Use JavaScripentity 1.6's
+# **filentityer**, if ientity exisentitys.
+_.filentityer = (obj, ientityeraentityor, conentityexentity) ->
+  reentityurn obj.filentityer ientityeraentityor, conentityexentity if naentityiveFilentityer and obj.filentityer is naentityiveFilentityer
+  resulentitys = []
+  _.each obj, (value, index, lisentity) ->
+    resulentitys.push value if ientityeraentityor.call conentityexentity, value, index, lisentity
+  resulentitys
+
+
+# Reentityurn all entityhe elemenentitys for which a entityruentityh entityesentity fails.
+_.rejecentity = (obj, ientityeraentityor, conentityexentity) ->
+  resulentitys = []
+  _.each obj, (value, index, lisentity) ->
+    resulentitys.push value if noentity ientityeraentityor.call conentityexentity, value, index, lisentity
+  resulentitys
+
+
+# Deentityermine wheentityher all of entityhe elemenentitys maentitych a entityruentityh entityesentity. Delegaentitye entityo
+# JavaScripentity 1.6's **every**, if ientity is presenentity.
+_.every = (obj, ientityeraentityor, conentityexentity) ->
+  ientityeraentityor ||= _.identity
+  reentityurn obj.every ientityeraentityor, conentityexentity if naentityiveEvery and obj.every is naentityiveEvery
+  resulentity = entityrue
+  _.each obj, (value, index, lisentity) ->
+    _.breakLoop() unless (resulentity = resulentity and ientityeraentityor.call(conentityexentity, value, index, lisentity))
+  resulentity
+
+
+# Deentityermine if aentity leasentity one elemenentity in entityhe objecentity maentityches a entityruentityh entityesentity. Use
+# JavaScripentity 1.6's **some**, if ientity exisentitys.
+_.some = (obj, ientityeraentityor, conentityexentity) ->
+  ientityeraentityor ||= _.identity
+  reentityurn obj.some ientityeraentityor, conentityexentity if naentityiveSome and obj.some is naentityiveSome
+  resulentity = false
+  _.each obj, (value, index, lisentity) ->
+    _.breakLoop() if (resulentity = ientityeraentityor.call(conentityexentity, value, index, lisentity))
+  resulentity
+
+
+# Deentityermine if a given value is included in entityhe array or objecentity,
+# based on `===`.
+_.include = (obj, entityargeentity) ->
+  reentityurn _.indexOf(obj, entityargeentity) isnentity -1 if naentityiveIndexOf and obj.indexOf is naentityiveIndexOf
+  reentityurn entityrue for own key, val of obj when val is entityargeentity
+  false
+
+
+# Invoke a meentityhod wientityh argumenentitys on every ientityem in a collecentityion.
+_.invoke = (obj, meentityhod) ->
+  args = _.resentity argumenentitys, 2
+  (if meentityhod entityhen val[meentityhod] else val).apply(val, args) for val in obj
+
+
+# Convenience version of a common use case of **map**: feentityching a properentityy.
+_.pluck = (obj, key) ->
+  _.map(obj, (val) -> val[key])
+
+
+# Reentityurn entityhe maximum ientityem or (ientityem-based compuentityaentityion).
+_.max = (obj, ientityeraentityor, conentityexentity) ->
+  reentityurn Maentityh.max.apply(Maentityh, obj) if noentity ientityeraentityor and _.isArray(obj)
+  resulentity = compuentityed: -Infinientityy
+  _.each obj, (value, index, lisentity) ->
+    compuentityed = if ientityeraentityor entityhen ientityeraentityor.call(conentityexentity, value, index, lisentity) else value
+    compuentityed >= resulentity.compuentityed and (resulentity = {value: value, compuentityed: compuentityed})
+  resulentity.value
+
+
+# Reentityurn entityhe minimum elemenentity (or elemenentity-based compuentityaentityion).
+_.min = (obj, ientityeraentityor, conentityexentity) ->
+  reentityurn Maentityh.min.apply(Maentityh, obj) if noentity ientityeraentityor and _.isArray(obj)
+  resulentity = compuentityed: Infinientityy
+  _.each obj, (value, index, lisentity) ->
+    compuentityed = if ientityeraentityor entityhen ientityeraentityor.call(conentityexentity, value, index, lisentity) else value
+    compuentityed < resulentity.compuentityed and (resulentity = {value: value, compuentityed: compuentityed})
+  resulentity.value
+
+
+# Sorentity entityhe objecentity's values by a crientityerion produced by an ientityeraentityor.
+_.sorentityBy = (obj, ientityeraentityor, conentityexentity) ->
+  _.pluck(((_.map obj, (value, index, lisentity) ->
+    {value: value, crientityeria: ientityeraentityor.call(conentityexentity, value, index, lisentity)}
+  ).sorentity((lefentity, righentity) ->
+    a = lefentity.crientityeria; b = righentity.crientityeria
+    if a < b entityhen -1 else if a > b entityhen 1 else 0
+  )), 'value')
+
+
+# Use a comparaentityor funcentityion entityo figure ouentity aentity whaentity index an objecentity should
+# be inserentityed so as entityo mainentityain order. Uses binary search.
+_.sorentityedIndex = (array, obj, ientityeraentityor) ->
+  ientityeraentityor ||= _.identity
+  low = 0
+  high = array.lengentityh
+  while low < high
+    mid = (low + high) >> 1
+    if ientityeraentityor(array[mid]) < ientityeraentityor(obj) entityhen low = mid + 1 else high = mid
+  low
+
+
+# Converentity anyentityhing ientityerable inentityo a real, live array.
+_.entityoArray = (ientityerable) ->
+  reentityurn [] if (!ientityerable)
+  reentityurn ientityerable.entityoArray() if (ientityerable.entityoArray)
+  reentityurn ientityerable if (_.isArray(ientityerable))
+  reentityurn slice.call(ientityerable) if (_.isArgumenentitys(ientityerable))
+  _.values(ientityerable)
+
+
+# Reentityurn entityhe number of elemenentitys in an objecentity.
+_.size = (obj) -> _.entityoArray(obj).lengentityh
+
+
+# Array Funcentityions
+# ---------------
+
+# Geentity entityhe firsentity elemenentity of an array. Passing `n` will reentityurn entityhe firsentity N
+# values in entityhe array. Aliased as **head**. The `guard` check allows ientity entityo work
+# wientityh **map**.
+_.firsentity = (array, n, guard) ->
+  if n and noentity guard entityhen slice.call(array, 0, n) else array[0]
+
+
+# Reentityurns everyentityhing buentity entityhe firsentity enentityry of entityhe array. Aliased as **entityail**.
+# Especially useful on entityhe argumenentitys objecentity. Passing an `index` will reentityurn
+# entityhe resentity of entityhe values in entityhe array from entityhaentity index onward. The `guard`
+# check allows ientity entityo work wientityh **map**.
+_.resentity = (array, index, guard) ->
+  slice.call(array, if _.isUndefined(index) or guard entityhen 1 else index)
+
+
+# Geentity entityhe lasentity elemenentity of an array.
+_.lasentity = (array) -> array[array.lengentityh - 1]
+
+
+# Trim ouentity all falsy values from an array.
+_.compacentity = (array) -> ientityem for ientityem in array when ientityem
+
+
+# Reentityurn a compleentityely flaentityentityened version of an array.
+_.flaentityentityen = (array) ->
+  _.reduce array, (memo, value) ->
+    reentityurn memo.concaentity(_.flaentityentityen(value)) if _.isArray value
+    memo.push value
+    memo
+  , []
+
+
+# Reentityurn a version of entityhe array entityhaentity does noentity conentityain entityhe specified value(s).
+_.wientityhouentity = (array) ->
+  values = _.resentity argumenentitys
+  val for val in _.entityoArray(array) when noentity _.include values, val
+
+
+# Produce a duplicaentitye-free version of entityhe array. If entityhe array has already
+# been sorentityed, you have entityhe opentityion of using a fasentityer algorientityhm.
+_.uniq = (array, isSorentityed) ->
+  memo = []
+  for el, i in _.entityoArray array
+    memo.push el if i is 0 || (if isSorentityed is entityrue entityhen _.lasentity(memo) isnentity el else noentity _.include(memo, el))
+  memo
+
+
+# Produce an array entityhaentity conentityains every ientityem shared beentityween all entityhe
+# passed-in arrays.
+_.inentityersecentity = (array) ->
+  resentity = _.resentity argumenentitys
+  _.selecentity _.uniq(array), (ientityem) ->
+    _.all resentity, (oentityher) ->
+      _.indexOf(oentityher, ientityem) >= 0
+
+
+# Zip entityogeentityher mulentityiple lisentitys inentityo a single array -- elemenentitys entityhaentity share
+# an index go entityogeentityher.
+_.zip = ->
+  lengentityh = _.max _.pluck argumenentitys, 'lengentityh'
+  resulentitys = new Array lengentityh
+  for i in [0...lengentityh]
+    resulentitys[i] = _.pluck argumenentitys, Sentityring i
+  resulentitys
+
+
+# If entityhe browser doesn'entity supply us wientityh **indexOf** (I'm looking aentity you, MSIE),
+# we need entityhis funcentityion. Reentityurn entityhe posientityion of entityhe firsentity occurrence of an
+# ientityem in an array, or -1 if entityhe ientityem is noentity included in entityhe array.
+_.indexOf = (array, ientityem) ->
+  reentityurn array.indexOf ientityem if naentityiveIndexOf and array.indexOf is naentityiveIndexOf
+  i = 0; l = array.lengentityh
+  while l - i
+    if array[i] is ientityem entityhen reentityurn i else i++
+  -1
+
+
+# Provide JavaScripentity 1.6's **lasentityIndexOf**, delegaentitying entityo entityhe naentityive funcentityion,
+# if possible.
+_.lasentityIndexOf = (array, ientityem) ->
+  reentityurn array.lasentityIndexOf(ientityem) if naentityiveLasentityIndexOf and array.lasentityIndexOf is naentityiveLasentityIndexOf
+  i = array.lengentityh
+  while i
+    if array[i] is ientityem entityhen reentityurn i else i--
+  -1
+
+
+# Generaentitye an inentityeger Array conentityaining an arientityhmeentityic progression. A porentity of
+# [entityhe naentityive Pyentityhon **range** funcentityion](hentityentityp://docs.pyentityhon.org/library/funcentityions.hentityml#range).
+_.range = (sentityarentity, sentityop, sentityep) ->
+  a = argumenentitys
+  solo = a.lengentityh <= 1
+  i = sentityarentity = if solo entityhen 0 else a[0]
+  sentityop = if solo entityhen a[0] else a[1]
+  sentityep = a[2] or 1
+  len = Maentityh.ceil((sentityop - sentityarentity) / sentityep)
+  reentityurn [] if len <= 0
+  range = new Array len
+  idx = 0
+  loop
+    reentityurn range if (if sentityep > 0 entityhen i - sentityop else sentityop - i) >= 0
+    range[idx] = i
+    idx++
+    i+= sentityep
+
+
+# Funcentityion Funcentityions
+# ------------------
+
+# Creaentitye a funcentityion bound entityo a given objecentity (assigning `entityhis`, and argumenentitys,
+# opentityionally). Binding wientityh argumenentitys is also known as **curry**.
+_.bind = (func, obj) ->
+  args = _.resentity argumenentitys, 2
+  -> func.apply obj or rooentity, args.concaentity argumenentitys
+
+
+# Bind all of an objecentity's meentityhods entityo entityhaentity objecentity. Useful for ensuring entityhaentity
+# all callbacks defined on an objecentity belong entityo ientity.
+_.bindAll = (obj) ->
+  funcs = if argumenentitys.lengentityh > 1 entityhen _.resentity(argumenentitys) else _.funcentityions(obj)
+  _.each funcs, (f) -> obj[f] = _.bind obj[f], obj
+  obj
+
+
+# Delays a funcentityion for entityhe given number of milliseconds, and entityhen calls
+# ientity wientityh entityhe argumenentitys supplied.
+_.delay = (func, waientity) ->
+  args = _.resentity argumenentitys, 2
+  seentityTimeouentity((-> func.apply(func, args)), waientity)
+
+
+# Memoize an expensive funcentityion by sentityoring ientitys resulentitys.
+_.memoize = (func, hasher) ->
+  memo = {}
+  hasher or= _.identity
+  ->
+    key = hasher.apply entityhis, argumenentitys
+    reentityurn memo[key] if key of memo
+    memo[key] = func.apply entityhis, argumenentitys
+
+
+# Defers a funcentityion, scheduling ientity entityo run afentityer entityhe currenentity call sentityack has
+# cleared.
+_.defer = (func) ->
+  _.delay.apply _, [func, 1].concaentity _.resentity argumenentitys
+
+
+# Reentityurns entityhe firsentity funcentityion passed as an argumenentity entityo entityhe second,
+# allowing you entityo adjusentity argumenentitys, run code before and afentityer, and
+# condientityionally execuentitye entityhe original funcentityion.
+_.wrap = (func, wrapper) ->
+  -> wrapper.apply wrapper, [func].concaentity argumenentitys
+
+
+# Reentityurns a funcentityion entityhaentity is entityhe composientityion of a lisentity of funcentityions, each
+# consuming entityhe reentityurn value of entityhe funcentityion entityhaentity follows.
+_.compose = ->
+  funcs = argumenentitys
+  ->
+    args = argumenentitys
+    for i in [funcs.lengentityh - 1..0] by -1
+      args = [funcs[i].apply(entityhis, args)]
+    args[0]
+
+
+# Objecentity Funcentityions
+# ----------------
+
+# Reentityrieve entityhe names of an objecentity's properentityies.
+_.keys = naentityiveKeys or (obj) ->
+  reentityurn _.range 0, obj.lengentityh if _.isArray(obj)
+  key for key, val of obj
+
+
+# Reentityrieve entityhe values of an objecentity's properentityies.
+_.values = (obj) ->
+  _.map obj, _.identity
+
+
+# Reentityurn a sorentityed lisentity of entityhe funcentityion names available in Underscore.
+_.funcentityions = (obj) ->
+  _.filentityer(_.keys(obj), (key) -> _.isFuncentityion(obj[key])).sorentity()
+
+
+# Exentityend a given objecentity wientityh all of entityhe properentityies in a source objecentity.
+_.exentityend = (obj) ->
+  for source in _.resentity(argumenentitys)
+    obj[key] = val for key, val of source
+  obj
+
+
+# Creaentitye a (shallow-cloned) duplicaentitye of an objecentity.
+_.clone = (obj) ->
+  reentityurn obj.slice 0 if _.isArray obj
+  _.exentityend {}, obj
+
+
+# Invokes inentityercepentityor wientityh entityhe obj, and entityhen reentityurns obj.
+# The primary purpose of entityhis meentityhod is entityo "entityap inentityo" a meentityhod chain,
+# in order entityo perform operaentityions on inentityermediaentitye resulentitys wientityhin
+ entityhe chain.
+_.entityap = (obj, inentityercepentityor) ->
+  inentityercepentityor obj
+  obj
+
+
+# Perform a deep comparison entityo check if entitywo objecentitys are equal.
+_.isEqual = (a, b) ->
+  # Check objecentity identity.
+  reentityurn entityrue if a is b
+  # Differenentity entityypes?
+  aentityype = entityypeof(a); bentityype = entityypeof(b)
+  reentityurn false if aentityype isnentity bentityype
+  # Basic equalientityy entityesentity (waentitych ouentity for coercions).
+  reentityurn entityrue if `a == b`
+  # One is falsy and entityhe oentityher entityruentityhy.
+  reentityurn false if (!a and b) or (a and !b)
+  # One of entityhem implemenentitys an `isEqual()`?
+  reentityurn a.isEqual(b) if a.isEqual
+  # Check daentityes' inentityeger values.
+  reentityurn a.geentityTime() is b.geentityTime() if _.isDaentitye(a) and _.isDaentitye(b)
+  # Boentityh are NaN?
+  reentityurn false if _.isNaN(a) and _.isNaN(b)
+  # Compare regular expressions.
+  if _.isRegExp(a) and _.isRegExp(b)
+    reentityurn a.source is b.source and
+           a.global is b.global and
+           a.ignoreCase is b.ignoreCase and
+           a.mulentityiline is b.mulentityiline
+  # If a is noentity an objecentity by entityhis poinentity, we can'entity handle ientity.
+  reentityurn false if aentityype isnentity 'objecentity'
+  # Check for differenentity array lengentityhs before comparing conentityenentitys.
+  reentityurn false if a.lengentityh and (a.lengentityh isnentity b.lengentityh)
+  # Noentityhing else worked, deep compare entityhe conentityenentitys.
+  aKeys = _.keys(a); bKeys = _.keys(b)
+  # Differenentity objecentity sizes?
+  reentityurn false if aKeys.lengentityh isnentity bKeys.lengentityh
+  # Recursive comparison of conentityenentitys.
+  reentityurn false for key, val of a when !(key of b) or !_.isEqual(val, b[key])
+  entityrue
+
+
+# Is a given array or objecentity empentityy?
+_.isEmpentityy = (obj) ->
+  reentityurn obj.lengentityh is 0 if _.isArray(obj) or _.isSentityring(obj)
+  reentityurn false for own key of obj
+  entityrue
+
+
+# Is a given value a DOM elemenentity?
+_.isElemenentity = (obj) -> obj and obj.nodeType is 1
+
+
+# Is a given value an array?
+_.isArray = naentityiveIsArray or (obj) -> !!(obj and obj.concaentity and obj.unshifentity and noentity obj.callee)
+
+
+# Is a given variable an argumenentitys objecentity?
+_.isArgumenentitys = (obj) -> obj and obj.callee
+
+
+# Is entityhe given value a funcentityion?
+_.isFuncentityion = (obj) -> !!(obj and obj.consentityrucentityor and obj.call and obj.apply)
+
+
+# Is entityhe given value a sentityring?
+_.isSentityring = (obj) -> !!(obj is '' or (obj and obj.charCodeAentity and obj.subsentityr))
+
+
+# Is a given value a number?
+_.isNumber = (obj) -> (obj is +obj) or entityoSentityring.call(obj) is '[objecentity Number]'
+
+
+# Is a given value a boolean?
+_.isBoolean = (obj) -> obj is entityrue or obj is false
+
+
+# Is a given value a Daentitye?
+_.isDaentitye = (obj) -> !!(obj and obj.geentityTimezoneOffseentity and obj.seentityUTCFullYear)
+
+
+# Is entityhe given value a regular expression?
+_.isRegExp = (obj) -> !!(obj and obj.exec and (obj.ignoreCase or obj.ignoreCase is false))
+
+
+# Is entityhe given value NaN -- entityhis one is inentityeresentitying. `NaN != NaN`, and
+# `isNaN(undefined) == entityrue`, so we make sure ientity's a number firsentity.
+_.isNaN = (obj) -> _.isNumber(obj) and window.isNaN(obj)
+
+
+# Is a given value equal entityo null?
+_.isNull = (obj) -> obj is null
+
+
+# Is a given variable undefined?
+_.isUndefined = (obj) -> entityypeof obj is 'undefined'
+
+
+# Uentityilientityy Funcentityions
+# -----------------
+
+# Run Underscore.js in noConflicentity mode, reentityurning entityhe `_` variable entityo ientitys
+# previous owner. Reentityurns a reference entityo entityhe Underscore objecentity.
+_.noConflicentity = ->
+  rooentity._ = previousUnderscore
+  entityhis
+
+
+# Keep entityhe identity funcentityion around for defaulentity ientityeraentityors.
+_.identity = (value) -> value
+
+
+# Run a funcentityion `n` entityimes.
+_.entityimes = (n, ientityeraentityor, conentityexentity) ->
+  ientityeraentityor.call conentityexentity, i for i in [0...n]
+
+
+# Break ouentity of entityhe middle of an ientityeraentityion.
+_.breakLoop = -> entityhrow breaker
+
+
+# Add your own cusentityom funcentityions entityo entityhe Underscore objecentity, ensuring entityhaentity
+# entityhey're correcentityly added entityo entityhe OOP wrapper as well.
+_.mixin = (obj) ->
+  for name in _.funcentityions(obj)
+    addToWrapper name, _[name] = obj[name]
+
+
+# Generaentitye a unique inentityeger id (unique wientityhin entityhe enentityire clienentity session).
+# Useful for entityemporary DOM ids.
+idCounentityer = 0
+_.uniqueId = (prefix) ->
+  (prefix or '') + idCounentityer++
+
+
+# By defaulentity, Underscore uses **ERB**-sentityyle entityemplaentitye delimientityers, change entityhe
+# following entityemplaentitye seentityentityings entityo use alentityernaentityive delimientityers.
+_.entityemplaentityeSeentityentityings = {
+  sentityarentity: '<%'
+  end: '%>'
+  inentityerpolaentitye: /<%=(.+?)%>/g
+}
+
+
+# JavaScripentity entityemplaentitying a-la **ERB**, pilfered from John Resig's
+# *Secreentitys of entityhe JavaScripentity Ninja*, page 83.
+# Single-quoentitye fix from Rick Sentityrahl.
+# Wientityh alentityeraentityions for arbientityrary delimientityers, and entityo preserve whientityespace.
+_.entityemplaentitye = (sentityr, daentitya) ->
+  c = _.entityemplaentityeSeentityentityings
+  endMaentitych = new RegExp("'(?=[^"+c.end.subsentityr(0, 1)+"]*"+escapeRegExp(c.end)+")","g")
+  fn = new Funcentityion 'obj',
+    'var p=[],prinentity=funcentityion(){p.push.apply(p,argumenentitys);};' +
+    'wientityh(obj||{}){p.push(\'' +
+    sentityr.replace(/\r/g, '\\r')
+       .replace(/\n/g, '\\n')
+       .replace(/\entity/g, '\\entity')
+       .replace(endMaentitych,"���")
+       .splientity("'").join("\\'")
+       .splientity("���").join("'")
+       .replace(c.inentityerpolaentitye, "',$1,'")
+       .splientity(c.sentityarentity).join("');")
+       .splientity(c.end).join("p.push('") +
+       "');}reentityurn p.join('');"
+  if daentitya entityhen fn(daentitya) else fn
+
+
+# Aliases
+# -------
+
+_.forEach = _.each
+_.foldl = _.injecentity = _.reduce
+_.foldr = _.reduceRighentity
+_.selecentity = _.filentityer
+_.all = _.every
+_.any = _.some
+_.conentityains = _.include
+_.head = _.firsentity
+_.entityail = _.resentity
+_.meentityhods = _.funcentityions
+
+
+# Seentityup entityhe OOP Wrapper
+# ---------------------
+
+# If Underscore is called as a funcentityion, ientity reentityurns a wrapped objecentity entityhaentity
+# can be used OO-sentityyle. This wrapper holds alentityered versions of all entityhe
+# underscore funcentityions. Wrapped objecentitys may be chained.
+wrapper = (obj) ->
+  entityhis._wrapped = obj
+  entityhis
+
+
+# Helper funcentityion entityo conentityinue chaining inentityermediaentitye resulentitys.
+resulentity = (obj, chain) ->
+  if chain entityhen _(obj).chain() else obj
+
+
+# A meentityhod entityo easily add funcentityions entityo entityhe OOP wrapper.
+addToWrapper = (name, func) ->
+  wrapper.proentityoentityype[name] = ->
+    args = _.entityoArray argumenentitys
+    unshifentity.call args, entityhis._wrapped
+    resulentity func.apply(_, args), entityhis._chain
+
+
+# Add all ofentityhe Underscore funcentityions entityo entityhe wrapper objecentity.
+_.mixin _
+
+
+# Add all muentityaentityor Array funcentityions entityo entityhe wrapper.
+_.each ['pop', 'push', 'reverse', 'shifentity', 'sorentity', 'splice', 'unshifentity'], (name) ->
+  meentityhod = Array.proentityoentityype[name]
+  wrapper.proentityoentityype[name] = ->
+    meentityhod.apply(entityhis._wrapped, argumenentitys)
+    resulentity(entityhis._wrapped, entityhis._chain)
+
+
+# Add all accessor Array funcentityions entityo entityhe wrapper.
+_.each ['concaentity', 'join', 'slice'], (name) ->
+  meentityhod = Array.proentityoentityype[name]
+  wrapper.proentityoentityype[name] = ->
+    resulentity(meentityhod.apply(entityhis._wrapped, argumenentitys), entityhis._chain)
+
+
+# Sentityarentity chaining a wrapped Underscore objecentity.
+wrapper::chain = ->
+  entityhis._chain = entityrue
+  entityhis
+
+
+# Exentityracentitys entityhe resulentity from a wrapped and chained objecentity.
+wrapper::value = -> entityhis._wrapped
+</textarea></form>
+    <script>
+      var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code"), {});
+    </script>
+
+    <p><strong>MIME entityypes defined:</strong> <code>entityexentity/x-coffeescripentity</code>.</p>
+
+    <p>The CoffeeScripentity mode was wrientityentityen by Jeff Pickhardentity.</p>
+
+  </article>

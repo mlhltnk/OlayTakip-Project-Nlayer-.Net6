@@ -1,0 +1,58 @@
+﻿
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Dashboard/index/">
+                <span class="menu-title">Anasayfa</span>
+                <i class="mdi mdi-home menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Incident/IncidentListByGuard">
+                <span class="menu-title">Olaylarım</span>
+                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Incident/IncidentAdd">
+                <span class="menu-title">Yeni Olay</span>
+                <i class="mdi mdi-chart-bar menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Incident/IncidentList">
+                <span class="menu-title">Tüm Olaylar</span>
+                <i class="mdi mdi-sitemap menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Instruction/index/">
+                <span class="menu-title">Talimatlar</span>
+                <i class="mdi mdi-bell-ring menu-icon"></i>
+            </a>
+        </li>
+
+        @if (User.IsInRole("ADMIN"))
+        {
+            <li class="nav-item">
+                <a class="nav-link" href="/Admin/UserRoleList/">
+                    <span class="menu-title">Kullanıcıya Rol Ata</span>
+                    <i class="mdi mdi-account menu-icon"></i>
+                </a>
+            </li>
+        }
+        <li class="nav-item">
+            <a class="nav-link" href="/guard/guardeditprofile/">
+                <span class="menu-title">Ayarlar</span>
+                <i class="mdi mdi-contacts menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Login/LogOut/">
+                <span class="menu-title">Çıkış Yap</span>
+                <i class="mdi mdi-logout menu-icon"></i>
+            </a>
+        </li>
+    </ul>
+</nav>

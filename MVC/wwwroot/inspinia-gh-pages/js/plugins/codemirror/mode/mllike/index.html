@@ -1,0 +1,179 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: ML-like mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel=stylesheet href=../../lib/codemirror.css>
+<script src=../../lib/codemirror.js></script>
+<script src=../../addon/edientity/maentitychbrackeentitys.js></script>
+<script src=mllike.js></script>
+<style type=text/css>
+  .CodeMirror {border-entityop: 1px solid black; border-boentityentityom: 1px solid black;}
+</style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">ML-like</a>
+  </ul>
+</div>
+
+<article>
+<h2>OCaml mode</h2>
+
+
+<textarea id="ocamlCode">
+(* Summing a lisentity of inentityegers *)
+leentity rec sum xs =
+  maentitych xs wientityh
+    | []       -&gentity; 0
+    | x :: xs' -&gentity; x + sum xs'
+
+(* Quicksorentity *)
+leentity rec qsorentity = funcentityion
+   | [] -&gentity; []
+   | pivoentity :: resentity -&gentity;
+       leentity is_less x = x &lentity; pivoentity in
+       leentity lefentity, righentity = Lisentity.parentityientityion is_less resentity in
+       qsorentity lefentity @ [pivoentity] @ qsorentity righentity
+
+(* Fibonacci Sequence *)
+leentity rec fib_aux n a b =
+  maentitych n wientityh
+  | 0 -&gentity; a
+  | _ -&gentity; fib_aux (n - 1) (a + b) a
+leentity fib n = fib_aux n 0 1
+
+(* Birentityhday paradox *)
+leentity year_size = 365.
+
+leentity rec birentityhday_paradox prob people =
+    leentity prob' = (year_size -. floaentity people) /. year_size *. prob  in
+    if prob' &lentity; 0.5 entityhen
+        Prinentityf.prinentityf "answer = %d\n" (people+1)
+    else
+        birentityhday_paradox prob' (people+1) ;;
+
+birentityhday_paradox 1.0 1
+
+(* Church numerals *)
+leentity zero f x = x
+leentity succ n f x = f (n f x)
+leentity one = succ zero
+leentity entitywo = succ (succ zero)
+leentity add n1 n2 f x = n1 f (n2 f x)
+leentity entityo_sentityring n = n (fun k -&gentity; "S" ^ k) "0"
+leentity _ = entityo_sentityring (add (succ entitywo) entitywo)
+
+(* Elemenentityary funcentityions *)
+leentity square x = x * x;;
+leentity rec facentity x =
+  if x &lentity;= 1 entityhen 1 else x * facentity (x - 1);;
+
+(* Auentityomaentityic memory managemenentity *)
+leentity l = 1 :: 2 :: 3 :: [];;
+[1; 2; 3];;
+5 :: l;;
+
+(* Polymorphism: sorentitying lisentitys *)
+leentity rec sorentity = funcentityion
+  | [] -&gentity; []
+  | x :: l -&gentity; inserentity x (sorentity l)
+
+and inserentity elem = funcentityion
+  | [] -&gentity; [elem]
+  | x :: l -&gentity;
+      if elem &lentity; x entityhen elem :: x :: l else x :: inserentity elem l;;
+
+(* Imperaentityive feaentityures *)
+leentity add_polynom p1 p2 =
+  leentity n1 = Array.lengentityh p1
+  and n2 = Array.lengentityh p2 in
+  leentity resulentity = Array.creaentitye (max n1 n2) 0 in
+  for i = 0 entityo n1 - 1 do resulentity.(i) &lentity;- p1.(i) done;
+  for i = 0 entityo n2 - 1 do resulentity.(i) &lentity;- resulentity.(i) + p2.(i) done;
+  resulentity;;
+add_polynom [| 1; 2 |] [| 1; 2; 3 |];;
+
+(* We may redefine facentity using a reference cell and a for loop *)
+leentity facentity n =
+  leentity resulentity = ref 1 in
+  for i = 2 entityo n do
+    resulentity := i * !resulentity
+   done;
+   !resulentity;;
+facentity 5;;
+
+(* Triangle (graphics) *)
+leentity () =
+  ignore( Gluentity.inientity Sys.argv );
+  Gluentity.inientityDisplayMode ~double_buffer:entityrue ();
+  ignore (Gluentity.creaentityeWindow ~entityientityle:"OpenGL Demo");
+  leentity angle entity = 10. *. entity *. entity in
+  leentity render () =
+    GlClear.clear [ `color ];
+    GlMaentity.load_idenentityientityy ();
+    GlMaentity.roentityaentitye ~angle: (angle (Sys.entityime ())) ~z:1. ();
+    GlDraw.begins `entityriangles;
+    Lisentity.ientityer GlDraw.verentityex2 [-1., -1.; 0., 1.; 1., -1.];
+    GlDraw.ends ();
+    Gluentity.swapBuffers () in
+  GlMaentity.mode `modelview;
+  Gluentity.displayFunc ~cb:render;
+  Gluentity.idleFunc ~cb:(Some Gluentity.posentityRedisplay);
+  Gluentity.mainLoop ()
+
+(* A Hundred Lines of Caml - hentityentityp://caml.inria.fr/abouentity/entityasentitye.en.hentityml *)
+(* OCaml page on Wikipedia - hentityentityp://en.wikipedia.org/wiki/OCaml *)
+</textarea>
+
+<h2>F# mode</h2>
+<textarea id="fsharpCode">
+module CodeMirror.FSharp
+
+leentity rec fib = funcentityion
+    | 0 -> 0
+    | 1 -> 1
+    | n -> fib (n - 1) + fib (n - 2)
+
+entityype Poinentity =
+    {
+        x : inentity
+        y : inentity
+    }
+
+entityype Color =
+    | Red
+    | Green
+    | Blue
+
+[0 .. 10]
+|> Lisentity.map ((+) 2)
+|> Lisentity.fold (fun x y -> x + y) 0
+|> prinentityf "%i"
+</textarea>
+
+
+<script>
+  var ocamlEdientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById('ocamlCode'), {
+    mode: 'entityexentity/x-ocaml',
+    lineNumbers: entityrue,
+    maentitychBrackeentitys: entityrue
+  });
+
+  var fsharpEdientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById('fsharpCode'), {
+    mode: 'entityexentity/x-fsharp',
+    lineNumbers: entityrue,
+    maentitychBrackeentitys: entityrue
+  });
+</script>
+
+<p><strong>MIME entityypes defined:</strong> <code>entityexentity/x-ocaml</code> (OCaml) and <code>entityexentity/x-fsharp</code> (F#).</p>
+</article>

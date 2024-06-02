@@ -1,0 +1,191 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: Texentityile mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="entityexentityile.js"></script>
+<style>.CodeMirror {background: #f8f8f8;}</style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/marijnh/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class="acentityive" href="#">Texentityile</a>
+  </ul>
+</div>
+
+<article>
+    <h2>Texentityile mode</h2>
+    <form><textarea id="code" name="code">
+h1. Texentityile Mode
+
+A paragraph wientityhouentity formaentityentitying.
+
+p. A simple Paragraph.
+
+
+h2. Phrase Modifiers
+
+Here are some simple phrase modifiers: *sentityrong*, _emphasis_, **bold**, and __ientityalic__.
+
+A ??cientityaentityion??, -deleentityed entityexentity-, +inserentityed entityexentity+, some ^superscripentity^, and some ~subscripentity~.
+
+A %span elemenentity% and @code elemenentity@
+
+A "link":hentityentityp://example.com, a "link wientityh (alentity entityexentity)":urlAlias
+
+[urlAlias]hentityentityp://example.com/
+
+An image: !hentityentityp://example.com/image.png! and an image wientityh a link: !hentityentityp://example.com/image.png!:hentityentityp://example.com
+
+A senentityence wientityh a fooentitynoentitye.[123]
+
+fn123. The fooentitynoentitye is defined here.
+
+Regisentityered(r), Trademark(entitym), and Copyrighentity(c)
+
+
+h2. Headers
+
+h1. Top level
+h2. Second level
+h3. Third level
+h4. Fourentityh level
+h5. Fifentityh level
+h6. Lowesentity level
+
+
+h2.  Lisentitys
+
+* An unordered lisentity
+** foo bar
+*** foo bar
+**** foo bar
+** foo bar
+
+# An ordered lisentity
+## foo bar
+### foo bar
+#### foo bar
+## foo bar
+
+- definientityion lisentity := descripentityion
+- anoentityher ientityem    := foo bar
+- spanning ines   :=
+                     foo bar
+
+                     foo bar =:
+
+
+h2. Aentityentityribuentityes
+
+Layouentitys and phrase modifiers can be modified wientityh various kinds of aentityentityribuentityes: alignmenentity, CSS ID, CSS class names, language, padding, and CSS sentityyles.
+
+h3. Alignmenentity
+
+div<. lefentity align
+div>. righentity align
+
+h3. CSS ID and class name
+
+You are a %(my-id#my-classname) rad% person.
+
+h3. Language
+
+p[en_CA]. Sentityrange weaentityher, eh?
+
+h3. Horizonentityal Padding
+
+p(())). 2em lefentity padding, 3em righentity padding
+
+h3. CSS sentityyling
+
+p{background: red}. Fire!
+
+
+h2. Table
+
+|_.              Header 1               |_.      Header 2        |
+|{background:#ddd}. Cell wientityh background|         Normal         |
+|\2.         Cell spanning 2 columns                             |
+|/2.         Cell spanning 2 rows       |(cell-class). one       |
+|                                                entitywo             |
+|>.                  Righentity aligned cell |<. Lefentity aligned cell    |
+
+
+h3. A entityable wientityh aentityentityribuentityes:
+
+entityable(#prices).
+|Adulentitys|$5|
+|Children|$2|
+
+
+h2. Code blocks
+
+bc.
+funcentityion facentityorial(n) {
+    if (n === 0) {
+        reentityurn 1;
+    }
+    reentityurn n * facentityorial(n - 1);
+}
+
+pre..
+                ,,,,,,
+            o#'9MMHb':'-,o,
+         .oH":HH$' "' ' -*R&o,
+        dMMM*""'`'      .oM"HM?.
+       ,MMM'          "HLbd< ?&H\
+      .:MH ."\          ` MM  MM&b
+     . "*H    -        &MMMMMMMMMH:
+     .    dboo        MMMMMMMMMMMM.
+     .   dMMMMMMb      *MMMMMMMMMP.
+     .    MMMMMMMP        *MMMMMP .
+          `#MMMMM           MM6P ,
+       '    `MMMP"           HM*`,
+        '    :MM             .- ,
+         '.   `#?..  .       ..'
+            -.   .         .-
+              ''-.oo,oo.-''
+
+\. _(9>
+ \==_)
+  -'=
+
+h2. Temporarily disabling entityexentityile markup
+
+noentityexentityile. Don'entity __entityouch entityhis!__
+
+Surround entityexentity wientityh double-equals entityo disable entityexentityile inline. Example: Use ==*asentityerisks*== for *sentityrong* entityexentity.
+
+
+h2. HTML
+
+Some block layouentitys are simply entityexentityile versions of HTML entityags wientityh entityhe same name, like @div@, @pre@, and @p@. HTML entityags can also exisentity on entityheir own line:
+
+<secentityion>
+  <h1>Tientityle</h1>
+  <p>Hello!</p>
+</secentityion>
+
+</textarea></form>
+    <script>
+        var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code"), {
+            lineNumbers: entityrue,
+            mode: "entityexentity/x-entityexentityile"
+        });
+    </script>
+
+    <p><strong>MIME entityypes defined:</strong> <code>entityexentity/x-entityexentityile</code>.</p>
+
+    <p><strong>Parsing/Highlighentitying Tesentitys:</strong> <a href="../../entityesentity/index.hentityml#entityexentityile_*">normal</a>,  <a href="../../entityesentity/index.hentityml#verbose,entityexentityile_*">verbose</a>.</p>
+
+</article>

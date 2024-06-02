@@ -1,0 +1,140 @@
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Entity\bin\Debug\net6.0\Entity.deps.json
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Entity\bin\Debug\net6.0\Entity.runtimeconfig.json
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Entity\bin\Debug\net6.0\Entity.dll
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Entity\bin\Debug\net6.0\Entity.pdb
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Entity\bin\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Entity\bin\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Entity\obj\Debug\net6.0\Entity.csproj.AssemblyReference.cache
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Entity\obj\Debug\net6.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Entity\obj\Debug\net6.0\Entity.AssemblyInfoInputs.cache
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Entity\obj\Debug\net6.0\Entity.AssemblyInfo.cs
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Entity\obj\Debug\net6.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Entity\obj\Debug\net6.0\Entity.csproj.Up2Date
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Entity\obj\Debug\net6.0\Entity.dll
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Entity\obj\Debug\net6.0\refint\Entity.dll
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Entity\obj\Debug\net6.0\Entity.pdb
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Entity\obj\Debug\net6.0\Entity.genruntimeconfig.cache
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Entity\obj\Debug\net6.0\ref\Entity.dll
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Entity\bin\Debug\net6.0\Entity.deps.json
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Entity\bin\Debug\net6.0\Entity.runtimeconfig.json
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Entity\bin\Debug\net6.0\Entity.dll
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Entity\bin\Debug\net6.0\Entity.pdb
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Entity\bin\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Entity\bin\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Entity\obj\Debug\net6.0\Entity.csproj.AssemblyReference.cache
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Entity\obj\Debug\net6.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Entity\obj\Debug\net6.0\Entity.AssemblyInfoInputs.cache
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Entity\obj\Debug\net6.0\Entity.AssemblyInfo.cs
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Entity\obj\Debug\net6.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Entity\obj\Debug\net6.0\Entity.csproj.Up2Date
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Entity\obj\Debug\net6.0\Entity.dll
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Entity\obj\Debug\net6.0\refint\Entity.dll
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Entity\obj\Debug\net6.0\Entity.pdb
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Entity\obj\Debug\net6.0\Entity.genruntimeconfig.cache
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Entity\obj\Debug\net6.0\ref\Entity.dll
+\\Mac\Home\Desktop\NötaS\NobetTakip\Entity\bin\Debug\net6.0\Entity.deps.json
+\\Mac\Home\Desktop\NötaS\NobetTakip\Entity\bin\Debug\net6.0\Entity.runtimeconfig.json
+\\Mac\Home\Desktop\NötaS\NobetTakip\Entity\bin\Debug\net6.0\Entity.dll
+\\Mac\Home\Desktop\NötaS\NobetTakip\Entity\bin\Debug\net6.0\Entity.pdb
+\\Mac\Home\Desktop\NötaS\NobetTakip\Entity\bin\Debug\net6.0\Core.dll
+\\Mac\Home\Desktop\NötaS\NobetTakip\Entity\bin\Debug\net6.0\Core.pdb
+\\Mac\Home\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.csproj.AssemblyReference.cache
+\\Mac\Home\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+\\Mac\Home\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.AssemblyInfoInputs.cache
+\\Mac\Home\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.AssemblyInfo.cs
+\\Mac\Home\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.csproj.CoreCompileInputs.cache
+\\Mac\Home\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.sourcelink.json
+\\Mac\Home\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.csproj.Up2Date
+\\Mac\Home\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.dll
+\\Mac\Home\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\refint\Entity.dll
+\\Mac\Home\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.pdb
+\\Mac\Home\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.genruntimeconfig.cache
+\\Mac\Home\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\ref\Entity.dll
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Entity\bin\Debug\net6.0\Entity.deps.json
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Entity\bin\Debug\net6.0\Entity.runtimeconfig.json
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Entity\bin\Debug\net6.0\Entity.dll
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Entity\bin\Debug\net6.0\Entity.pdb
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Entity\bin\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Entity\bin\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.csproj.AssemblyReference.cache
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.AssemblyInfoInputs.cache
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.AssemblyInfo.cs
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.sourcelink.json
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.csproj.Up2Date
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.dll
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\refint\Entity.dll
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.pdb
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\Entity.genruntimeconfig.cache
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Entity\obj\Debug\net6.0\ref\Entity.dll
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Entity\bin\Debug\net6.0\Entity.deps.json
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Entity\bin\Debug\net6.0\Entity.runtimeconfig.json
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Entity\bin\Debug\net6.0\Entity.dll
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Entity\bin\Debug\net6.0\Entity.pdb
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Entity\bin\Debug\net6.0\Core.dll
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Entity\bin\Debug\net6.0\Core.pdb
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.csproj.AssemblyReference.cache
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.AssemblyInfoInputs.cache
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.AssemblyInfo.cs
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.sourcelink.json
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.csproj.Up2Date
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.dll
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\refint\Entity.dll
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.pdb
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.genruntimeconfig.cache
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\ref\Entity.dll
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Entity\bin\Debug\net6.0\Entity.deps.json
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Entity\bin\Debug\net6.0\Entity.runtimeconfig.json
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Entity\bin\Debug\net6.0\Entity.dll
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Entity\bin\Debug\net6.0\Entity.pdb
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Entity\bin\Debug\net6.0\Core.dll
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Entity\bin\Debug\net6.0\Core.pdb
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Entity\obj\Debug\net6.0\Entity.csproj.AssemblyReference.cache
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Entity\obj\Debug\net6.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Entity\obj\Debug\net6.0\Entity.AssemblyInfoInputs.cache
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Entity\obj\Debug\net6.0\Entity.AssemblyInfo.cs
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Entity\obj\Debug\net6.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Entity\obj\Debug\net6.0\Entity.sourcelink.json
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Entity\obj\Debug\net6.0\Entity.csproj.Up2Date
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Entity\obj\Debug\net6.0\Entity.dll
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Entity\obj\Debug\net6.0\refint\Entity.dll
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Entity\obj\Debug\net6.0\Entity.pdb
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Entity\obj\Debug\net6.0\Entity.genruntimeconfig.cache
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Entity\obj\Debug\net6.0\ref\Entity.dll
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Entity\bin\Debug\net6.0\Entity.deps.json
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Entity\bin\Debug\net6.0\Entity.runtimeconfig.json
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Entity\bin\Debug\net6.0\Entity.dll
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Entity\bin\Debug\net6.0\Entity.pdb
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Entity\bin\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Entity\bin\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.csproj.AssemblyReference.cache
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.AssemblyInfoInputs.cache
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.AssemblyInfo.cs
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.csproj.Up2Date
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.dll
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\refint\Entity.dll
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.pdb
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\Entity.genruntimeconfig.cache
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Entity\obj\Debug\net6.0\ref\Entity.dll
+C:\Users\Melih\Desktop\Github\NobetTakipp\Entity\bin\Debug\net6.0\Entity.deps.json
+C:\Users\Melih\Desktop\Github\NobetTakipp\Entity\bin\Debug\net6.0\Entity.runtimeconfig.json
+C:\Users\Melih\Desktop\Github\NobetTakipp\Entity\bin\Debug\net6.0\Entity.dll
+C:\Users\Melih\Desktop\Github\NobetTakipp\Entity\bin\Debug\net6.0\Entity.pdb
+C:\Users\Melih\Desktop\Github\NobetTakipp\Entity\bin\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\Github\NobetTakipp\Entity\bin\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\Github\NobetTakipp\Entity\obj\Debug\net6.0\Entity.csproj.AssemblyReference.cache
+C:\Users\Melih\Desktop\Github\NobetTakipp\Entity\obj\Debug\net6.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Melih\Desktop\Github\NobetTakipp\Entity\obj\Debug\net6.0\Entity.AssemblyInfoInputs.cache
+C:\Users\Melih\Desktop\Github\NobetTakipp\Entity\obj\Debug\net6.0\Entity.AssemblyInfo.cs
+C:\Users\Melih\Desktop\Github\NobetTakipp\Entity\obj\Debug\net6.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\Melih\Desktop\Github\NobetTakipp\Entity\obj\Debug\net6.0\Entity.csproj.Up2Date
+C:\Users\Melih\Desktop\Github\NobetTakipp\Entity\obj\Debug\net6.0\Entity.dll
+C:\Users\Melih\Desktop\Github\NobetTakipp\Entity\obj\Debug\net6.0\refint\Entity.dll
+C:\Users\Melih\Desktop\Github\NobetTakipp\Entity\obj\Debug\net6.0\Entity.pdb
+C:\Users\Melih\Desktop\Github\NobetTakipp\Entity\obj\Debug\net6.0\Entity.genruntimeconfig.cache
+C:\Users\Melih\Desktop\Github\NobetTakipp\Entity\obj\Debug\net6.0\ref\Entity.dll

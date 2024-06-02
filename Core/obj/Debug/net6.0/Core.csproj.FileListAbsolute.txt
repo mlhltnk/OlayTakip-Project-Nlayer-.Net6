@@ -1,0 +1,116 @@
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Core\bin\Debug\net6.0\Core.deps.json
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Core\bin\Debug\net6.0\Core.runtimeconfig.json
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Core\bin\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Core\bin\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Core\obj\Debug\net6.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Core\obj\Debug\net6.0\Core.AssemblyInfoInputs.cache
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Core\obj\Debug\net6.0\Core.AssemblyInfo.cs
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Core\obj\Debug\net6.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Core\obj\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Core\obj\Debug\net6.0\refint\Core.dll
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Core\obj\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Core\obj\Debug\net6.0\Core.genruntimeconfig.cache
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Core\obj\Debug\net6.0\ref\Core.dll
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Core\bin\Debug\net6.0\Core.deps.json
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Core\bin\Debug\net6.0\Core.runtimeconfig.json
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Core\bin\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Core\bin\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Core\obj\Debug\net6.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Core\obj\Debug\net6.0\Core.AssemblyInfoInputs.cache
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Core\obj\Debug\net6.0\Core.AssemblyInfo.cs
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Core\obj\Debug\net6.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Core\obj\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Core\obj\Debug\net6.0\refint\Core.dll
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Core\obj\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Core\obj\Debug\net6.0\Core.genruntimeconfig.cache
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Core\obj\Debug\net6.0\ref\Core.dll
+\\Mac\Home\Desktop\NötaS\NobetTakip\Core\bin\Debug\net6.0\Core.deps.json
+\\Mac\Home\Desktop\NötaS\NobetTakip\Core\bin\Debug\net6.0\Core.runtimeconfig.json
+\\Mac\Home\Desktop\NötaS\NobetTakip\Core\bin\Debug\net6.0\Core.dll
+\\Mac\Home\Desktop\NötaS\NobetTakip\Core\bin\Debug\net6.0\Core.pdb
+\\Mac\Home\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
+\\Mac\Home\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+\\Mac\Home\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\Core.AssemblyInfoInputs.cache
+\\Mac\Home\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\Core.AssemblyInfo.cs
+\\Mac\Home\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\Core.csproj.CoreCompileInputs.cache
+\\Mac\Home\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\Core.sourcelink.json
+\\Mac\Home\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\Core.dll
+\\Mac\Home\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\refint\Core.dll
+\\Mac\Home\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\Core.pdb
+\\Mac\Home\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\Core.genruntimeconfig.cache
+\\Mac\Home\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\ref\Core.dll
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Core\bin\Debug\net6.0\Core.deps.json
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Core\bin\Debug\net6.0\Core.runtimeconfig.json
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Core\bin\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Core\bin\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\Core.AssemblyInfoInputs.cache
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\Core.AssemblyInfo.cs
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\Core.sourcelink.json
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\refint\Core.dll
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\Core.genruntimeconfig.cache
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Core\obj\Debug\net6.0\ref\Core.dll
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Core\bin\Debug\net6.0\Core.deps.json
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Core\bin\Debug\net6.0\Core.runtimeconfig.json
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Core\bin\Debug\net6.0\Core.dll
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Core\bin\Debug\net6.0\Core.pdb
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\Core.AssemblyInfoInputs.cache
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\Core.AssemblyInfo.cs
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\Core.sourcelink.json
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\Core.dll
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\refint\Core.dll
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\Core.pdb
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\Core.genruntimeconfig.cache
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\ref\Core.dll
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Core\bin\Debug\net6.0\Core.deps.json
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Core\bin\Debug\net6.0\Core.runtimeconfig.json
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Core\bin\Debug\net6.0\Core.dll
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Core\bin\Debug\net6.0\Core.pdb
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Core\obj\Debug\net6.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Core\obj\Debug\net6.0\Core.AssemblyInfoInputs.cache
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Core\obj\Debug\net6.0\Core.AssemblyInfo.cs
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Core\obj\Debug\net6.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Core\obj\Debug\net6.0\Core.sourcelink.json
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Core\obj\Debug\net6.0\Core.dll
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Core\obj\Debug\net6.0\refint\Core.dll
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Core\obj\Debug\net6.0\Core.pdb
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Core\obj\Debug\net6.0\Core.genruntimeconfig.cache
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Core\obj\Debug\net6.0\ref\Core.dll
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Core\bin\Debug\net6.0\Core.deps.json
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Core\bin\Debug\net6.0\Core.runtimeconfig.json
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Core\bin\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Core\bin\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\Core.AssemblyInfoInputs.cache
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\Core.AssemblyInfo.cs
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\refint\Core.dll
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\Core.genruntimeconfig.cache
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Core\obj\Debug\net6.0\ref\Core.dll
+C:\Users\Melih\Desktop\Github\NobetTakipp\Core\bin\Debug\net6.0\Core.deps.json
+C:\Users\Melih\Desktop\Github\NobetTakipp\Core\bin\Debug\net6.0\Core.runtimeconfig.json
+C:\Users\Melih\Desktop\Github\NobetTakipp\Core\bin\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\Github\NobetTakipp\Core\bin\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\Github\NobetTakipp\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
+C:\Users\Melih\Desktop\Github\NobetTakipp\Core\obj\Debug\net6.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Melih\Desktop\Github\NobetTakipp\Core\obj\Debug\net6.0\Core.AssemblyInfoInputs.cache
+C:\Users\Melih\Desktop\Github\NobetTakipp\Core\obj\Debug\net6.0\Core.AssemblyInfo.cs
+C:\Users\Melih\Desktop\Github\NobetTakipp\Core\obj\Debug\net6.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\Melih\Desktop\Github\NobetTakipp\Core\obj\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\Github\NobetTakipp\Core\obj\Debug\net6.0\refint\Core.dll
+C:\Users\Melih\Desktop\Github\NobetTakipp\Core\obj\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\Github\NobetTakipp\Core\obj\Debug\net6.0\Core.genruntimeconfig.cache
+C:\Users\Melih\Desktop\Github\NobetTakipp\Core\obj\Debug\net6.0\ref\Core.dll

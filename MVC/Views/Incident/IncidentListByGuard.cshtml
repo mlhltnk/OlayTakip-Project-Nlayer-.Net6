@@ -1,0 +1,35 @@
+﻿@using Entity
+@model List<Incident>
+
+@{
+	ViewData["Title"] = "IncidentListByGuard";
+	Layout = "~/Views/Shared/GuardLayout.cshtml";
+}
+
+
+<table class=" table table-hover">
+	<tr>
+		<th>Olay</th>
+		<th>Nöbet Adı</th>
+		<th>Oluşturulma Tarihi</th>
+		<th>&nbsp Olay İçeriği</th>
+		<th>&nbsp &nbsp Sil</th>
+		<th>&nbsp &nbsp Düzenle</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+
+		<tr>
+			<td>@item.IncidentName</td>
+			<td><label class="badge badge-gradient-success">@item.Shift.ShiftType</label></td>
+			<td>@(((DateTime)item.IncidentDatetime).ToString("dd-MMM-yyyy")) </td>
+			<td><a href="/Incident/IncidentReadAll/@item.IncidentId" class="btn btn-sm btn-dark">Detaylar</a> </td>
+			<td><a href="/Incident/IncidentDelete/@item.IncidentId" class="btn btn-sm btn-danger">Sil</a></td>
+			<td><a href="/Incident/IncidentEdit/@item.IncidentId" class="btn btn-sm btn-success">Düzenle</a></td>
+
+		</tr>
+	}
+
+</table>
+
+<td><a href="/Incident/IncidentAdd" class="btn btn-primary">Yeni Olay Girişi</a></td>

@@ -1,0 +1,173 @@
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\bin\Debug\net6.0\Business.deps.json
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\bin\Debug\net6.0\Business.runtimeconfig.json
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\bin\Debug\net6.0\Business.dll
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\bin\Debug\net6.0\Business.pdb
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\bin\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\bin\Debug\net6.0\DataAccess.dll
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\bin\Debug\net6.0\Entity.dll
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\bin\Debug\net6.0\Entity.pdb
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\bin\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.csproj.AssemblyReference.cache
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.AssemblyInfoInputs.cache
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.AssemblyInfo.cs
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.csproj.CoreCompileInputs.cache
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.csproj.Up2Date
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.dll
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\obj\Debug\net6.0\refint\Business.dll
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.pdb
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.genruntimeconfig.cache
+C:\Users\Melih\Desktop\Mrmelih\NöbetTakipSistemi\Business\obj\Debug\net6.0\ref\Business.dll
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\bin\Debug\net6.0\Business.deps.json
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\bin\Debug\net6.0\Business.runtimeconfig.json
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\bin\Debug\net6.0\Business.dll
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\bin\Debug\net6.0\Business.pdb
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\bin\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\bin\Debug\net6.0\DataAccess.dll
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\bin\Debug\net6.0\Entity.dll
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\bin\Debug\net6.0\Entity.pdb
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\bin\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.csproj.AssemblyReference.cache
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.AssemblyInfoInputs.cache
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.AssemblyInfo.cs
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.csproj.CoreCompileInputs.cache
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.csproj.Up2Date
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.dll
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\obj\Debug\net6.0\refint\Business.dll
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.pdb
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.genruntimeconfig.cache
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\obj\Debug\net6.0\ref\Business.dll
+C:\Users\Melih\Desktop\NötaS\NöbetTakipSistemi\Business\obj\Debug\net6.0\Business.sourcelink.json
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\Business.deps.json
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\Business.runtimeconfig.json
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\Business.dll
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\Business.pdb
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\Core.dll
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\DataAccess.dll
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\Entity.dll
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\DataAccess.pdb
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\Entity.pdb
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\Core.pdb
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.csproj.AssemblyReference.cache
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.GeneratedMSBuildEditorConfig.editorconfig
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.AssemblyInfoInputs.cache
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.AssemblyInfo.cs
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.csproj.CoreCompileInputs.cache
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.sourcelink.json
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.csproj.Up2Date
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.dll
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\refint\Business.dll
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.pdb
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.genruntimeconfig.cache
+\\Mac\Home\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\ref\Business.dll
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.csproj.AssemblyReference.cache
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.AssemblyInfoInputs.cache
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.AssemblyInfo.cs
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.csproj.CoreCompileInputs.cache
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.sourcelink.json
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\Business.deps.json
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\Business.runtimeconfig.json
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\Business.dll
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\Business.pdb
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\DataAccess.dll
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\Entity.dll
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\Entity.pdb
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\bin\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.csproj.Up2Date
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.dll
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\refint\Business.dll
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.pdb
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\Business.genruntimeconfig.cache
+C:\Users\Melih\Desktop\NötaS\NobetTakip\Business\obj\Debug\net6.0\ref\Business.dll
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\Business.deps.json
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\Business.runtimeconfig.json
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\Business.dll
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\Business.pdb
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\Core.dll
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\DataAccess.dll
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\Entity.dll
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\Entity.pdb
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\Core.pdb
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.csproj.AssemblyReference.cache
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.AssemblyInfoInputs.cache
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.AssemblyInfo.cs
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.csproj.CoreCompileInputs.cache
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.sourcelink.json
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.csproj.Up2Date
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.dll
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\refint\Business.dll
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.pdb
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.genruntimeconfig.cache
+C:\Users\melihaltunok\Desktop\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\ref\Business.dll
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\bin\Debug\net6.0\Business.deps.json
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\bin\Debug\net6.0\Business.runtimeconfig.json
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\bin\Debug\net6.0\Business.dll
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\bin\Debug\net6.0\Business.pdb
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\bin\Debug\net6.0\Core.dll
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\bin\Debug\net6.0\DataAccess.dll
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\bin\Debug\net6.0\Entity.dll
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\bin\Debug\net6.0\Entity.pdb
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\bin\Debug\net6.0\Core.pdb
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\obj\Debug\net6.0\Business.csproj.AssemblyReference.cache
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\obj\Debug\net6.0\Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\obj\Debug\net6.0\Business.AssemblyInfoInputs.cache
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\obj\Debug\net6.0\Business.AssemblyInfo.cs
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\obj\Debug\net6.0\Business.csproj.CoreCompileInputs.cache
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\obj\Debug\net6.0\Business.sourcelink.json
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\obj\Debug\net6.0\Business.csproj.Up2Date
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\obj\Debug\net6.0\Business.dll
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\obj\Debug\net6.0\refint\Business.dll
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\obj\Debug\net6.0\Business.pdb
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\obj\Debug\net6.0\Business.genruntimeconfig.cache
+C:\Users\melihaltunok\Desktop\NötaSs - Kopya\NobetTakipp\Business\obj\Debug\net6.0\ref\Business.dll
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\Business.deps.json
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\Business.runtimeconfig.json
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\Business.dll
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\Business.pdb
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\DataAccess.dll
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\Entity.dll
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\Entity.pdb
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\bin\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.csproj.AssemblyReference.cache
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.AssemblyInfoInputs.cache
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.AssemblyInfo.cs
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.csproj.CoreCompileInputs.cache
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.csproj.Up2Date
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.dll
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\refint\Business.dll
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.pdb
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\Business.genruntimeconfig.cache
+C:\Users\Melih\Desktop\NötaSs\NötaSs\NobetTakipp\Business\obj\Debug\net6.0\ref\Business.dll
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\bin\Debug\net6.0\Business.deps.json
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\bin\Debug\net6.0\Business.runtimeconfig.json
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\bin\Debug\net6.0\Business.dll
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\bin\Debug\net6.0\Business.pdb
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\bin\Debug\net6.0\Core.dll
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\bin\Debug\net6.0\DataAccess.dll
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\bin\Debug\net6.0\Entity.dll
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\bin\Debug\net6.0\Entity.pdb
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\bin\Debug\net6.0\Core.pdb
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\obj\Debug\net6.0\Business.csproj.AssemblyReference.cache
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\obj\Debug\net6.0\Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\obj\Debug\net6.0\Business.AssemblyInfoInputs.cache
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\obj\Debug\net6.0\Business.AssemblyInfo.cs
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\obj\Debug\net6.0\Business.csproj.CoreCompileInputs.cache
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\obj\Debug\net6.0\Business.csproj.Up2Date
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\obj\Debug\net6.0\Business.dll
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\obj\Debug\net6.0\refint\Business.dll
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\obj\Debug\net6.0\Business.pdb
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\obj\Debug\net6.0\Business.genruntimeconfig.cache
+C:\Users\Melih\Desktop\Github\NobetTakipp\Business\obj\Debug\net6.0\ref\Business.dll

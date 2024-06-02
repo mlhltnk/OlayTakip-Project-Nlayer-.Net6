@@ -1,0 +1,56 @@
+﻿@using Entity
+@model List<AppUser>
+@{
+    ViewData["Title"] = "UserRoleList";
+    Layout = "~/Views/Shared/GuardLayout.cshtml";
+}
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Role List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        .btn {
+            margin-right: 5px;
+            font-size: 16px;
+            padding: 8px 16px;
+        }
+
+        th {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th class="font-weight-bold" style="font-size: 20px;">Kullanıcı</th>
+                    <th class="font-weight-bold" style="font-size: 20px;">Rol Ata</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.UserName</td>
+                        <td><a href="/Admin/AssingRole/@item.Id" class="btn btn-warning"><i class="fas fa-user-plus"></i> Rol Ata</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a href="/Admin/Index" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Rol Listesine Dön</a>
+    </div>
+</body>
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
+

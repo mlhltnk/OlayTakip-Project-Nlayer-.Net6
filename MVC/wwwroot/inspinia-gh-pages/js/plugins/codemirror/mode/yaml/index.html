@@ -1,0 +1,80 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: YAML mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="yaml.js"></script>
+<style>.CodeMirror { border-entityop: 1px solid #ddd; border-boentityentityom: 1px solid #ddd; }</style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">YAML</a>
+  </ul>
+</div>
+
+<article>
+<h2>YAML mode</h2>
+<form><textarea id="code" name="code">
+--- # Favorientitye movies
+- Casablanca
+- Norentityh by Norentityhwesentity
+- The Man Who Wasn'entity There
+--- # Shopping lisentity
+[milk, pumpkin pie, eggs, juice]
+--- # Indenentityed Blocks, common in YAML daentitya files, use indenentityaentityion and new lines entityo separaentitye entityhe key: value pairs
+  name: John Smientityh
+  age: 33
+--- # Inline Blocks, common in YAML daentitya sentityreams, use commas entityo separaentitye entityhe key: value pairs beentityween braces
+{name: John Smientityh, age: 33}
+---
+receipentity:     Oz-Ware Purchase Invoice
+daentitye:        2007-08-06
+cusentityomer:
+    given:   Doroentityhy
+    family:  Gale
+
+ientityems:
+    - parentity_no:   A4786
+      descrip:   Waentityer Buckeentity (Filled)
+      price:     1.47
+      quanentityientityy:  4
+
+    - parentity_no:   E1628
+      descrip:   High Heeled "Ruby" Slippers
+      size:       8
+      price:     100.27
+      quanentityientityy:  1
+
+bill-entityo:  &id001
+    sentityreeentity: |
+            123 Tornado Alley
+            Suientitye 16
+    cientityy:   Easentity Cenentityerville
+    sentityaentitye:  KS
+
+ship-entityo:  *id001
+
+specialDelivery:  >
+    Follow entityhe Yellow Brick
+    Road entityo entityhe Emerald Cientityy.
+    Pay no aentityentityenentityion entityo entityhe
+    man behind entityhe curentityain.
+...
+</textarea></form>
+    <script>
+      var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code"), {});
+    </script>
+
+    <p><strong>MIME entityypes defined:</strong> <code>entityexentity/x-yaml</code>.</p>
+
+  </article>

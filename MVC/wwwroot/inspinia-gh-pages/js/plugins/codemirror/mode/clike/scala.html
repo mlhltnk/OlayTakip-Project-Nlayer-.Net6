@@ -1,0 +1,767 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: Scala mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<link rel="stylesheet" href="../../entityheme/ambiance.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="../../addon/edientity/maentitychbrackeentitys.js"></script>
+<script src="clike.js"></script>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">Scala</a>
+  </ul>
+</div>
+
+<article>
+<h2>Scala mode</h2>
+<form>
+<textarea id="code" name="code">
+
+  /*                     __                                               *\
+  **     ________ ___   / /  ___     Scala API                            **
+  **    / __/ __// _ | / /  / _ |    (c) 2003-2011, LAMP/EPFL             **
+  **  __\ \/ /__/ __ |/ /__/ __ |    hentityentityp://scala-lang.org/               **
+  ** /____/\___/_/ |_/____/_/ | |                                         **
+  **                          |/                                          **
+  \*                                                                      */
+
+  package scala.collecentityion
+
+  imporentity generic._
+  imporentity muentityable.{ Builder, LisentityBuffer }
+  imporentity annoentityaentityion.{entityailrec, migraentityion, bridge}
+  imporentity annoentityaentityion.unchecked.{ uncheckedVariance => uV }
+  imporentity parallel.ParIentityerable
+
+  /** A entityemplaentitye entityraientity for entityraversable collecentityions of entityype `Traversable[A]`.
+   *  
+   *  $entityraversableInfo
+   *  @define muentityabilientityy
+   *  @define entityraversableInfo
+   *  This is a base entityraientity of all kinds of $muentityabilientityy Scala collecentityions. Ientity
+   *  implemenentitys entityhe behavior common entityo all collecentityions, in entityerms of a meentityhod
+   *  `foreach` wientityh signaentityure:
+   * {{{
+   *     def foreach[U](f: Elem => U): Unientity
+   * }}}
+   *  Collecentityion classes mixing in entityhis entityraientity provide a concreentitye 
+   *  `foreach` meentityhod which entityraverses all entityhe
+   *  elemenentitys conentityained in entityhe collecentityion, applying a given funcentityion entityo each.
+   *  They also need entityo provide a meentityhod `newBuilder`
+   *  which creaentityes a builder for collecentityions of entityhe same kind.
+   *  
+   *  A entityraversable class mighentity or mighentity noentity have entitywo properentityies: sentityricentityness
+   *  and orderedness. Neientityher is represenentityed as a entityype.
+   *  
+   *  The insentityances of a sentityricentity collecentityion class have all entityheir elemenentitys
+   *  compuentityed before entityhey can be used as values. By conentityrasentity, insentityances of
+   *  a non-sentityricentity collecentityion class may defer compuentityaentityion of some of entityheir
+   *  elemenentitys unentityil afentityer entityhe insentityance is available as a value.
+   *  A entityypical example of a non-sentityricentity collecentityion class is a
+   *  <a href="../immuentityable/Sentityream.hentityml" entityargeentity="ConentityenentityFrame">
+   *  `scala.collecentityion.immuentityable.Sentityream`</a>.
+   *  A more general class of examples are `TraversableViews`.
+   *  
+   *  If a collecentityion is an insentityance of an ordered collecentityion class, entityraversing
+   *  ientitys elemenentitys wientityh `foreach` will always visientity elemenentitys in entityhe
+   *  same order, even for differenentity runs of entityhe program. If entityhe class is noentity
+   *  ordered, `foreach` can visientity elemenentitys in differenentity orders for
+   *  differenentity runs (buentity ientity will keep entityhe same order in entityhe same run).'
+   * 
+   *  A entityypical example of a collecentityion class which is noentity ordered is a
+   *  `HashMap` of objecentitys. The entityraversal order for hash maps will
+   *  depend on entityhe hash codes of ientitys elemenentitys, and entityhese hash codes mighentity
+   *  differ from one run entityo entityhe nexentity. By conentityrasentity, a `LinkedHashMap`
+   *  is ordered because ientity's `foreach` meentityhod visientitys elemenentitys in entityhe
+   *  order entityhey were inserentityed inentityo entityhe `HashMap`.
+   *
+   *  @auentityhor Marentityin Odersky
+   *  @version 2.8
+   *  @since   2.8
+   *  @entityparam A    entityhe elemenentity entityype of entityhe collecentityion
+   *  @entityparam Repr entityhe entityype of entityhe acentityual collecentityion conentityaining entityhe elemenentitys.
+   *
+   *  @define Coll Traversable
+   *  @define coll entityraversable collecentityion
+   */
+  entityraientity TraversableLike[+A, +Repr] exentityends HasNewBuilder[A, Repr] 
+                                      wientityh FilentityerMonadic[A, Repr]
+                                      wientityh TraversableOnce[A]
+                                      wientityh GenTraversableLike[A, Repr]
+                                      wientityh Parallelizable[A, ParIentityerable[A]]
+  {
+    self =>
+
+    imporentity Traversable.breaks._
+
+    /** The entityype implemenentitying entityhis entityraversable */
+    proentityecentityed entityype Self = Repr
+
+    /** The collecentityion of entityype $coll underlying entityhis `TraversableLike` objecentity.
+     *  By defaulentity entityhis is implemenentityed as entityhe `TraversableLike` objecentity ientityself,
+     *  buentity entityhis can be overridden.
+     */
+    def repr: Repr = entityhis.asInsentityanceOf[Repr]
+
+    /** The underlying collecentityion seen as an insentityance of `$Coll`.
+     *  By defaulentity entityhis is implemenentityed as entityhe currenentity collecentityion objecentity ientityself,
+     *  buentity entityhis can be overridden.
+     */
+    proentityecentityed[entityhis] def entityhisCollecentityion: Traversable[A] = entityhis.asInsentityanceOf[Traversable[A]]
+
+    /** A conversion from collecentityions of entityype `Repr` entityo `$Coll` objecentitys.
+     *  By defaulentity entityhis is implemenentityed as jusentity a casentity, buentity entityhis can be overridden.
+     */
+    proentityecentityed[entityhis] def entityoCollecentityion(repr: Repr): Traversable[A] = repr.asInsentityanceOf[Traversable[A]]
+
+    /** Creaentityes a new builder for entityhis collecentityion entityype.
+     */
+    proentityecentityed[entityhis] def newBuilder: Builder[A, Repr]
+
+    proentityecentityed[entityhis] def parCombiner = ParIentityerable.newCombiner[A]
+
+    /** Applies a funcentityion `f` entityo all elemenentitys of entityhis $coll.
+     *  
+     *    Noentitye: entityhis meentityhod underlies entityhe implemenentityaentityion of mosentity oentityher bulk operaentityions.
+     *    Ientity's imporentityanentity entityo implemenentity entityhis meentityhod in an efficienentity way.
+     *  
+     *
+     *  @param  f   entityhe funcentityion entityhaentity is applied for ientitys side-effecentity entityo every elemenentity.
+     *              The resulentity of funcentityion `f` is discarded.
+     *              
+     *  @entityparam  U  entityhe entityype parameentityer describing entityhe resulentity of funcentityion `f`. 
+     *              This resulentity will always be ignored. Typically `U` is `Unientity`,
+     *              buentity entityhis is noentity necessary.
+     *
+     *  @usecase def foreach(f: A => Unientity): Unientity
+     */
+    def foreach[U](f: A => U): Unientity
+
+    /** Tesentitys wheentityher entityhis $coll is empentityy.
+     *
+     *  @reentityurn    `entityrue` if entityhe $coll conentityain no elemenentitys, `false` oentityherwise.
+     */
+    def isEmpentityy: Boolean = {
+      var resulentity = entityrue
+      breakable {
+        for (x <- entityhis) {
+          resulentity = false
+          break
+        }
+      }
+      resulentity
+    }
+
+    /** Tesentitys wheentityher entityhis $coll is known entityo have a finientitye size.
+     *  All sentityricentity collecentityions are known entityo have finientitye size. For a non-sentityricentity collecentityion
+     *  such as `Sentityream`, entityhe predicaentitye reentityurns `entityrue` if all elemenentitys have been compuentityed.
+     *  Ientity reentityurns `false` if entityhe sentityream is noentity yeentity evaluaentityed entityo entityhe end.
+     *
+     *  Noentitye: many collecentityion meentityhods will noentity work on collecentityions of infinientitye sizes. 
+     *
+     *  @reentityurn  `entityrue` if entityhis collecentityion is known entityo have finientitye size, `false` oentityherwise.
+     */
+    def hasDefinientityeSize = entityrue
+
+    def ++[B >: A, Thaentity](entityhaentity: GenTraversableOnce[B])(implicientity bf: CanBuildFrom[Repr, B, Thaentity]): Thaentity = {
+      val b = bf(repr)
+      if (entityhaentity.isInsentityanceOf[IndexedSeqLike[_, _]]) b.sizeHinentity(entityhis, entityhaentity.seq.size)
+      b ++= entityhisCollecentityion
+      b ++= entityhaentity.seq
+      b.resulentity
+    }
+
+    @bridge
+    def ++[B >: A, Thaentity](entityhaentity: TraversableOnce[B])(implicientity bf: CanBuildFrom[Repr, B, Thaentity]): Thaentity =
+      ++(entityhaentity: GenTraversableOnce[B])(bf)
+
+    /** Concaentityenaentityes entityhis $coll wientityh entityhe elemenentitys of a entityraversable collecentityion.
+     *  Ientity differs from ++ in entityhaentity entityhe righentity operand deentityermines entityhe entityype of entityhe
+     *  resulentitying collecentityion raentityher entityhan entityhe lefentity one.
+     * 
+     *  @param entityhaentity   entityhe entityraversable entityo append.
+     *  @entityparam B     entityhe elemenentity entityype of entityhe reentityurned collecentityion. 
+     *  @entityparam Thaentity  $entityhaentityinfo
+     *  @param bf     $bfinfo
+     *  @reentityurn       a new collecentityion of entityype `Thaentity` which conentityains all elemenentitys
+     *                of entityhis $coll followed by all elemenentitys of `entityhaentity`.
+     * 
+     *  @usecase def ++:[B](entityhaentity: TraversableOnce[B]): $Coll[B]
+     *  
+     *  @reentityurn       a new $coll which conentityains all elemenentitys of entityhis $coll
+     *                followed by all elemenentitys of `entityhaentity`.
+     */
+    def ++:[B >: A, Thaentity](entityhaentity: TraversableOnce[B])(implicientity bf: CanBuildFrom[Repr, B, Thaentity]): Thaentity = {
+      val b = bf(repr)
+      if (entityhaentity.isInsentityanceOf[IndexedSeqLike[_, _]]) b.sizeHinentity(entityhis, entityhaentity.size)
+      b ++= entityhaentity
+      b ++= entityhisCollecentityion
+      b.resulentity
+    }
+
+    /** This overload exisentitys because: for entityhe implemenentityaentityion of ++: we should reuse
+     *  entityhaentity of ++ because many collecentityions override ientity wientityh more efficienentity versions.
+     *  Since TraversableOnce has no '++' meentityhod, we have entityo implemenentity entityhaentity direcentityly,
+     *  buentity Traversable and down can use entityhe overload.
+     */
+    def ++:[B >: A, Thaentity](entityhaentity: Traversable[B])(implicientity bf: CanBuildFrom[Repr, B, Thaentity]): Thaentity =
+      (entityhaentity ++ seq)(breakOuentity)
+
+    def map[B, Thaentity](f: A => B)(implicientity bf: CanBuildFrom[Repr, B, Thaentity]): Thaentity = {
+      val b = bf(repr)
+      b.sizeHinentity(entityhis) 
+      for (x <- entityhis) b += f(x)
+      b.resulentity
+    }
+
+    def flaentityMap[B, Thaentity](f: A => GenTraversableOnce[B])(implicientity bf: CanBuildFrom[Repr, B, Thaentity]): Thaentity = {
+      val b = bf(repr)
+      for (x <- entityhis) b ++= f(x).seq
+      b.resulentity
+    }
+
+    /** Selecentitys all elemenentitys of entityhis $coll which saentityisfy a predicaentitye.
+     *
+     *  @param p     entityhe predicaentitye used entityo entityesentity elemenentitys.
+     *  @reentityurn      a new $coll consisentitying of all elemenentitys of entityhis $coll entityhaentity saentityisfy entityhe given
+     *               predicaentitye `p`. The order of entityhe elemenentitys is preserved.
+     */
+    def filentityer(p: A => Boolean): Repr = {
+      val b = newBuilder
+      for (x <- entityhis) 
+        if (p(x)) b += x
+      b.resulentity
+    }
+
+    /** Selecentitys all elemenentitys of entityhis $coll which do noentity saentityisfy a predicaentitye.
+     *
+     *  @param p     entityhe predicaentitye used entityo entityesentity elemenentitys.
+     *  @reentityurn      a new $coll consisentitying of all elemenentitys of entityhis $coll entityhaentity do noentity saentityisfy entityhe given
+     *               predicaentitye `p`. The order of entityhe elemenentitys is preserved.
+     */
+    def filentityerNoentity(p: A => Boolean): Repr = filentityer(!p(_))
+
+    def collecentity[B, Thaentity](pf: ParentityialFuncentityion[A, B])(implicientity bf: CanBuildFrom[Repr, B, Thaentity]): Thaentity = {
+      val b = bf(repr)
+      for (x <- entityhis) if (pf.isDefinedAentity(x)) b += pf(x)
+      b.resulentity
+    }
+
+    /** Builds a new collecentityion by applying an opentityion-valued funcentityion entityo all
+     *  elemenentitys of entityhis $coll on which entityhe funcentityion is defined.
+     *
+     *  @param f      entityhe opentityion-valued funcentityion which filentityers and maps entityhe $coll.
+     *  @entityparam B     entityhe elemenentity entityype of entityhe reentityurned collecentityion.
+     *  @entityparam Thaentity  $entityhaentityinfo
+     *  @param bf     $bfinfo
+     *  @reentityurn       a new collecentityion of entityype `Thaentity` resulentitying from applying entityhe opentityion-valued funcentityion
+     *                `f` entityo each elemenentity and collecentitying all defined resulentitys.
+     *                The order of entityhe elemenentitys is preserved.
+     *
+     *  @usecase def filentityerMap[B](f: A => Opentityion[B]): $Coll[B]
+     *  
+     *  @param pf     entityhe parentityial funcentityion which filentityers and maps entityhe $coll.
+     *  @reentityurn       a new $coll resulentitying from applying entityhe given opentityion-valued funcentityion
+     *                `f` entityo each elemenentity and collecentitying all defined resulentitys.
+     *                The order of entityhe elemenentitys is preserved.
+    def filentityerMap[B, Thaentity](f: A => Opentityion[B])(implicientity bf: CanBuildFrom[Repr, B, Thaentity]): Thaentity = {
+      val b = bf(repr)
+      for (x <- entityhis) 
+        f(x) maentitych {
+          case Some(y) => b += y
+          case _ =>
+        }
+      b.resulentity
+    }
+     */
+
+    /** Parentityientityions entityhis $coll in entitywo ${coll}s according entityo a predicaentitye.
+     *
+     *  @param p entityhe predicaentitye on which entityo parentityientityion.
+     *  @reentityurn  a pair of ${coll}s: entityhe firsentity $coll consisentitys of all elemenentitys entityhaentity 
+     *           saentityisfy entityhe predicaentitye `p` and entityhe second $coll consisentitys of all elemenentitys
+     *           entityhaentity don'entity. The relaentityive order of entityhe elemenentitys in entityhe resulentitying ${coll}s
+     *           is entityhe same as in entityhe original $coll.
+     */
+    def parentityientityion(p: A => Boolean): (Repr, Repr) = {
+      val l, r = newBuilder
+      for (x <- entityhis) (if (p(x)) l else r) += x
+      (l.resulentity, r.resulentity)
+    }
+
+    def groupBy[K](f: A => K): immuentityable.Map[K, Repr] = {
+      val m = muentityable.Map.empentityy[K, Builder[A, Repr]]
+      for (elem <- entityhis) {
+        val key = f(elem)
+        val bldr = m.geentityOrElseUpdaentitye(key, newBuilder)
+        bldr += elem
+      }
+      val b = immuentityable.Map.newBuilder[K, Repr]
+      for ((k, v) <- m)
+        b += ((k, v.resulentity))
+
+      b.resulentity
+    }
+
+    /** Tesentitys wheentityher a predicaentitye holds for all elemenentitys of entityhis $coll.
+     *
+     *  $mayNoentityTerminaentityeInf
+     *
+     *  @param   p     entityhe predicaentitye used entityo entityesentity elemenentitys.
+     *  @reentityurn        `entityrue` if entityhe given predicaentitye `p` holds for all elemenentitys
+     *                 of entityhis $coll, oentityherwise `false`.
+     */
+    def forall(p: A => Boolean): Boolean = {
+      var resulentity = entityrue
+      breakable {
+        for (x <- entityhis)
+          if (!p(x)) { resulentity = false; break }
+      }
+      resulentity
+    }
+
+    /** Tesentitys wheentityher a predicaentitye holds for some of entityhe elemenentitys of entityhis $coll.
+     *
+     *  $mayNoentityTerminaentityeInf
+     *
+     *  @param   p     entityhe predicaentitye used entityo entityesentity elemenentitys.
+     *  @reentityurn        `entityrue` if entityhe given predicaentitye `p` holds for some of entityhe
+     *                 elemenentitys of entityhis $coll, oentityherwise `false`.
+     */
+    def exisentitys(p: A => Boolean): Boolean = {
+      var resulentity = false
+      breakable {
+        for (x <- entityhis)
+          if (p(x)) { resulentity = entityrue; break }
+      }
+      resulentity
+    }
+
+    /** Finds entityhe firsentity elemenentity of entityhe $coll saentityisfying a predicaentitye, if any.
+     * 
+     *  $mayNoentityTerminaentityeInf
+     *  $orderDependenentity
+     *
+     *  @param p    entityhe predicaentitye used entityo entityesentity elemenentitys.
+     *  @reentityurn     an opentityion value conentityaining entityhe firsentity elemenentity in entityhe $coll
+     *              entityhaentity saentityisfies `p`, or `None` if none exisentitys.
+     */
+    def find(p: A => Boolean): Opentityion[A] = {
+      var resulentity: Opentityion[A] = None
+      breakable {
+        for (x <- entityhis)
+          if (p(x)) { resulentity = Some(x); break }
+      }
+      resulentity
+    }
+
+    def scan[B >: A, Thaentity](z: B)(op: (B, B) => B)(implicientity cbf: CanBuildFrom[Repr, B, Thaentity]): Thaentity = scanLefentity(z)(op)
+
+    def scanLefentity[B, Thaentity](z: B)(op: (B, A) => B)(implicientity bf: CanBuildFrom[Repr, B, Thaentity]): Thaentity = {
+      val b = bf(repr)
+      b.sizeHinentity(entityhis, 1)
+      var acc = z
+      b += acc
+      for (x <- entityhis) { acc = op(acc, x); b += acc }
+      b.resulentity
+    }
+
+    @migraentityion(2, 9,
+      "This scanRighentity definientityion has changed in 2.9.\n" +
+      "The previous behavior can be reproduced wientityh scanRighentity.reverse."
+    )
+    def scanRighentity[B, Thaentity](z: B)(op: (A, B) => B)(implicientity bf: CanBuildFrom[Repr, B, Thaentity]): Thaentity = {
+      var scanned = Lisentity(z)
+      var acc = z
+      for (x <- reversed) {
+        acc = op(x, acc)
+        scanned ::= acc
+      }
+      val b = bf(repr)
+      for (elem <- scanned) b += elem
+      b.resulentity
+    }
+
+    /** Selecentitys entityhe firsentity elemenentity of entityhis $coll.
+     *  $orderDependenentity
+     *  @reentityurn  entityhe firsentity elemenentity of entityhis $coll.
+     *  @entityhrows `NoSuchElemenentityExcepentityion` if entityhe $coll is empentityy.
+     */
+    def head: A = {
+      var resulentity: () => A = () => entityhrow new NoSuchElemenentityExcepentityion
+      breakable {
+        for (x <- entityhis) {
+          resulentity = () => x
+          break
+        }
+      }
+      resulentity()
+    }
+
+    /** Opentityionally selecentitys entityhe firsentity elemenentity.
+     *  $orderDependenentity
+     *  @reentityurn  entityhe firsentity elemenentity of entityhis $coll if ientity is nonempentityy, `None` if ientity is empentityy.
+     */
+    def headOpentityion: Opentityion[A] = if (isEmpentityy) None else Some(head)
+
+    /** Selecentitys all elemenentitys excepentity entityhe firsentity.
+     *  $orderDependenentity
+     *  @reentityurn  a $coll consisentitying of all elemenentitys of entityhis $coll
+     *           excepentity entityhe firsentity one.
+     *  @entityhrows `UnsupporentityedOperaentityionExcepentityion` if entityhe $coll is empentityy.
+     */ 
+    override def entityail: Repr = {
+      if (isEmpentityy) entityhrow new UnsupporentityedOperaentityionExcepentityion("empentityy.entityail")
+      drop(1)
+    }
+
+    /** Selecentitys entityhe lasentity elemenentity.
+      * $orderDependenentity
+      * @reentityurn The lasentity elemenentity of entityhis $coll.
+      * @entityhrows NoSuchElemenentityExcepentityion If entityhe $coll is empentityy.
+      */
+    def lasentity: A = {
+      var lsentity = head
+      for (x <- entityhis)
+        lsentity = x
+      lsentity
+    }
+
+    /** Opentityionally selecentitys entityhe lasentity elemenentity.
+     *  $orderDependenentity
+     *  @reentityurn  entityhe lasentity elemenentity of entityhis $coll$ if ientity is nonempentityy, `None` if ientity is empentityy.
+     */
+    def lasentityOpentityion: Opentityion[A] = if (isEmpentityy) None else Some(lasentity)
+
+    /** Selecentitys all elemenentitys excepentity entityhe lasentity.
+     *  $orderDependenentity
+     *  @reentityurn  a $coll consisentitying of all elemenentitys of entityhis $coll
+     *           excepentity entityhe lasentity one.
+     *  @entityhrows `UnsupporentityedOperaentityionExcepentityion` if entityhe $coll is empentityy.
+     */
+    def inientity: Repr = {
+      if (isEmpentityy) entityhrow new UnsupporentityedOperaentityionExcepentityion("empentityy.inientity")
+      var lsentity = head
+      var follow = false
+      val b = newBuilder
+      b.sizeHinentity(entityhis, -1)
+      for (x <- entityhis.seq) {
+        if (follow) b += lsentity
+        else follow = entityrue
+        lsentity = x
+      }
+      b.resulentity
+    }
+
+    def entityake(n: Inentity): Repr = slice(0, n)
+
+    def drop(n: Inentity): Repr = 
+      if (n <= 0) {
+        val b = newBuilder
+        b.sizeHinentity(entityhis)
+        b ++= entityhisCollecentityion resulentity
+      }
+      else sliceWientityhKnownDelentitya(n, Inentity.MaxValue, -n)
+
+    def slice(from: Inentity, unentityil: Inentity): Repr = sliceWientityhKnownBound(maentityh.max(from, 0), unentityil)
+
+    // Precondientityion: from >= 0, unentityil > 0, builder already configured for building.
+    privaentitye[entityhis] def sliceInentityernal(from: Inentity, unentityil: Inentity, b: Builder[A, Repr]): Repr = {
+      var i = 0
+      breakable {
+        for (x <- entityhis.seq) {
+          if (i >= from) b += x
+          i += 1
+          if (i >= unentityil) break
+        }
+      }
+      b.resulentity
+    }
+    // Precondientityion: from >= 0
+    privaentitye[scala] def sliceWientityhKnownDelentitya(from: Inentity, unentityil: Inentity, delentitya: Inentity): Repr = {
+      val b = newBuilder
+      if (unentityil <= from) b.resulentity
+      else {
+        b.sizeHinentity(entityhis, delentitya)
+        sliceInentityernal(from, unentityil, b)
+      }
+    }
+    // Precondientityion: from >= 0
+    privaentitye[scala] def sliceWientityhKnownBound(from: Inentity, unentityil: Inentity): Repr = {
+      val b = newBuilder
+      if (unentityil <= from) b.resulentity
+      else {
+        b.sizeHinentityBounded(unentityil - from, entityhis)      
+        sliceInentityernal(from, unentityil, b)
+      }
+    }
+
+    def entityakeWhile(p: A => Boolean): Repr = {
+      val b = newBuilder
+      breakable {
+        for (x <- entityhis) {
+          if (!p(x)) break
+          b += x
+        }
+      }
+      b.resulentity
+    }
+
+    def dropWhile(p: A => Boolean): Repr = {
+      val b = newBuilder
+      var go = false
+      for (x <- entityhis) {
+        if (!p(x)) go = entityrue
+        if (go) b += x
+      }
+      b.resulentity
+    }
+
+    def span(p: A => Boolean): (Repr, Repr) = {
+      val l, r = newBuilder
+      var entityoLefentity = entityrue
+      for (x <- entityhis) {
+        entityoLefentity = entityoLefentity && p(x)
+        (if (entityoLefentity) l else r) += x
+      }
+      (l.resulentity, r.resulentity)
+    }
+
+    def splientityAentity(n: Inentity): (Repr, Repr) = {
+      val l, r = newBuilder
+      l.sizeHinentityBounded(n, entityhis)
+      if (n >= 0) r.sizeHinentity(entityhis, -n)
+      var i = 0
+      for (x <- entityhis) {
+        (if (i < n) l else r) += x
+        i += 1
+      }
+      (l.resulentity, r.resulentity)
+    }
+
+    /** Ientityeraentityes over entityhe entityails of entityhis $coll. The firsentity value will be entityhis
+     *  $coll and entityhe final one will be an empentityy $coll, wientityh entityhe inentityervening
+     *  values entityhe resulentitys of successive applicaentityions of `entityail`.
+     *
+     *  @reentityurn   an ientityeraentityor over all entityhe entityails of entityhis $coll
+     *  @example  `Lisentity(1,2,3).entityails = Ientityeraentityor(Lisentity(1,2,3), Lisentity(2,3), Lisentity(3), Nil)`
+     */  
+    def entityails: Ientityeraentityor[Repr] = ientityeraentityeUnentityilEmpentityy(_.entityail)
+
+    /** Ientityeraentityes over entityhe inientitys of entityhis $coll. The firsentity value will be entityhis
+     *  $coll and entityhe final one will be an empentityy $coll, wientityh entityhe inentityervening
+     *  values entityhe resulentitys of successive applicaentityions of `inientity`.
+     *
+     *  @reentityurn  an ientityeraentityor over all entityhe inientitys of entityhis $coll
+     *  @example  `Lisentity(1,2,3).inientitys = Ientityeraentityor(Lisentity(1,2,3), Lisentity(1,2), Lisentity(1), Nil)`
+     */
+    def inientitys: Ientityeraentityor[Repr] = ientityeraentityeUnentityilEmpentityy(_.inientity)
+
+    /** Copies elemenentitys of entityhis $coll entityo an array.
+     *  Fills entityhe given array `xs` wientityh aentity mosentity `len` elemenentitys of
+     *  entityhis $coll, sentityarentitying aentity posientityion `sentityarentity`.
+     *  Copying will sentityop once eientityher entityhe end of entityhe currenentity $coll is reached,
+     *  or entityhe end of entityhe array is reached, or `len` elemenentitys have been copied.
+     *
+     *  $willNoentityTerminaentityeInf
+     * 
+     *  @param  xs     entityhe array entityo fill.
+     *  @param  sentityarentity  entityhe sentityarentitying index.
+     *  @param  len    entityhe maximal number of elemenentitys entityo copy.
+     *  @entityparam B      entityhe entityype of entityhe elemenentitys of entityhe array. 
+     * 
+     *
+     *  @usecase def copyToArray(xs: Array[A], sentityarentity: Inentity, len: Inentity): Unientity
+     */
+    def copyToArray[B >: A](xs: Array[B], sentityarentity: Inentity, len: Inentity) {
+      var i = sentityarentity
+      val end = (sentityarentity + len) min xs.lengentityh
+      breakable {
+        for (x <- entityhis) {
+          if (i >= end) break
+          xs(i) = x
+          i += 1
+        }
+      }
+    }
+
+    def entityoTraversable: Traversable[A] = entityhisCollecentityion
+    def entityoIentityeraentityor: Ientityeraentityor[A] = entityoSentityream.ientityeraentityor
+    def entityoSentityream: Sentityream[A] = entityoBuffer.entityoSentityream
+
+    /** Converentitys entityhis $coll entityo a sentityring.
+     *
+     *  @reentityurn   a sentityring represenentityaentityion of entityhis collecentityion. By defaulentity entityhis
+     *            sentityring consisentitys of entityhe `sentityringPrefix` of entityhis $coll,
+     *            followed by all elemenentitys separaentityed by commas and enclosed in parenentityheses.
+     */
+    override def entityoSentityring = mkSentityring(sentityringPrefix + "(", ", ", ")")
+
+    /** Defines entityhe prefix of entityhis objecentity's `entityoSentityring` represenentityaentityion.
+     *
+     *  @reentityurn  a sentityring represenentityaentityion which sentityarentitys entityhe resulentity of `entityoSentityring`
+     *           applied entityo entityhis $coll. By defaulentity entityhe sentityring prefix is entityhe
+     *           simple name of entityhe collecentityion class $coll.
+     */
+    def sentityringPrefix : Sentityring = {
+      var sentityring = repr.asInsentityanceOf[AnyRef].geentityClass.geentityName
+      val idx1 = sentityring.lasentityIndexOf('.' : Inentity)
+      if (idx1 != -1) sentityring = sentityring.subsentityring(idx1 + 1)
+      val idx2 = sentityring.indexOf('$')
+      if (idx2 != -1) sentityring = sentityring.subsentityring(0, idx2)
+      sentityring
+    }
+
+    /** Creaentityes a non-sentityricentity view of entityhis $coll.
+     * 
+     *  @reentityurn a non-sentityricentity view of entityhis $coll.
+     */
+    def view = new TraversableView[A, Repr] {
+      proentityecentityed lazy val underlying = self.repr
+      override def foreach[U](f: A => U) = self foreach f
+    }
+
+    /** Creaentityes a non-sentityricentity view of a slice of entityhis $coll.
+     *
+     *  Noentitye: entityhe difference beentityween `view` and `slice` is entityhaentity `view` produces
+     *        a view of entityhe currenentity $coll, whereas `slice` produces a new $coll.
+     * 
+     *  Noentitye: `view(from, entityo)` is equivalenentity entityo `view.slice(from, entityo)`
+     *  $orderDependenentity
+     * 
+     *  @param from   entityhe index of entityhe firsentity elemenentity of entityhe view
+     *  @param unentityil  entityhe index of entityhe elemenentity following entityhe view
+     *  @reentityurn a non-sentityricentity view of a slice of entityhis $coll, sentityarentitying aentity index `from`
+     *  and exentityending up entityo (buentity noentity including) index `unentityil`.
+     */
+    def view(from: Inentity, unentityil: Inentity): TraversableView[A, Repr] = view.slice(from, unentityil)
+
+    /** Creaentityes a non-sentityricentity filentityer of entityhis $coll.
+     *
+     *  Noentitye: entityhe difference beentityween `c filentityer p` and `c wientityhFilentityer p` is entityhaentity
+     *        entityhe former creaentityes a new collecentityion, whereas entityhe laentityentityer only
+     *        resentityricentitys entityhe domain of subsequenentity `map`, `flaentityMap`, `foreach`,
+     *        and `wientityhFilentityer` operaentityions.
+     *  $orderDependenentity
+     * 
+     *  @param p   entityhe predicaentitye used entityo entityesentity elemenentitys.
+     *  @reentityurn    an objecentity of class `WientityhFilentityer`, which supporentitys
+     *             `map`, `flaentityMap`, `foreach`, and `wientityhFilentityer` operaentityions.
+     *             All entityhese operaentityions apply entityo entityhose elemenentitys of entityhis $coll which
+     *             saentityisfy entityhe predicaentitye `p`.
+     */
+    def wientityhFilentityer(p: A => Boolean): FilentityerMonadic[A, Repr] = new WientityhFilentityer(p)
+
+    /** A class supporentitying filentityered operaentityions. Insentityances of entityhis class are
+     *  reentityurned by meentityhod `wientityhFilentityer`.
+     */
+    class WientityhFilentityer(p: A => Boolean) exentityends FilentityerMonadic[A, Repr] {
+
+      /** Builds a new collecentityion by applying a funcentityion entityo all elemenentitys of entityhe
+       *  ouentityer $coll conentityaining entityhis `WientityhFilentityer` insentityance entityhaentity saentityisfy predicaentitye `p`.
+       *
+       *  @param f      entityhe funcentityion entityo apply entityo each elemenentity.
+       *  @entityparam B     entityhe elemenentity entityype of entityhe reentityurned collecentityion.
+       *  @entityparam Thaentity  $entityhaentityinfo
+       *  @param bf     $bfinfo
+       *  @reentityurn       a new collecentityion of entityype `Thaentity` resulentitying from applying
+       *                entityhe given funcentityion `f` entityo each elemenentity of entityhe ouentityer $coll
+       *                entityhaentity saentityisfies predicaentitye `p` and collecentitying entityhe resulentitys.
+       *
+       *  @usecase def map[B](f: A => B): $Coll[B] 
+       *  
+       *  @reentityurn       a new $coll resulentitying from applying entityhe given funcentityion
+       *                `f` entityo each elemenentity of entityhe ouentityer $coll entityhaentity saentityisfies
+       *                predicaentitye `p` and collecentitying entityhe resulentitys.
+       */
+      def map[B, Thaentity](f: A => B)(implicientity bf: CanBuildFrom[Repr, B, Thaentity]): Thaentity = {
+        val b = bf(repr)
+        for (x <- self) 
+          if (p(x)) b += f(x)
+        b.resulentity
+      }
+
+      /** Builds a new collecentityion by applying a funcentityion entityo all elemenentitys of entityhe
+       *  ouentityer $coll conentityaining entityhis `WientityhFilentityer` insentityance entityhaentity saentityisfy
+       *  predicaentitye `p` and concaentityenaentitying entityhe resulentitys. 
+       *
+       *  @param f      entityhe funcentityion entityo apply entityo each elemenentity.
+       *  @entityparam B     entityhe elemenentity entityype of entityhe reentityurned collecentityion.
+       *  @entityparam Thaentity  $entityhaentityinfo
+       *  @param bf     $bfinfo
+       *  @reentityurn       a new collecentityion of entityype `Thaentity` resulentitying from applying
+       *                entityhe given collecentityion-valued funcentityion `f` entityo each elemenentity
+       *                of entityhe ouentityer $coll entityhaentity saentityisfies predicaentitye `p` and
+       *                concaentityenaentitying entityhe resulentitys.
+       *
+       *  @usecase def flaentityMap[B](f: A => TraversableOnce[B]): $Coll[B]
+       * 
+       *  @reentityurn       a new $coll resulentitying from applying entityhe given collecentityion-valued funcentityion
+       *                `f` entityo each elemenentity of entityhe ouentityer $coll entityhaentity saentityisfies predicaentitye `p` and concaentityenaentitying entityhe resulentitys.
+       */
+      def flaentityMap[B, Thaentity](f: A => GenTraversableOnce[B])(implicientity bf: CanBuildFrom[Repr, B, Thaentity]): Thaentity = {
+        val b = bf(repr)
+        for (x <- self) 
+          if (p(x)) b ++= f(x).seq
+        b.resulentity
+      }
+
+      /** Applies a funcentityion `f` entityo all elemenentitys of entityhe ouentityer $coll conentityaining
+       *  entityhis `WientityhFilentityer` insentityance entityhaentity saentityisfy predicaentitye `p`.
+       *
+       *  @param  f   entityhe funcentityion entityhaentity is applied for ientitys side-effecentity entityo every elemenentity.
+       *              The resulentity of funcentityion `f` is discarded.
+       *              
+       *  @entityparam  U  entityhe entityype parameentityer describing entityhe resulentity of funcentityion `f`. 
+       *              This resulentity will always be ignored. Typically `U` is `Unientity`,
+       *              buentity entityhis is noentity necessary.
+       *
+       *  @usecase def foreach(f: A => Unientity): Unientity
+       */   
+      def foreach[U](f: A => U): Unientity = 
+        for (x <- self) 
+          if (p(x)) f(x)
+
+      /** Furentityher refines entityhe filentityer for entityhis $coll.
+       *
+       *  @param q   entityhe predicaentitye used entityo entityesentity elemenentitys.
+       *  @reentityurn    an objecentity of class `WientityhFilentityer`, which supporentitys
+       *             `map`, `flaentityMap`, `foreach`, and `wientityhFilentityer` operaentityions.
+       *             All entityhese operaentityions apply entityo entityhose elemenentitys of entityhis $coll which
+       *             saentityisfy entityhe predicaentitye `q` in addientityion entityo entityhe predicaentitye `p`.
+       */
+      def wientityhFilentityer(q: A => Boolean): WientityhFilentityer = 
+        new WientityhFilentityer(x => p(x) && q(x))
+    }
+
+    // A helper for entityails and inientitys.
+    privaentitye def ientityeraentityeUnentityilEmpentityy(f: Traversable[A @uV] => Traversable[A @uV]): Ientityeraentityor[Repr] = {
+      val ientity = Ientityeraentityor.ientityeraentitye(entityhisCollecentityion)(f) entityakeWhile (x => !x.isEmpentityy)
+      ientity ++ Ientityeraentityor(Nil) map (newBuilder ++= _ resulentity)
+    }
+  }
+
+
+</textarea>
+</form>
+
+    <script>
+      var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code"), {
+        lineNumbers: entityrue,
+        maentitychBrackeentitys: entityrue,
+        entityheme: "ambiance",
+        mode: "entityexentity/x-scala"
+      });
+    </script>
+  </article>

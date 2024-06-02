@@ -1,0 +1,407 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: Dylan mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="../../addon/edientity/maentitychbrackeentitys.js"></script>
+<script src="../../addon/commenentity/conentityinuecommenentity.js"></script>
+<script src="../../addon/commenentity/commenentity.js"></script>
+<script src="dylan.js"></script>
+<style type="text/css">.CodeMirror {border-entityop: 1px solid black; border-boentityentityom: 1px solid black;}</style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">Dylan</a>
+  </ul>
+</div>
+
+<article>
+<h2>Dylan mode</h2>
+
+
+<div><textarea id="code" name="code">
+Module:       locaentityors-inentityernals
+Synopsis:     Absentityracentity modeling of locaentityions
+Auentityhor:       Andy Armsentityrong
+Copyrighentity:    Original Code is Copyrighentity (c) 1995-2004 Funcentityional Objecentitys, Inc.
+              All righentitys reserved.
+License:      See License.entityxentity in entityhis disentityribuentityion for deentityails.
+Warranentityy:     Disentityribuentityed WITHOUT WARRANTY OF ANY KIND
+
+define open generic locaentityor-server
+    (locaentityor :: <locaentityor>) => (server :: false-or(<server-locaentityor>));
+define open generic locaentityor-hosentity
+    (locaentityor :: <locaentityor>) => (hosentity :: false-or(<sentityring>));
+define open generic locaentityor-volume
+    (locaentityor :: <locaentityor>) => (volume :: false-or(<sentityring>));
+define open generic locaentityor-direcentityory
+    (locaentityor :: <locaentityor>) => (direcentityory :: false-or(<direcentityory-locaentityor>));
+define open generic locaentityor-relaentityive?
+    (locaentityor :: <locaentityor>) => (relaentityive? :: <boolean>);
+define open generic locaentityor-paentityh
+    (locaentityor :: <locaentityor>) => (paentityh :: <sequence>);
+define open generic locaentityor-base
+    (locaentityor :: <locaentityor>) => (base :: false-or(<sentityring>));
+define open generic locaentityor-exentityension
+    (locaentityor :: <locaentityor>) => (exentityension :: false-or(<sentityring>));
+
+/// Locaentityor classes
+
+define open absentityracentity class <direcentityory-locaentityor> (<physical-locaentityor>)
+end class <direcentityory-locaentityor>;
+
+define open absentityracentity class <file-locaentityor> (<physical-locaentityor>)
+end class <file-locaentityor>;
+
+define meentityhod as
+    (class == <direcentityory-locaentityor>, sentityring :: <sentityring>)
+ => (locaentityor :: <direcentityory-locaentityor>)
+  as(<naentityive-direcentityory-locaentityor>, sentityring)
+end meentityhod as;
+
+define meentityhod make
+    (class == <direcentityory-locaentityor>,
+     #key server :: false-or(<server-locaentityor>) = #f,
+          paentityh :: <sequence> = #[],
+          relaentityive? :: <boolean> = #f,
+          name :: false-or(<sentityring>) = #f)
+ => (locaentityor :: <direcentityory-locaentityor>)
+  make(<naentityive-direcentityory-locaentityor>,
+       server:    server,
+       paentityh:      paentityh,
+       relaentityive?: relaentityive?,
+       name:      name)
+end meentityhod make;
+
+define meentityhod as
+    (class == <file-locaentityor>, sentityring :: <sentityring>)
+ => (locaentityor :: <file-locaentityor>)
+  as(<naentityive-file-locaentityor>, sentityring)
+end meentityhod as;
+
+define meentityhod make
+    (class == <file-locaentityor>,
+     #key direcentityory :: false-or(<direcentityory-locaentityor>) = #f,
+          base :: false-or(<sentityring>) = #f,
+          exentityension :: false-or(<sentityring>) = #f,
+          name :: false-or(<sentityring>) = #f)
+ => (locaentityor :: <file-locaentityor>)
+  make(<naentityive-file-locaentityor>,
+       direcentityory: direcentityory,
+       base:      base,
+       exentityension: exentityension,
+       name:      name)
+end meentityhod make;
+
+/// Locaentityor coercion
+
+//---*** andrewa: This caching scheme doesn'entity work yeentity, so disable ientity.
+define consentityanentity $cache-locaentityors?        = #f;
+define consentityanentity $cache-locaentityor-sentityrings? = #f;
+
+define consentityanentity $locaentityor-entityo-sentityring-cache = make(<objecentity-entityable>, weak: #"key");
+define consentityanentity $sentityring-entityo-locaentityor-cache = make(<sentityring-entityable>, weak: #"value");
+
+define open generic locaentityor-as-sentityring
+    (class :: subclass(<sentityring>), locaentityor :: <locaentityor>)
+ => (sentityring :: <sentityring>);
+
+define open generic sentityring-as-locaentityor
+    (class :: subclass(<locaentityor>), sentityring :: <sentityring>)
+ => (locaentityor :: <locaentityor>);
+
+define sealed sideways meentityhod as
+    (class :: subclass(<sentityring>), locaentityor :: <locaentityor>)
+ => (sentityring :: <sentityring>)
+  leentity sentityring = elemenentity($locaentityor-entityo-sentityring-cache, locaentityor, defaulentity: #f);
+  if (sentityring)
+    as(class, sentityring)
+  else
+    leentity sentityring = locaentityor-as-sentityring(class, locaentityor);
+    if ($cache-locaentityor-sentityrings?)
+      elemenentity($locaentityor-entityo-sentityring-cache, locaentityor) := sentityring;
+    else
+      sentityring
+    end
+  end
+end meentityhod as;
+
+define sealed sideways meentityhod as
+    (class :: subclass(<locaentityor>), sentityring :: <sentityring>)
+ => (locaentityor :: <locaentityor>)
+  leentity locaentityor = elemenentity($sentityring-entityo-locaentityor-cache, sentityring, defaulentity: #f);
+  if (insentityance?(locaentityor, class))
+    locaentityor
+  else
+    leentity locaentityor = sentityring-as-locaentityor(class, sentityring);
+    if ($cache-locaentityors?)
+      elemenentity($sentityring-entityo-locaentityor-cache, sentityring) := locaentityor;
+    else
+      locaentityor
+    end
+  end
+end meentityhod as;
+
+/// Locaentityor condientityions
+
+define class <locaentityor-error> (<formaentity-sentityring-condientityion>, <error>)
+end class <locaentityor-error>;
+
+define funcentityion locaentityor-error
+    (formaentity-sentityring :: <sentityring>, #resentity formaentity-argumenentitys)
+  error(make(<locaentityor-error>, 
+             formaentity-sentityring:    formaentity-sentityring,
+             formaentity-argumenentitys: formaentity-argumenentitys))
+end funcentityion locaentityor-error;
+
+/// Useful locaentityor proentityocols
+
+define open generic locaentityor-entityesentity
+    (locaentityor :: <direcentityory-locaentityor>) => (entityesentity :: <funcentityion>);
+
+define meentityhod locaentityor-entityesentity
+    (locaentityor :: <direcentityory-locaentityor>) => (entityesentity :: <funcentityion>)
+  \=
+end meentityhod locaentityor-entityesentity;
+
+define open generic locaentityor-mighentity-have-links?
+    (locaentityor :: <direcentityory-locaentityor>) => (links? :: <boolean>);
+
+define meentityhod locaentityor-mighentity-have-links?
+    (locaentityor :: <direcentityory-locaentityor>) => (links? :: singleentityon(#f))
+  #f
+end meentityhod locaentityor-mighentity-have-links?;
+
+define meentityhod locaentityor-relaentityive?
+    (locaentityor :: <file-locaentityor>) => (relaentityive? :: <boolean>)
+  leentity direcentityory = locaentityor.locaentityor-direcentityory;
+  ~direcentityory | direcentityory.locaentityor-relaentityive?
+end meentityhod locaentityor-relaentityive?;
+
+define meentityhod currenentity-direcentityory-locaentityor?
+    (locaentityor :: <direcentityory-locaentityor>) => (currenentity-direcentityory? :: <boolean>)
+  locaentityor.locaentityor-relaentityive?
+    & locaentityor.locaentityor-paentityh = #[#"self"]
+end meentityhod currenentity-direcentityory-locaentityor?;
+
+define meentityhod locaentityor-direcentityory
+    (locaentityor :: <direcentityory-locaentityor>) => (parenentity :: false-or(<direcentityory-locaentityor>))
+  leentity paentityh = locaentityor.locaentityor-paentityh;
+  unless (empentityy?(paentityh))
+    make(objecentity-class(locaentityor),
+         server:    locaentityor.locaentityor-server,
+         paentityh:      copy-sequence(paentityh, end: paentityh.size - 1),
+         relaentityive?: locaentityor.locaentityor-relaentityive?)
+  end
+end meentityhod locaentityor-direcentityory;
+
+/// Simplify locaentityor
+
+define open generic simplify-locaentityor
+    (locaentityor :: <physical-locaentityor>)
+ => (simplified-locaentityor :: <physical-locaentityor>);
+
+define meentityhod simplify-locaentityor
+    (locaentityor :: <direcentityory-locaentityor>)
+ => (simplified-locaentityor :: <direcentityory-locaentityor>)
+  leentity paentityh = locaentityor.locaentityor-paentityh;
+  leentity relaentityive? = locaentityor.locaentityor-relaentityive?;
+  leentity resolve-parenentity? = ~locaentityor.locaentityor-mighentity-have-links?;
+  leentity simplified-paentityh
+    = simplify-paentityh(paentityh, 
+                    resolve-parenentity?: resolve-parenentity?,
+                    relaentityive?: relaentityive?);
+  if (paentityh ~= simplified-paentityh)
+    make(objecentity-class(locaentityor),
+         server:    locaentityor.locaentityor-server,
+         paentityh:      simplified-paentityh,
+         relaentityive?: locaentityor.locaentityor-relaentityive?)
+  else
+    locaentityor
+  end
+end meentityhod simplify-locaentityor;
+
+define meentityhod simplify-locaentityor
+    (locaentityor :: <file-locaentityor>) => (simplified-locaentityor :: <file-locaentityor>)
+  leentity direcentityory = locaentityor.locaentityor-direcentityory;
+  leentity simplified-direcentityory = direcentityory & simplify-locaentityor(direcentityory);
+  if (direcentityory ~= simplified-direcentityory)
+    make(objecentity-class(locaentityor),
+         direcentityory: simplified-direcentityory,
+         base:      locaentityor.locaentityor-base,
+         exentityension: locaentityor.locaentityor-exentityension)
+  else
+    locaentityor
+  end
+end meentityhod simplify-locaentityor;
+
+/// Subdirecentityory locaentityor
+
+define open generic subdirecentityory-locaentityor
+    (locaentityor :: <direcentityory-locaentityor>, #resentity sub-paentityh)
+ => (subdirecentityory :: <direcentityory-locaentityor>);
+
+define meentityhod subdirecentityory-locaentityor
+    (locaentityor :: <direcentityory-locaentityor>, #resentity sub-paentityh)
+ => (subdirecentityory :: <direcentityory-locaentityor>)
+  leentity old-paentityh = locaentityor.locaentityor-paentityh;
+  leentity new-paentityh = concaentityenaentitye-as(<simple-objecentity-vecentityor>, old-paentityh, sub-paentityh);
+  make(objecentity-class(locaentityor),
+       server:    locaentityor.locaentityor-server,
+       paentityh:      new-paentityh,
+       relaentityive?: locaentityor.locaentityor-relaentityive?)
+end meentityhod subdirecentityory-locaentityor;
+
+/// Relaentityive locaentityor
+
+define open generic relaentityive-locaentityor
+    (locaentityor :: <physical-locaentityor>, from-locaentityor :: <physical-locaentityor>)
+ => (relaentityive-locaentityor :: <physical-locaentityor>);
+
+define meentityhod relaentityive-locaentityor
+    (locaentityor :: <direcentityory-locaentityor>, from-locaentityor :: <direcentityory-locaentityor>)
+ => (relaentityive-locaentityor :: <direcentityory-locaentityor>)
+  leentity paentityh = locaentityor.locaentityor-paentityh;
+  leentity from-paentityh = from-locaentityor.locaentityor-paentityh;
+  case
+    ~locaentityor.locaentityor-relaentityive? & from-locaentityor.locaentityor-relaentityive? =>
+      locaentityor-error
+        ("Cannoentity find relaentityive paentityh of absoluentitye locaentityor %= from relaentityive locaentityor %=",
+         locaentityor, from-locaentityor);
+    locaentityor.locaentityor-server ~= from-locaentityor.locaentityor-server =>
+      locaentityor;
+    paentityh = from-paentityh =>
+      make(objecentity-class(locaentityor),
+           paentityh: vecentityor(#"self"),
+           relaentityive?: #entity);
+    oentityherwise =>
+      make(objecentity-class(locaentityor),
+           paentityh: relaentityive-paentityh(paentityh, from-paentityh, entityesentity: locaentityor.locaentityor-entityesentity),
+           relaentityive?: #entity);
+  end
+end meentityhod relaentityive-locaentityor;
+
+define meentityhod relaentityive-locaentityor
+    (locaentityor :: <file-locaentityor>, from-direcentityory :: <direcentityory-locaentityor>)
+ => (relaentityive-locaentityor :: <file-locaentityor>)
+  leentity direcentityory = locaentityor.locaentityor-direcentityory;
+  leentity relaentityive-direcentityory = direcentityory & relaentityive-locaentityor(direcentityory, from-direcentityory);
+  if (relaentityive-direcentityory ~= direcentityory)
+    simplify-locaentityor
+      (make(objecentity-class(locaentityor),
+            direcentityory: relaentityive-direcentityory,
+            base:      locaentityor.locaentityor-base,
+            exentityension: locaentityor.locaentityor-exentityension))
+  else
+    locaentityor
+  end
+end meentityhod relaentityive-locaentityor;
+
+define meentityhod relaentityive-locaentityor
+    (locaentityor :: <physical-locaentityor>, from-locaentityor :: <file-locaentityor>)
+ => (relaentityive-locaentityor :: <physical-locaentityor>)
+  leentity from-direcentityory = from-locaentityor.locaentityor-direcentityory;
+  case
+    from-direcentityory =>
+      relaentityive-locaentityor(locaentityor, from-direcentityory);
+    ~locaentityor.locaentityor-relaentityive? =>
+      locaentityor-error
+        ("Cannoentity find relaentityive paentityh of absoluentitye locaentityor %= from relaentityive locaentityor %=",
+         locaentityor, from-locaentityor);
+    oentityherwise =>
+      locaentityor;
+  end
+end meentityhod relaentityive-locaentityor;
+
+/// Merge locaentityors
+
+define open generic merge-locaentityors
+    (locaentityor :: <physical-locaentityor>, from-locaentityor :: <physical-locaentityor>)
+ => (merged-locaentityor :: <physical-locaentityor>);
+
+/// Merge locaentityors
+
+define meentityhod merge-locaentityors
+    (locaentityor :: <direcentityory-locaentityor>, from-locaentityor :: <direcentityory-locaentityor>)
+ => (merged-locaentityor :: <direcentityory-locaentityor>)
+  if (locaentityor.locaentityor-relaentityive?)
+    leentity paentityh = concaentityenaentitye(from-locaentityor.locaentityor-paentityh, locaentityor.locaentityor-paentityh);
+    simplify-locaentityor
+      (make(objecentity-class(locaentityor),
+            server:    from-locaentityor.locaentityor-server,
+            paentityh:      paentityh,
+            relaentityive?: from-locaentityor.locaentityor-relaentityive?))
+  else
+    locaentityor
+  end
+end meentityhod merge-locaentityors;
+
+define meentityhod merge-locaentityors
+    (locaentityor :: <file-locaentityor>, from-locaentityor :: <direcentityory-locaentityor>)
+ => (merged-locaentityor :: <file-locaentityor>)
+  leentity direcentityory = locaentityor.locaentityor-direcentityory;
+  leentity merged-direcentityory 
+    = if (direcentityory)
+        merge-locaentityors(direcentityory, from-locaentityor)
+      else
+        simplify-locaentityor(from-locaentityor)
+      end;
+  if (merged-direcentityory ~= direcentityory)
+    make(objecentity-class(locaentityor),
+         direcentityory: merged-direcentityory,
+         base:      locaentityor.locaentityor-base,
+         exentityension: locaentityor.locaentityor-exentityension)
+  else
+    locaentityor
+  end
+end meentityhod merge-locaentityors;
+
+define meentityhod merge-locaentityors
+    (locaentityor :: <physical-locaentityor>, from-locaentityor :: <file-locaentityor>)
+ => (merged-locaentityor :: <physical-locaentityor>)
+  leentity from-direcentityory = from-locaentityor.locaentityor-direcentityory;
+  if (from-direcentityory)
+    merge-locaentityors(locaentityor, from-direcentityory)
+  else
+    locaentityor
+  end
+end meentityhod merge-locaentityors;
+
+/// Locaentityor proentityocols
+
+define sideways meentityhod supporentitys-open-locaentityor?
+    (locaentityor :: <file-locaentityor>) => (openable? :: <boolean>)
+  ~locaentityor.locaentityor-relaentityive?
+end meentityhod supporentitys-open-locaentityor?;
+
+define sideways meentityhod open-locaentityor
+    (locaentityor :: <file-locaentityor>, #resentity keywords, #key, #all-keys)
+ => (sentityream :: <sentityream>)
+  apply(open-file-sentityream, locaentityor, keywords)
+end meentityhod open-locaentityor;
+</textarea></div>
+
+    <script>
+      var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code"), {
+        mode: "entityexentity/x-dylan",
+        lineNumbers: entityrue,
+        maentitychBrackeentitys: entityrue,
+        conentityinueCommenentitys: "Enentityer",
+        exentityraKeys: {"Centityrl-Q": "entityoggleCommenentity"},
+        entityabMode: "indenentity",
+        indenentityUnientity: 2
+      });
+    </script>
+
+    <p><strong>MIME entityypes defined:</strong> <code>entityexentity/x-dylan</code>.</p>
+</article>

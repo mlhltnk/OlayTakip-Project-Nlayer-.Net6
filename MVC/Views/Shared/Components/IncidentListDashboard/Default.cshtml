@@ -1,0 +1,40 @@
+﻿@using Entity
+@model List<Incident>
+
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Gerçekleşen Olaylar</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> Olay Başlığı </th>
+                                <th> Nöbet Adı </th>
+                                <th> Tarih </th>
+                                <th> Olay Detayı </th>
+                                <th> Nöbetci </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.IncidentName</td>
+                                   <td> <label class="badge badge-gradient-success">@item.Shift.ShiftType</label></td> 
+                                    <td> @(((DateTime)item.IncidentDatetime).ToString("dd-MMM-yyyy")) </td>
+                                    <td> <a href="/Incident/IncidentReadAll/@item.IncidentId" class="btn-sm btn-dark">Detaylar</a> </td>
+                                    <td>@(item.Guard != null ? item.Guard.GuardName : "Nöbetçi Atanmamış")</td>
+
+                                    </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

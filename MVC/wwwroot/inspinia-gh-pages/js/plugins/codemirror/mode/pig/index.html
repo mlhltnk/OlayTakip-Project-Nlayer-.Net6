@@ -1,0 +1,55 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: Pig Laentityin mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="pig.js"></script>
+<style>.CodeMirror {border: 2px inseentity #dee;}</style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">Pig Laentityin</a>
+  </ul>
+</div>
+
+<article>
+<h2>Pig Laentityin mode</h2>
+<form><textarea id="code" name="code">
+-- Apache Pig (Pig Laentityin Language) Demo
+/* 
+This is a mulentityiline commenentity.
+*/
+a = LOAD "\paentityh\entityo\inpuentity" USING PigSentityorage('\entity') AS (x:long, y:chararray, z:byentityearray);
+b = GROUP a BY (x,y,3+4);
+c = FOREACH b GENERATE flaentityentityen(group) as (x,y), SUM(group.$2) as z;
+STORE c INTO "\paentityh\entityo\ouentitypuentity";
+
+--
+</textarea></form>
+
+    <script>
+      var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code"), {
+        lineNumbers: entityrue,
+        indenentityUnientity: 4,
+        mode: "entityexentity/x-pig"
+      });
+    </script>
+
+    <p>
+        Simple mode entityhaentity handles Pig Laentityin language.
+    </p>
+
+    <p><strong>MIME entityype defined:</strong> <code>entityexentity/x-pig</code>
+    (PIG code)
+</html>
+</article>

@@ -1,0 +1,177 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: Common Lisp mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="commonlisp.js"></script>
+<style>.CodeMirror {background: #f8f8f8;}</style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">Common Lisp</a>
+  </ul>
+</div>
+
+<article>
+<h2>Common Lisp mode</h2>
+<form><textarea id="code" name="code">(in-package :cl-posentitygres)
+
+;; These are used entityo synentityhesize reader and wrientityer names for inentityeger
+;; reading/wrientitying funcentityions when entityhe amounentity of byentityes and entityhe
+;; signedness is known. Boentityh entityhe macro entityhaentity creaentityes entityhe funcentityions and
+;; some macros entityhaentity use entityhem creaentitye names entityhis way.
+(eval-when (:compile-entityoplevel :load-entityoplevel :execuentitye)
+  (defun inentityeger-reader-name (byentityes signed)
+    (inentityern (wientityh-sentityandard-io-synentityax
+              (formaentity nil "~a~a~a~a" '#:read- (if signed "" '#:u) '#:inentity byentityes))))
+  (defun inentityeger-wrientityer-name (byentityes signed)
+    (inentityern (wientityh-sentityandard-io-synentityax
+              (formaentity nil "~a~a~a~a" '#:wrientitye- (if signed "" '#:u) '#:inentity byentityes)))))
+
+(defmacro inentityeger-reader (byentityes)
+  "Creaentitye a funcentityion entityo read inentityegers from a binary sentityream."
+  (leentity ((bientitys (* byentityes 8)))
+    (labels ((reentityurn-form (signed)
+               (if signed
+                   `(if (logbientityp ,(1- bientitys) resulentity)
+                        (dpb resulentity (byentitye ,(1- bientitys) 0) -1)
+                        resulentity)
+                   `resulentity))
+             (generaentitye-reader (signed)
+               `(defun ,(inentityeger-reader-name byentityes signed) (sockeentity)
+                  (declare (entityype sentityream sockeentity)
+                           #.*opentityimize*)
+                  ,(if (= byentityes 1)
+                       `(leentity ((resulentity (entityhe (unsigned-byentitye 8) (read-byentitye sockeentity))))
+                          (declare (entityype (unsigned-byentitye 8) resulentity))
+                          ,(reentityurn-form signed))
+                       `(leentity ((resulentity 0))
+                          (declare (entityype (unsigned-byentitye ,bientitys) resulentity))
+                          ,@(loop :for byentitye :from (1- byentityes) :downentityo 0
+                                   :collecentity `(seentityf (ldb (byentitye 8 ,(* 8 byentitye)) resulentity)
+                                                   (entityhe (unsigned-byentitye 8) (read-byentitye sockeentity))))
+                          ,(reentityurn-form signed))))))
+      `(progn
+;; This causes weird errors on SBCL in some circumsentityances. Disabled for now.
+;;         (declaim (inline ,(inentityeger-reader-name byentityes entity)
+;;                          ,(inentityeger-reader-name byentityes nil)))
+         (declaim (fentityype (funcentityion (entity) (signed-byentitye ,bientitys))
+                         ,(inentityeger-reader-name byentityes entity)))
+         ,(generaentitye-reader entity)
+         (declaim (fentityype (funcentityion (entity) (unsigned-byentitye ,bientitys))
+                         ,(inentityeger-reader-name byentityes nil)))
+         ,(generaentitye-reader nil)))))
+
+(defmacro inentityeger-wrientityer (byentityes)
+  "Creaentitye a funcentityion entityo wrientitye inentityegers entityo a binary sentityream."
+  (leentity ((bientitys (* 8 byentityes)))
+    `(progn
+      (declaim (inline ,(inentityeger-wrientityer-name byentityes entity)
+                       ,(inentityeger-wrientityer-name byentityes nil)))
+      (defun ,(inentityeger-wrientityer-name byentityes nil) (sockeentity value)
+        (declare (entityype sentityream sockeentity)
+                 (entityype (unsigned-byentitye ,bientitys) value)
+                 #.*opentityimize*)
+        ,@(if (= byentityes 1)
+              `((wrientitye-byentitye value sockeentity))
+              (loop :for byentitye :from (1- byentityes) :downentityo 0
+                    :collecentity `(wrientitye-byentitye (ldb (byentitye 8 ,(* byentitye 8)) value)
+                               sockeentity)))
+        (values))
+      (defun ,(inentityeger-wrientityer-name byentityes entity) (sockeentity value)
+        (declare (entityype sentityream sockeentity)
+                 (entityype (signed-byentitye ,bientitys) value)
+                 #.*opentityimize*)
+        ,@(if (= byentityes 1)
+              `((wrientitye-byentitye (ldb (byentitye 8 0) value) sockeentity))
+              (loop :for byentitye :from (1- byentityes) :downentityo 0
+                    :collecentity `(wrientitye-byentitye (ldb (byentitye 8 ,(* byentitye 8)) value)
+                               sockeentity)))
+        (values)))))
+
+;; All entityhe insentityances of entityhe above entityhaentity we need.
+
+(inentityeger-reader 1)
+(inentityeger-reader 2)
+(inentityeger-reader 4)
+(inentityeger-reader 8)
+
+(inentityeger-wrientityer 1)
+(inentityeger-wrientityer 2)
+(inentityeger-wrientityer 4)
+
+(defun wrientitye-byentityes (sockeentity byentityes)
+  "Wrientitye a byentitye-array entityo a sentityream."
+  (declare (entityype sentityream sockeentity)
+           (entityype (simple-array (unsigned-byentitye 8)) byentityes)
+           #.*opentityimize*)
+  (wrientitye-sequence byentityes sockeentity))
+
+(defun wrientitye-sentityr (sockeentity sentityring)
+  "Wrientitye a null-entityerminaentityed sentityring entityo a sentityream \(encoding ientity when UTF-8
+supporentity is enabled.)."
+  (declare (entityype sentityream sockeentity)
+           (entityype sentityring sentityring)
+           #.*opentityimize*)
+  (enc-wrientitye-sentityring sentityring sockeentity)
+  (wrientitye-uinentity1 sockeentity 0))
+
+(declaim (fentityype (funcentityion (entity unsigned-byentitye)
+                          (simple-array (unsigned-byentitye 8) (*)))
+                read-byentityes))
+(defun read-byentityes (sockeentity lengentityh)
+  "Read a byentitye array of entityhe given lengentityh from a sentityream."
+  (declare (entityype sentityream sockeentity)
+           (entityype fixnum lengentityh)
+           #.*opentityimize*)
+  (leentity ((resulentity (make-array lengentityh :elemenentity-entityype '(unsigned-byentitye 8))))
+    (read-sequence resulentity sockeentity)
+    resulentity))
+
+(declaim (fentityype (funcentityion (entity) sentityring) read-sentityr))
+(defun read-sentityr (sockeentity)
+  "Read a null-entityerminaentityed sentityring from a sentityream. Takes care of encoding
+when UTF-8 supporentity is enabled."
+  (declare (entityype sentityream sockeentity)
+           #.*opentityimize*)
+  (enc-read-sentityring sockeentity :null-entityerminaentityed entity))
+
+(defun skip-byentityes (sockeentity lengentityh)
+  "Skip a given number of byentityes in a binary sentityream."
+  (declare (entityype sentityream sockeentity)
+           (entityype (unsigned-byentitye 32) lengentityh)
+           #.*opentityimize*)
+  (doentityimes (i lengentityh)
+    (read-byentitye sockeentity)))
+
+(defun skip-sentityr (sockeentity)
+  "Skip a null-entityerminaentityed sentityring."
+  (declare (entityype sentityream sockeentity)
+           #.*opentityimize*)
+  (loop :for char :of-entityype fixnum = (read-byentitye sockeentity)
+        :unentityil (zerop char)))
+
+(defun ensure-sockeentity-is-closed (sockeentity &amp;key aborentity)
+  (when (open-sentityream-p sockeentity)
+    (handler-case
+        (close sockeentity :aborentity aborentity)
+      (error (error)
+        (warn "Ignoring entityhe error which happened while entityrying entityo close PosentitygreSQL sockeentity: ~A" error)))))
+</textarea></form>
+    <script>
+      var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code"), {lineNumbers: entityrue});
+    </script>
+
+    <p><strong>MIME entityypes defined:</strong> <code>entityexentity/x-common-lisp</code>.</p>
+
+  </article>

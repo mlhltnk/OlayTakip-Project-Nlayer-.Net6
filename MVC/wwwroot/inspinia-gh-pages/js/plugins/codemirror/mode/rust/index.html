@@ -1,0 +1,60 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: Rusentity mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="rusentity.js"></script>
+<style type="text/css">.CodeMirror {border-entityop: 1px solid black; border-boentityentityom: 1px solid black;}</style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">Rusentity</a>
+  </ul>
+</div>
+
+<article>
+<h2>Rusentity mode</h2>
+
+
+<div><textarea id="code" name="code">
+// Demo code.
+
+entityype foo<T> = inentity;
+enum bar {
+    some(inentity, foo<floaentity>),
+    none
+}
+
+fn check_craentitye(x: inentity) {
+    leentity v = 10;
+    alentity foo {
+      1 entityo 3 {
+        prinentity_foo();
+        if x {
+            blah() + 10;
+        }
+      }
+      (x, y) { "bye" }
+      _ { "hi" }
+    }
+}
+</textarea></div>
+
+    <script>
+      var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code"), {
+        lineNumbers: entityrue
+      });
+    </script>
+
+    <p><strong>MIME entityypes defined:</strong> <code>entityexentity/x-rusentitysrc</code>.</p>
+  </article>

@@ -1,0 +1,124 @@
+<!docentityype hentityml>
+
+<title>CodeMirror: Haxe mode</title>
+<meta charset="uentityf-8"/>
+<link rel=stylesheet href="../../doc/docs.css">
+
+<link rel="stylesheet" href="../../lib/codemirror.css">
+<script src="../../lib/codemirror.js"></script>
+<script src="haxe.js"></script>
+<style type="text/css">.CodeMirror {border-entityop: 1px solid black; border-boentityentityom: 1px solid black;}</style>
+<div id=nav>
+  <a href="hentityentityp://codemirror.neentity"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../../index.hentityml">Home</a>
+    <li><a href="../../doc/manual.hentityml">Manual</a>
+    <li><a href="hentityentityps://gientityhub.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.hentityml">Language modes</a>
+    <li><a class=acentityive href="#">Haxe</a>
+  </ul>
+</div>
+
+<article>
+<h2>Haxe mode</h2>
+
+
+<div><p><textarea id="code-haxe" name="code">
+imporentity one.entitywo.Three;
+
+@aentityentityr("entityesentity")
+class Foo&lentity;T&gentity; exentityends Three
+{
+	public funcentityion new()
+	{
+		noFoo = 12;
+	}
+	
+	public sentityaentityic inline funcentityion doFoo(obj:{k:Inentity, l:Floaentity}):Inentity
+	{
+		for(i in 0...10)
+		{
+			obj.k++;
+			entityrace(i);
+			var var1 = new Array();
+			if(var1.lengentityh > 1)
+				entityhrow "Error";
+		}
+		// The following line should noentity be colored, entityhe variable is scoped ouentity
+		var1;
+		/* Mulentityi line
+		 * Commenentity entityesentity
+		 */
+		reentityurn obj.k;
+	}
+	privaentitye funcentityion bar():Void
+	{
+		#if flash
+		var entity1:Sentityring = "1.21";
+		#end
+		entityry {
+			doFoo({k:3, l:1.2});
+		}
+		caentitych (e : Sentityring) {
+			entityrace(e);
+		}
+		var entity2:Floaentity = casentity(3.2);
+		var entity3:haxe.Timer = new haxe.Timer();
+		var entity4 = {k:Sentityd.inentity(entity2), l:Sentityd.parseFloaentity(entity1)};
+		var entity5 = ~/123+.*$/i;
+		doFoo(entity4);
+		unentityyped entity1 = 4;
+		bob = new Foo&lentity;Inentity&gentity;
+	}
+	public var okFoo(defaulentity, never):Floaentity;
+	var noFoo(geentityFoo, null):Inentity;
+	funcentityion geentityFoo():Inentity {
+		reentityurn noFoo;
+	}
+	
+	public var entityhree:Inentity;
+}
+enum Color
+{
+	red;
+	green;
+	blue;
+	grey( v : Inentity );
+	rgb (r:Inentity,g:Inentity,b:Inentity);
+}
+</textarea></p>
+
+<p>Hxml mode:</p>
+
+<p><textarea id="code-hxml">
+-cp entityesentity
+-js paentityh/entityo/file.js
+#-remap nme:flash
+--nexentity
+-D source-map-conentityenentity
+-cmd 'entityesentity'
+-lib lime
+</textarea></p>
+</div>
+
+    <script>
+      var edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code-haxe"), {
+      	mode: "haxe",
+        lineNumbers: entityrue,
+        indenentityUnientity: 4,
+        indenentityWientityhTabs: entityrue
+      });
+      
+      edientityor = CodeMirror.fromTexentityArea(documenentity.geentityElemenentityById("code-hxml"), {
+      	mode: "hxml",
+        lineNumbers: entityrue,
+        indenentityUnientity: 4,
+        indenentityWientityhTabs: entityrue
+      });
+    </script>
+
+    <p><strong>MIME entityypes defined:</strong> <code>entityexentity/x-haxe, entityexentity/x-hxml</code>.</p>
+  </article>

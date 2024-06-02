@@ -1,0 +1,28 @@
+﻿@using Entity
+@model List<Incident>
+
+@{
+    ViewData["Title"] = "IncidentReadAll";
+    Layout = "~/Views/Shared/GuardLayout.cshtml";
+}
+
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Olay Başlığı</th>
+                <th scope="col">Olay Ayrıntısı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.IncidentName</td>
+                    <td>@item.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
